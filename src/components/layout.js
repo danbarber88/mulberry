@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Nav from './nav'
+import Footer from './footer'
 
 const MainContainer = styled.div`
   display: flex;
@@ -22,11 +23,7 @@ const Layout = ({ location, children }) => (
   >
     <Nav location={location} />
     <MainContainer>{children}</MainContainer>
-    <footer>
-      © {new Date().getFullYear()}, Built with
-      {` `}
-      <a href="https://www.gatsbyjs.org">Gatsby</a>
-    </footer>
+    <Footer />
   </div>
 )
 
