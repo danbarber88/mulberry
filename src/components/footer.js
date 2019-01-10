@@ -59,7 +59,7 @@ const BottomBar = styled.div`
 `
 
 export default props => (
-  <React.Fragment>
+  <>
     <Footer>
       <SectionOverlay>
         <StaticQuery
@@ -115,5 +115,5 @@ export default props => (
       </SectionOverlay>
     </Footer>
     <BottomBar />
-  </React.Fragment>
+  </>
 )
