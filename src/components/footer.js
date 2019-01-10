@@ -78,6 +78,7 @@ export default props => (
             <BackgroundImg fluid={data.background.childImageSharp.fluid} />
           )}
         />
+
         <ContentSection>
           <ContentContainer darkBg width="370px">
             <ContactDetails>
@@ -108,6 +109,7 @@ export default props => (
               </div>
             </ContactDetails>
           </ContentContainer>
+
           <ContentContainer darkBg width="300px">
             <AppointmentForm />
           </ContentContainer>

@@ -7,14 +7,10 @@ import PropTypes from 'prop-types'
 // Ideally, ContentSections children will be two side by side ContentContainers - can contain whatever
 export const ContentSection = styled.section`
   display: flex;
-  flex-direction: row;
+  ${props => `flex-direction: ${props.column ? 'column' : 'row'}`};
   justify-content: space-between;
   width: 65%;
   padding-bottom: 50px;
-`
-
-export const ContentContainer = styled.div`
-  max-width: 50%;
 
   h1,
   h2 {
@@ -25,10 +21,13 @@ export const ContentContainer = styled.div`
     margin-top: 60px;
     margin-bottom: 1.21875rem;
   }
+`
+
+export const ContentContainer = styled.div`
+  max-width: 50%;
 
   h3 {
     font-weight: 400;
-
     line-height: 30px;
   }
 
