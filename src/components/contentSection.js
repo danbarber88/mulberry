@@ -16,6 +16,16 @@ export const ContentSection = styled.section`
 export const ContentContainer = styled.div`
   max-width: 50%;
 
+  h1,
+  h2 {
+    font-size: 2rem;
+    border: none;
+    color: #000928;
+    font-weight: 400;
+    margin-top: 60px;
+    margin-bottom: 1.21875rem;
+  }
+
   h3 {
     font-weight: 400;
 
