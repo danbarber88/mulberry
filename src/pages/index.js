@@ -9,14 +9,7 @@ import SEO from '../components/seo'
 import Hero from '../components/hero'
 import { ContentSection, ContentContainer } from '../components/ContentSection'
 import LatestNewsItem from '../components/latestNewsItem'
-
-const WhiteBg = styled.section`
-  width: 100%;
-  background-color: #fff;
-  img {
-    opacity: 0.15 !important;
-  }
-`
+import WorkSection from '../components/workSection'
 
 const IndexPage = props => (
   <Layout location={props.location.pathname}>
@@ -59,14 +52,7 @@ const IndexPage = props => (
         />
       </ContentContainer>
     </ContentSection>
-    <WhiteBg>
-      <Img
-        fluid={props.data.whiteBg.childImageSharp.fluid}
-        style={{
-          height: '700px',
-        }}
-      />
-    </WhiteBg>
+    <WorkSection />
     <ContentSection>
       <ContentContainer>
         <h1>We are a NEFF 5* Master Partner</h1>
@@ -87,15 +73,3 @@ const IndexPage = props => (
 )
 
 export default IndexPage
-
-export const pageQuery = graphql`
-  query {
-    whiteBg: file(relativePath: { eq: "uform/slab.jpg" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 2000) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-  }
-`

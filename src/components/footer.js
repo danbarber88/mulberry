@@ -11,6 +11,10 @@ const Footer = styled.section`
   img {
     opacity: 0.03 !important;
   }
+
+  p {
+    color: #fff;
+  }
 `
 
 const BackgroundImg = styled(Img)`
@@ -116,6 +120,6 @@ export default props => (
         </ContentSection>
       </SectionOverlay>
     </Footer>
-    <BottomBar />
+    <BottomBar /> {/* © new Date().getFullYear() */}
   </>
 )

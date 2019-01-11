@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     letter-spacing: 0.5px;
+    color: #292929;
   }
 
   // moved these to cotent section, only other place might need them is footer. probs can delete
