@@ -2,7 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-
+import caret from '../images/caret-right.svg'
 import { ContentSection } from './contentSection'
 import WorkImages from './workImages'
 import Reviews from '../components/reviews'
@@ -29,15 +29,20 @@ const HeaderText = styled.h2`
   margin-bottom: 50px !important;
 `
 
+const Caret = styled.img`
+  padding: 1px;
+  margin: 20px 0 -4px 5px;
+`
+
 const StyledLink = styled(Link)`
   display: inline-block;
-  font-size: 1.25rem;
+  margin-top: 20px;
+  font-size: 1.3rem;
   color: #000928;
-  text-decoration: underline;
-
+  line-height: 20px;
   :hover {
-    color: red;
-    background-color: green;
+    border-bottom: 1px solid #000928;
+    text-decoration: none;
   }
 `
 
@@ -65,7 +70,10 @@ const WorkSection = () => (
       <WorkImages />
       <HeaderText>...what our customers say about us</HeaderText>
       <Reviews />
-      <StyledLink to="/">MORE TESTIMONIALS</StyledLink>
+      <div>
+        <StyledLink to="/">MORE TESTIMONIALS</StyledLink>
+        <Caret src={caret} alt="arrow"/>
+      </div>
     </ContentSection>
   </MainContainer>
 )
