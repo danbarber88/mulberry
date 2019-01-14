@@ -11,6 +11,9 @@ import { ContentSection, ContentContainer } from '../components/ContentSection'
 import LatestNewsItem from '../components/latestNewsItem'
 import WorkSection from '../components/workSection'
 
+// TODO: Add neff logo
+// TODO: Finsih footer with date, reg no and facebook icon
+
 const IndexPage = props => (
   <Layout location={props.location.pathname}>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />

@@ -120,6 +120,9 @@ export default props => (
         </ContentSection>
       </SectionOverlay>
     </Footer>
+
+    {/* TODO: Facebook icon with font awesome react https://fontawesome.com/how-to-use/on-the-web/using-with/react */}
+
     <BottomBar /> {/* © new Date().getFullYear() */}
   </>
 )
