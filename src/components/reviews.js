@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import fiveStars from '../images/five-stars.svg'
 
-// TO-DO
-//
-// Catch errors when fetching reviews fails
-// Provide loading icons when reviews are loading in
-// More testimonials link is full width
-// using the cors anywhere url might make be making it slower
-//
+// TODO: Catch errors when fetching reviews fails
+// TODO: Provide loading icons when reviews are loading in
+// TODO: Change more testimonials link to not be full width
+// QUESTION: Does using the cors anywhere url infront of api url slow things down?
+// TODO: Max characters on reviews. truncate
+// QUESTION: Where do reviews link to? google page with reviews or testimonials page.
 
 const Container = styled.div`
   width: 100%;
