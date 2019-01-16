@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import fiveStars from '../images/five-stars.svg'
 
+// TODO: Merge after tidy up
+
 // TODO: Catch errors when fetching reviews fails
 // TODO: Provide loading icons when reviews are loading in
-// TODO: Change more testimonials link to not be full width
-// QUESTION: Does using the cors anywhere url infront of api url slow things down?
 // TODO: Max characters on reviews. truncate
 // QUESTION: Where do reviews link to? google page with reviews or testimonials page.
 
@@ -41,31 +41,41 @@ class Reviews extends Component {
     this.state = {
       reviews: [],
     }
+  }
 
-    this.getReviews = this.getReviews.bind(this)
+  // TODO: Tidy this up, remove unnecessary code.
+
+  getReviews = () => {
+    const request = {
+      placeId: 'ChIJ60UNMsC_eEgRU-82BhRHRsI',
+      fields: ['review']
+    };
+    if(window.google) {
+      const service = new window.google.maps.places.PlacesService(document.getElementById("reviews-container"));
+      service.getDetails(request, place => {
+        const reviews = place.reviews
+          .filter(review => review.rating === 5)
+          .sort((a, b) => b.time - a.time)
+        this.setState({
+          reviews: [reviews[0], reviews[1]]
+        })
+      });
+    }
   }
 
   componentDidMount() {
-    this.getReviews()
-  }
-
-  getReviews() {
-    fetch(
-      `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJ60UNMsC_eEgRU-82BhRHRsI&fields=review&key=${
-        process.env.GOOGLE_API
-      }`
-    )
-      .then(res => res.json())
-      .then(json =>
-        json.result.reviews
-          .filter(review => review.rating === 5)
-          .sort((a, b) => b.time - a.time)
-      )
-      .then(reviews =>
-        this.setState({
-          reviews: [reviews[0], reviews[1]],
-        })
-      )
+    if(!window.google) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyA95kwx9MTvPh3sRwBNK6RlPRPTDczQDj0&libraries=places`;
+      const headScript = document.getElementsByTagName('script')[0];
+      headScript.parentNode.insertBefore(script, headScript);
+      script.addEventListener('load', () => {
+        this.getReviews();
+      });
+    } else {
+      this.getReviews();
+    }
   }
 
   render() {
@@ -77,7 +87,7 @@ class Reviews extends Component {
       </Review>
     ))
 
-    return <Container>{reviews}</Container>
+    return <Container id="reviews-container">{reviews}</Container>
   }
 }
 
