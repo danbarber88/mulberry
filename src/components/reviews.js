@@ -1,13 +1,24 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import fiveStars from '../images/five-stars.svg'
-
-// TODO: Merge after tidy up
+import reviewPlaceholder from '../images/review-placeholder.svg'
 
 // TODO: Catch errors when fetching reviews fails
 // TODO: Provide loading icons when reviews are loading in
 // TODO: Max characters on reviews. truncate
 // QUESTION: Where do reviews link to? google page with reviews or testimonials page.
+
+const flash = keyframes`
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+`
 
 const Container = styled.div`
   width: 100%;
@@ -34,52 +45,72 @@ const Name = styled.h3`
   text-transform: capitalize;
 `
 
+const Placeholder = styled.img`
+  margin-bottom: 50px;
+  animation: 1.5s ${flash} linear infinite;
+`
+
 class Reviews extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       reviews: [],
+      loading: true,
     }
   }
-
-  // TODO: Tidy this up, remove unnecessary code.
 
   getReviews = () => {
     const request = {
       placeId: 'ChIJ60UNMsC_eEgRU-82BhRHRsI',
-      fields: ['review']
-    };
-    if(window.google) {
-      const service = new window.google.maps.places.PlacesService(document.getElementById("reviews-container"));
-      service.getDetails(request, place => {
-        const reviews = place.reviews
-          .filter(review => review.rating === 5)
-          .sort((a, b) => b.time - a.time)
-        this.setState({
-          reviews: [reviews[0], reviews[1]]
-        })
-      });
+      fields: ['review'],
     }
+
+    const service = new window.google.maps.places.PlacesService(
+      document.getElementById('attribution-container')
+    )
+
+    service.getDetails(request, place => {
+      // Latest 5 star reviews.
+      const reviews = place.reviews
+        .filter(review => review.rating === 5)
+        .sort((a, b) => b.time - a.time)
+      this.setState({
+        reviews: [reviews[0], reviews[1]],
+        loading: false,
+      })
+    })
   }
 
   componentDidMount() {
-    if(!window.google) {
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyA95kwx9MTvPh3sRwBNK6RlPRPTDczQDj0&libraries=places`;
-      const headScript = document.getElementsByTagName('script')[0];
-      headScript.parentNode.insertBefore(script, headScript);
+    // Add script tag to head, load script and call getReviews.
+    if (!window.google) {
+      const script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${
+        process.env.GOOGLE_API
+      }&libraries=places`
+      const headScript = document.getElementsByTagName('script')[0]
+      headScript.parentNode.insertBefore(script, headScript)
       script.addEventListener('load', () => {
-        this.getReviews();
-      });
+        this.getReviews()
+      })
     } else {
-      this.getReviews();
+      this.getReviews()
     }
   }
 
   render() {
-    let reviews = this.state.reviews.map(review => (
+    const placeHolders = [
+      <Review>
+        <Placeholder src={reviewPlaceholder} alt="Review placeholder" />
+      </Review>,
+      <Review>
+        <Placeholder src={reviewPlaceholder} alt="Review placeholder" />
+      </Review>,
+    ]
+
+    const reviews = this.state.reviews.map((review, i) => (
       <Review>
         <Name>{review.author_name}</Name>
         <img src={fiveStars} alt="Star Rating" />
@@ -87,7 +118,12 @@ class Reviews extends Component {
       </Review>
     ))
 
-    return <Container id="reviews-container">{reviews}</Container>
+    return (
+      <Container>
+        {this.state.loading ? placeHolders : reviews}
+        <div id="attribution-container" />
+      </Container>
+    )
   }
 }
 
