@@ -36,7 +36,7 @@ const Caret = styled.img`
 
 const StyledLink = styled(Link)`
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 60px;
   font-size: 1.3rem;
   color: #000928;
   line-height: 20px;
@@ -69,10 +69,15 @@ const WorkSection = () => (
       <HeaderText>Our Work...</HeaderText>
       <WorkImages />
       <HeaderText>...what our customers say about us</HeaderText>
-      <Reviews />
+      <a
+        target="_blank"
+        href="https://www.google.com/search?rlz=1C1CHBF_en-GBGB784GB784&ei=YGJEXPWUIv6d1fAPps2YuA4&q=Mulberry+Fitted+Kitchens+Ltd&oq=Mulberry+Fitted+Kitchens+Ltd&gs_l=psy-ab.3..35i39l2j0i67.32730.37250..37659...0.0..0.243.3234.9j18j1......0....1..gws-wiz.......0i71j0i131i67j0j0i20i263j0i22i10i30j0i22i30.GCcKXiiCcRw#lrd=0x4878bfc0320d45eb:0xc24647140636ef53,1,,,"
+      >
+        <Reviews />
+      </a>
       <div>
         <StyledLink to="/">MORE TESTIMONIALS</StyledLink>
-        <Caret src={caret} alt="arrow"/>
+        <Caret src={caret} alt="arrow" />
       </div>
     </ContentSection>
   </MainContainer>

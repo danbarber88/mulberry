@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
 import fiveStars from '../images/five-stars.svg'
 import reviewPlaceholder from '../images/review-placeholder.svg'
+import caret from '../images/caret-right.svg'
 
 // TODO: Catch errors when fetching reviews fails
-// TODO: Provide loading icons when reviews are loading in
-// TODO: Max characters on reviews. truncate
 // QUESTION: Where do reviews link to? google page with reviews or testimonials page.
 
 const flash = keyframes`
@@ -46,8 +45,14 @@ const Name = styled.h3`
 `
 
 const Placeholder = styled.img`
-  margin-bottom: 50px;
   animation: 1.5s ${flash} linear infinite;
+`
+
+const SmallCaret = styled.img`
+  height: 15px;
+  width: auto;
+  margin-left: 5px;
+  transition: 300ms linear all;
 `
 
 class Reviews extends Component {
@@ -57,6 +62,7 @@ class Reviews extends Component {
     this.state = {
       reviews: [],
       loading: true,
+      readMore: false,
     }
   }
 
@@ -73,7 +79,7 @@ class Reviews extends Component {
     service.getDetails(request, place => {
       // Latest 5 star reviews.
       const reviews = place.reviews
-        .filter(review => review.rating === 5)
+        .filter(review => review.rating === 5 && review.text.length > 0)
         .sort((a, b) => b.time - a.time)
       this.setState({
         reviews: [reviews[0], reviews[1]],
@@ -102,19 +108,33 @@ class Reviews extends Component {
 
   render() {
     const placeHolders = [
-      <Review>
+      <Review key={0}>
         <Placeholder src={reviewPlaceholder} alt="Review placeholder" />
       </Review>,
-      <Review>
+      <Review key={1}>
         <Placeholder src={reviewPlaceholder} alt="Review placeholder" />
       </Review>,
     ]
 
     const reviews = this.state.reviews.map((review, i) => (
-      <Review>
+      <Review key={i}>
         <Name>{review.author_name}</Name>
         <img src={fiveStars} alt="Star Rating" />
-        <p>{review.text}</p>
+        <p>
+          {/* Truncate review text to a max of 50 words. */}
+          {review.text.length > 350
+            ? review.text
+                .split(' ')
+                .slice(0, 50)
+                .join(' ')
+                .concat('...')
+            : review.text}
+          {review.text.length > 350 ? (
+            <span>
+              <SmallCaret src={caret} />
+            </span>
+          ) : null}
+        </p>
       </Review>
     ))
 

@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 1px;
   }
 
+  a:hover {
+    text-decoration: none !important;
+  }
+
   p {
     letter-spacing: 0.5px;
     color: #292929;

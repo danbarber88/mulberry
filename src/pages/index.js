@@ -13,6 +13,7 @@ import WorkSection from '../components/workSection'
 
 // TODO: Add neff logo
 // TODO: Finsih footer with date, reg no and facebook icon
+// TODO: Try a hover effect on workImages
 
 const IndexPage = props => (
   <Layout location={props.location.pathname}>
