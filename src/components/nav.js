@@ -22,6 +22,9 @@ const StyledLink = styled(Link)`
   background-image: none;
   cursor: pointer;
   margin: 0 30px;
+  :hover {
+    text-decoration: underline !important;
+  }
 `
 
 const NavItemContainer = styled.div`
