@@ -36,11 +36,12 @@ const Caret = styled.img`
 
 const StyledLink = styled(Link)`
   display: inline-block;
-  margin-top: 60px;
+  margin: 60px 0;
   font-size: 1.3rem;
   color: #000928;
   line-height: 20px;
   :hover {
+    margin-bottom: 59px;
     border-bottom: 1px solid #000928;
     text-decoration: none;
   }

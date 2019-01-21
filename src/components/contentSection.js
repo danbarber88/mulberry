@@ -10,7 +10,6 @@ export const ContentSection = styled.section`
   ${props => `flex-direction: ${props.column ? 'column' : 'row'}`};
   justify-content: space-between;
   width: 65%;
-  padding-bottom: 50px;
 
   h1,
   h2 {
@@ -24,9 +23,6 @@ export const ContentSection = styled.section`
 `
 
 export const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   max-width: 50%;
 
   h3 {
@@ -37,10 +33,12 @@ export const ContentContainer = styled.div`
   ${props => `
     width: ${props.width};
     color: ${props.darkBg ? '#fff' : 'inherit'}
+    margin-bottom: ${props.marginBottom ? '50px' : '0'}
   `};
 `
 
 ContentContainer.propTypes = {
   width: PropTypes.string, // Percentage
   darkBg: PropTypes.bool,
+  marginBottom: PropTypes.bool
 }

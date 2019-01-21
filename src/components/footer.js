@@ -5,6 +5,12 @@ import { ContentSection, ContentContainer } from './contentSection'
 import styled from 'styled-components'
 import AppointmentForm from './appointmentForm'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+
+library.add(faFacebook)
+
 const Footer = styled.section`
   position: relative;
   width: 100%;
@@ -57,9 +63,19 @@ const ContactDetails = styled.div`
 `
 
 const BottomBar = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #000317;
   height: 80px;
   width: 100%;
+
+  p {
+    line-height: 48px;
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+  }
 `
 
 export default props => (
@@ -114,15 +130,24 @@ export default props => (
             </ContactDetails>
           </ContentContainer>
 
-          <ContentContainer darkBg width="300px">
+          <ContentContainer marginBottom darkBg width="300px">
             <AppointmentForm />
           </ContentContainer>
         </ContentSection>
       </SectionOverlay>
     </Footer>
 
-    {/* TODO: Facebook icon with font awesome react https://fontawesome.com/how-to-use/on-the-web/using-with/react */}
-
-    <BottomBar /> {/* © new Date().getFullYear() */}
+    <BottomBar>
+      <ContentSection>
+        <ContentContainer>
+          <p>© {new Date().getFullYear()} Mulberry Fitted Kitchens Ltd | Company reg. no: 4172958, England</p>
+        </ContentContainer>
+        <ContentContainer>
+          <a target="_blank" href="https://www.facebook.com/MulberryKitchensHull">
+            <FontAwesomeIcon style={{color: '#fff'}} icon={["fab", "facebook"]} size="3x"/>
+          </a>
+        </ContentContainer>
+      </ContentSection>
+    </BottomBar> {/* © new Date().getFullYear() */}
   </>
 )

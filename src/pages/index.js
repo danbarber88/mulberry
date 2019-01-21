@@ -11,9 +11,12 @@ import { ContentSection, ContentContainer } from '../components/ContentSection'
 import LatestNewsItem from '../components/latestNewsItem'
 import WorkSection from '../components/workSection'
 
-// TODO: Add neff logo
-// TODO: Finsih footer with date, reg no and facebook icon
 // TODO: Try a hover effect on workImages
+
+const LogoContainer = styled(ContentContainer)`
+  display: flex;
+  align-items: center;
+`
 
 const NeffLogo = styled(Img)`
   width: 200px;
@@ -28,7 +31,7 @@ const IndexPage = props => (
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <Hero />
     <ContentSection>
-      <ContentContainer>
+      <ContentContainer marginBottom>
         <h1>Kitchen Design in Hull</h1>
         <p>
           Bacon ipsum dolor amet flank pastrami ex ad culpa. Jerky ad mollit
@@ -66,7 +69,7 @@ const IndexPage = props => (
     </ContentSection>
     <WorkSection />
     <ContentSection>
-      <ContentContainer>
+      <ContentContainer marginBottom>
         <h1>We are a NEFF 5* Master Partner</h1>
         <p>
           A Five Star Master Partner benefits from a higher discount structure
@@ -80,9 +83,9 @@ const IndexPage = props => (
           Mulberry kitchen, the savings become truly remarkable.
         </p>
       </ContentContainer>
-      <ContentContainer width="50%">
+      <LogoContainer width="40%">
         <NeffLogo fluid={props.data.neffLogo.childImageSharp.fluid} />
-      </ContentContainer>
+      </LogoContainer>
     </ContentSection>
   </Layout>
 )
