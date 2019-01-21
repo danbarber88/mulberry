@@ -15,6 +15,14 @@ import WorkSection from '../components/workSection'
 // TODO: Finsih footer with date, reg no and facebook icon
 // TODO: Try a hover effect on workImages
 
+const NeffLogo = styled(Img)`
+  width: 200px;
+  margin: 0 auto;
+  img {
+    margin: 0;
+  }
+`
+
 const IndexPage = props => (
   <Layout location={props.location.pathname}>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -72,8 +80,23 @@ const IndexPage = props => (
           Mulberry kitchen, the savings become truly remarkable.
         </p>
       </ContentContainer>
+      <ContentContainer width="50%">
+        <NeffLogo fluid={props.data.neffLogo.childImageSharp.fluid} />
+      </ContentContainer>
     </ContentSection>
   </Layout>
 )
+
+export const query = graphql`
+  query {
+    neffLogo: file(relativePath: { eq: "masterpartner_5logo.png" }) {
+      childImageSharp {
+        fluid(quality: 95, maxWidth: 200) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

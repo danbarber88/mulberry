@@ -5,7 +5,6 @@ import reviewPlaceholder from '../images/review-placeholder.svg'
 import caret from '../images/caret-right.svg'
 
 // TODO: Catch errors when fetching reviews fails
-// QUESTION: Where do reviews link to? google page with reviews or testimonials page.
 
 const flash = keyframes`
   0% {

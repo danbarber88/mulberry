@@ -24,6 +24,9 @@ export const ContentSection = styled.section`
 `
 
 export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: 50%;
 
   h3 {
