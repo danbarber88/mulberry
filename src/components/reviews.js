@@ -172,7 +172,7 @@ class Reviews extends Component {
         <ErrorContainer>
           <h2>Failed to fetch reviews :(</h2>
           <Button primary onClick={ this.tryAgain.bind(this) }>Try Again</Button>
-          <div id="attribution-container" />
+          <div id="attribution-container" style={{ display: "none"}} />
         </ErrorContainer>
       )
     }
@@ -180,7 +180,7 @@ class Reviews extends Component {
     return (
       <Container>
         {this.state.loading ? placeHolders : reviews}
-        <div id="attribution-container" />
+        <div id="attribution-container" style={{ display: "none"}}/>
       </Container>
     )
   }
