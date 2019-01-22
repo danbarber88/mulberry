@@ -11,7 +11,7 @@ const Button = styled.button`
   color: #8f5200;
   border: 2px solid #8f5200;
   text-transform: uppercase;
-  margin-left: 20px;
+  margin: 0 10px;
   cursor: pointer;
   -webkit-appearance: none;
   background-color: ${props => (props.primary ? '#8f5200' : '#fff')};
