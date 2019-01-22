@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import fiveStars from '../images/five-stars.svg'
 import reviewPlaceholder from '../images/review-placeholder.svg'
 import caret from '../images/caret-right.svg'
+import Button from "./button"
 
 // TODO: Catch errors when fetching reviews fails
 
@@ -23,6 +24,15 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+`
+
+const ErrorContainer = styled.div`
+  width: 100%
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+  color: #8f5200;
 `
 
 const Review = styled.div`
@@ -61,7 +71,7 @@ class Reviews extends Component {
     this.state = {
       reviews: [],
       loading: true,
-      readMore: false,
+      error: false
     }
   }
 
@@ -75,16 +85,31 @@ class Reviews extends Component {
       document.getElementById('attribution-container')
     )
 
-    service.getDetails(request, place => {
+    service.getDetails(request, (place, status) => {
       // Latest 5 star reviews.
-      const reviews = place.reviews
-        .filter(review => review.rating === 5 && review.text.length > 0)
-        .sort((a, b) => b.time - a.time)
-      this.setState({
-        reviews: [reviews[0], reviews[1]],
-        loading: false,
-      })
+      if(status === "OK") {
+        const reviews = place.reviews
+          .filter(review => review.rating === 5 && review.text.length > 0)
+          .sort((a, b) => b.time - a.time)
+        this.setState({
+          reviews: [reviews[0], reviews[1]],
+          loading: false,
+        })
+      } else {
+        this.setState({
+          loading: false,
+          error: true
+        })
+      }
     })
+  }
+
+  tryAgain = () => {
+    this.setState({
+      loading: true,
+      error: false
+    })
+    this.getReviews();
   }
 
   componentDidMount() {
@@ -116,26 +141,41 @@ class Reviews extends Component {
     ]
 
     const reviews = this.state.reviews.map((review, i) => (
-      <Review key={i}>
-        <Name>{review.author_name}</Name>
-        <img src={fiveStars} alt="Star Rating" />
-        <p>
-          {/* Truncate review text to a max of 50 words. */}
-          {review.text.length > 350
-            ? review.text
-                .split(' ')
-                .slice(0, 50)
-                .join(' ')
-                .concat('...')
-            : review.text}
-          {review.text.length > 350 ? (
-            <span>
-              <SmallCaret src={caret} />
-            </span>
-          ) : null}
-        </p>
-      </Review>
+        <Review key={i}>
+          <a
+            target="_blank"
+            href="https://www.google.com/search?rlz=1C1CHBF_en-GBGB784GB784&ei=YGJEXPWUIv6d1fAPps2YuA4&q=Mulberry+Fitted+Kitchens+Ltd&oq=Mulberry+Fitted+Kitchens+Ltd&gs_l=psy-ab.3..35i39l2j0i67.32730.37250..37659...0.0..0.243.3234.9j18j1......0....1..gws-wiz.......0i71j0i131i67j0j0i20i263j0i22i10i30j0i22i30.GCcKXiiCcRw#lrd=0x4878bfc0320d45eb:0xc24647140636ef53,1,,,"
+          >
+            <Name>{review.author_name}</Name>
+            <img src={fiveStars} alt="Star Rating" />
+            <p>
+              {/* Truncate review text to a max of 50 words. */}
+              {review.text.length > 350
+                ? review.text
+                    .split(' ')
+                    .slice(0, 50)
+                    .join(' ')
+                    .concat('...')
+                : review.text}
+              {review.text.length > 350 ? (
+                <span>
+                  <SmallCaret src={caret} />
+                </span>
+              ) : null}
+            </p>
+          </a>
+        </Review>
     ))
+
+    if (this.state.error) {
+      return (
+        <ErrorContainer>
+          <h2>Failed to fetch reviews :(</h2>
+          <Button primary onClick={ this.tryAgain.bind(this) }>Try Again</Button>
+          <div id="attribution-container" />
+        </ErrorContainer>
+      )
+    }
 
     return (
       <Container>
