@@ -6,13 +6,13 @@ import styled, { keyframes } from 'styled-components'
 
 const float = keyframes`
   0% {
-    transform: translate(0, -5px);
+    transform: translate(0, -8px);
   }
   50% {
     transform: translate(0, 0);
   }
   100% {
-    transform: translate(0, -5px);
+    transform: translate(0, -8px);
   }
 `
 
@@ -58,7 +58,7 @@ const Arrow = styled.img`
   left: 50%;
   margin-left: -100px;
   width: 200px;
-  animation: 2s ${float} linear infinite;
+  animation: 1.5s ${float} linear infinite;
   transition: opacity 0.5s;
   opacity: ${props => (props.visible ? 1 : 0)};
 `
