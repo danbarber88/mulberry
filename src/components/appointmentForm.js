@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Button from './button'
 
+// TODO: Set up redirect from gmail account
+// TODO: Point to mail server on heroku
+// TODO: Anti-spam
+// TODO: Add a spinner into button when clicked - the page will either go to a thank you page or an error page so no need to change spinner back to text.
+// TODO: Google sees the mail server as a suspicious login and prevents it from sending mail.
+
 const AppointmentFormContainer = styled.div`
   text-align: center;
   padding-top: 24px;
@@ -69,11 +75,11 @@ class AppointmentForm extends Component {
           Enter your details to arrange a consultation at our showroom. We will
           get back to you as soon as possible.
         </p>
-        <form method="post" action="http://192.168.1.188:3000">
-          <input type="text" name="name" placeholder="Full Name *" />
-          <input type="email" name="email" placeholder="Email *" />
+        <form method="post" action="https://mulberry-mail.herokuapp.com/">
+          <input type="text" name="name" placeholder="Full Name *" required />
+          <input type="email" name="email" placeholder="Email *" required />
           <input type="tel" name="phone" placeholder="Telephone" />
-          <input type="text" name="budget" placeholder="Budget" />
+          <input type="number" name="budget" placeholder="Budget" />
           <div className="form-text">
             <p className="privacy">Privacy Policy</p>
             <p>Required *</p>

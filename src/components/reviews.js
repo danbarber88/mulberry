@@ -5,7 +5,7 @@ import reviewPlaceholder from '../images/review-placeholder.svg'
 import caret from '../images/caret-right.svg'
 import Button from "./button"
 
-// TODO: Catch errors when fetching reviews fails
+// BUG: Reviews go into a single line on IE, probably a flex issue.
 
 const flash = keyframes`
   0% {
