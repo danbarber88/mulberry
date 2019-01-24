@@ -71,7 +71,9 @@ class AppointmentForm extends Component {
           <input type="tel" name="phone" placeholder="Telephone" />
           <input type="text" name="budget" placeholder="Budget" />
 
-          <label style={{ display: 'none' }}>Do not fill this out: </label>
+          <label style={{ display: 'none' }} for="bot-field">
+            Do not fill this out:{' '}
+          </label>
           <input style={{ display: 'none' }} name="bot-field" />
 
           <div className="form-text">
