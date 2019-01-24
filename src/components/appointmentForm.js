@@ -72,7 +72,7 @@ class AppointmentForm extends Component {
         </h3>
         <p>
           Enter your details to arrange a consultation at our showroom. We will
-          get back to you as soon as possible.
+          get back to you as soon as possible. or else.
         </p>
         {/* TODO: add action to direct to thank you page when complete */}
         <form
