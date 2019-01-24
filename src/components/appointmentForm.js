@@ -74,13 +74,22 @@ class AppointmentForm extends Component {
           Enter your details to arrange a consultation at our showroom. We will
           get back to you as soon as possible.
         </p>
-        <form method="post" action="https://mulberry-mail.herokuapp.com/">
+        {/* TODO: add action to direct to thank you page when complete */}
+        <form
+          name="appointment"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
           <input type="text" name="name" placeholder="Full Name *" required />
           <input type="email" name="email" placeholder="Email *" required />
           <input type="tel" name="phone" placeholder="Telephone" />
           <input type="number" name="budget" placeholder="Budget" />
+
+          <label style={{ display: 'none' }}>Do not fill this out: </label>
+          <input style={{ display: 'none' }} name="bot-field" />
+
           <div className="form-text">
-            <p className="privacy">Privacy Policy</p>
             <p>Required *</p>
           </div>
           <Button primary type="submit">
