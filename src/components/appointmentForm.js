@@ -87,6 +87,7 @@ class AppointmentForm extends Component {
           <div className="form-text">
             <p>Required *</p>
           </div>
+          <div data-netlify-recaptcha="true" />
           <Button primary type="submit">
             Request Appointment
           </Button>
