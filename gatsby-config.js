@@ -37,6 +37,14 @@ module.exports = {
         pathToConfigModule: `src/utils/typography.js`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        // host: 'https://www.example.com',
+        //sitemap: 'https://www.example.com/sitemap.xml',
+        policy: [{ userAgent: '*', disallow: '/' }],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
