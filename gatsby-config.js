@@ -4,6 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
+    siteUrl: 'https://focused-einstein-08a40b.netlify.com/',
     title: `Mulberry Fitted Kitchens Ltd - Kitchen Design & Installation in Hull`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: ``,
