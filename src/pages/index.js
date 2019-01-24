@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 import Hero from '../components/hero'
-import { ContentSection, ContentContainer } from '../components/ContentSection'
+import { ContentSection, ContentContainer } from '../components/contentSection'
 import LatestNewsItem from '../components/latestNewsItem'
 import WorkSection from '../components/workSection'
 
