@@ -6,7 +6,6 @@ import Button from './button'
 // TODO: Point to mail server on heroku
 // TODO: Anti-spam
 // TODO: Add a spinner into button when clicked - the page will either go to a thank you page or an error page so no need to change spinner back to text.
-// TODO: Google sees the mail server as a suspicious login and prevents it from sending mail.
 
 const AppointmentFormContainer = styled.div`
   text-align: center;
