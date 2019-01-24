@@ -45,6 +45,11 @@ const AppointmentFormContainer = styled.div`
   }
 `
 
+// NOTE: Netlifys recaptcha doesnt work with react, can still add custom reCaptcha - CLICK ME!
+// netlify docs about custom recaptcha: https://www.netlify.com/docs/form-handling/#custom-recaptcha-2-with-your-own-settings
+// react-google-recaptcha: https://github.com/dozoisch/react-google-recaptcha
+// an example of this being implemented: https://github.com/imorente/gatsby-netlify-form-example/blob/master/src/pages/recaptcha.js
+
 class AppointmentForm extends Component {
   render() {
     return (
@@ -87,7 +92,6 @@ class AppointmentForm extends Component {
           <div className="form-text">
             <p>Required *</p>
           </div>
-          <div data-netlify-recaptcha="true" />
           <Button primary type="submit">
             Request Appointment
           </Button>

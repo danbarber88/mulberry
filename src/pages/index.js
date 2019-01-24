@@ -12,6 +12,8 @@ import LatestNewsItem from '../components/latestNewsItem'
 import WorkSection from '../components/workSection'
 
 // TODO: Try a hover effect on workImages
+// TODO: Special event box over the top of the hero for things like announcing
+// live cooking events and coffee mornngs.
 
 const LogoContainer = styled(ContentContainer)`
   display: flex;
