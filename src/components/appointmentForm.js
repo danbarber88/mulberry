@@ -72,7 +72,7 @@ class AppointmentForm extends Component {
         </h3>
         <p>
           Enter your details to arrange a consultation at our showroom. We will
-          get back to you as soon as possible.
+          get back to you as soon as possible. or else.
         </p>
         <form method="post" action="https://mulberry-mail.herokuapp.com/">
           <input type="text" name="name" placeholder="Full Name *" required />
