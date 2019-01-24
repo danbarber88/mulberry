@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Button from './button'
 
-// TODO: Set up redirect from gmail account
-// TODO: Point to mail server on heroku
-// TODO: Anti-spam
 // TODO: Add a spinner into button when clicked - the page will either go to a thank you page or an error page so no need to change spinner back to text.
 
 const AppointmentFormContainer = styled.div`
@@ -49,19 +46,6 @@ const AppointmentFormContainer = styled.div`
 `
 
 class AppointmentForm extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      form: {
-        name: '',
-        email: '',
-        phone: '',
-        budget: '',
-      },
-    }
-  }
-
   render() {
     return (
       <AppointmentFormContainer>
@@ -75,6 +59,7 @@ class AppointmentForm extends Component {
           get back to you as soon as possible.
         </p>
         {/* TODO: add action to direct to thank you page when complete */}
+        {/* TODO: add mulberry email to netlify dashboard when site finished */}
         <form
           name="appointment"
           method="post"
@@ -84,10 +69,10 @@ class AppointmentForm extends Component {
           <input type="text" name="name" placeholder="Full Name *" required />
           <input type="email" name="email" placeholder="Email *" required />
           <input type="tel" name="phone" placeholder="Telephone" />
-          <input type="number" name="budget" placeholder="Budget" />
+          <input type="text" name="budget" placeholder="Budget" />
 
-          <label name="bot-field">Do not fill this out: </label>
-          <input name="bot-field" />
+          <label style={{ display: 'none' }}>Do not fill this out: </label>
+          <input style={{ display: 'none' }} name="bot-field" />
 
           <div className="form-text">
             <p>Required *</p>
