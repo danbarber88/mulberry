@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Button from './button'
 
-// TODO: Add a spinner into button when clicked - the page will either go to a thank you page or an error page so no need to change spinner back to text.
-
 const AppointmentFormContainer = styled.div`
   text-align: center;
   padding-top: 24px;
@@ -87,7 +85,11 @@ class AppointmentForm extends Component {
           <label style={{ display: 'none' }} for="bot-field">
             Do not fill this out:{' '}
           </label>
-          <input style={{ display: 'none' }} name="bot-field" />
+          <input
+            style={{ display: 'none' }}
+            name="bot-field"
+            placeholder="Ignore this field"
+          />
 
           <div className="form-text">
             <p>Required *</p>
