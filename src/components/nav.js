@@ -4,6 +4,14 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import logo from '../images/logo.svg'
 import Logo from './logo'
+import { device } from '../utils/device'
+import Media from 'react-media'
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faBars)
 
 const fadeIn = keyframes`
   0% {
@@ -16,7 +24,7 @@ const fadeIn = keyframes`
 
 // Styled Components
 
-const StyledLink = styled(Link)`
+const NavItem = styled(Link)`
   color: #fff;
   text-shadow: none;
   background-image: none;
@@ -25,6 +33,15 @@ const StyledLink = styled(Link)`
   :hover {
     text-decoration: underline !important;
   }
+
+  @media ${device.laptopL} {
+    margin: 0 20px;
+  }
+
+  @media ${device.laptop} {
+    margin: 0 10px;
+    font-size: 0.8em;
+  }
 `
 
 const NavItemContainer = styled.div`
@@ -32,9 +49,41 @@ const NavItemContainer = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin: 0 50px;
+  margin: 0;
   padding: 32px 0;
-  min-width: 370px;
+  min-width: 250px;
+`
+
+const Spacer = styled.div`
+  min-width: 300px;
+
+  @media ${device.laptop} {
+    min-width: 250px;
+  }
+`
+
+const HamburgerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  color: #fff;
+  font-size: 2em;
+
+  @media ${device.mobileL} {
+    padding: 22px 0;
+    .menu {
+      display: none;
+    }
+  }
+`
+
+const Hamburger = styled(FontAwesomeIcon)`
+  margin: 0 15px 0 5px;
+  font-size: 1em;
+
+  @media ${device.mobileL} {
+    font-size: 1.5em;
+  }
 `
 
 const NavWrapper = styled.div`
@@ -54,6 +103,10 @@ const NavWrapper = styled.div`
   animation-timing-function: cubic-bezier(0.84, 0.01, 0.36, 1);
   animation-fill-mode: forwards;
   animation-delay: 0.4s;
+
+  @media ${device.tablet} {
+    justify-content: flex-end;
+  }
 
   /* Stop animation from playing and add end result */
   animation: ${props => (props.location === '/' ? null : 'none')};
@@ -106,29 +159,59 @@ class Nav extends Component {
 
   render() {
     return (
-      <>
-        <Logo
-          src={logo}
-          isLarge={!this.state.navVisible}
-          fromScroll={this.state.fromScroll}
-          location={this.props.location}
-        />
-        <NavWrapper
-          isVisible={this.state.navVisible}
-          location={this.props.location}
-        >
-          <NavItemContainer style={{ paddingRight: '90px' }}>
-            <StyledLink to="/">Home</StyledLink>
-            <StyledLink to="/design-service">Design Service</StyledLink>
-            <StyledLink to="/projects">Projects</StyledLink>
-          </NavItemContainer>
-          <NavItemContainer style={{ paddingLeft: '90px' }}>
-            <StyledLink to="/">Testimonials</StyledLink>
-            <StyledLink to="/">News</StyledLink>
-            <StyledLink to="/">Contact Us</StyledLink>
-          </NavItemContainer>
-        </NavWrapper>
-      </>
+      <Media
+        query={device.tablet}
+        onChange={matches => (matches ? this.forceUpdate() : null)}
+      >
+        {matches =>
+          matches ? (
+            // Mobile nav
+            <>
+              <Logo
+                src={logo}
+                isLarge={!this.state.navVisible}
+                fromScroll={this.state.fromScroll}
+                location={this.props.location}
+              />
+              <NavWrapper
+                isVisible={this.state.navVisible}
+                location={this.props.location}
+              >
+                <HamburgerContainer>
+                  <span className="menu">MENU</span>
+                  <Hamburger icon={['fas', 'bars']} />
+                </HamburgerContainer>
+              </NavWrapper>
+            </>
+          ) : (
+            // Normal nav
+            <>
+              <Logo
+                src={logo}
+                isLarge={!this.state.navVisible}
+                fromScroll={this.state.fromScroll}
+                location={this.props.location}
+              />
+              <NavWrapper
+                isVisible={this.state.navVisible}
+                location={this.props.location}
+              >
+                <NavItemContainer>
+                  <NavItem to="/">Home</NavItem>
+                  <NavItem to="/design-service">Design Service</NavItem>
+                  <NavItem to="/projects">Projects</NavItem>
+                </NavItemContainer>
+                <Spacer />
+                <NavItemContainer>
+                  <NavItem to="/">Testimonials</NavItem>
+                  <NavItem to="/">News</NavItem>
+                  <NavItem to="/">Contact Us</NavItem>
+                </NavItemContainer>
+              </NavWrapper>
+            </>
+          )
+        }
+      </Media>
     )
   }
 }

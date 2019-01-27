@@ -1,6 +1,6 @@
 import 'react'
 import styled, { keyframes } from 'styled-components'
-
+import { device } from '../utils/device'
 import PropTypes from 'prop-types'
 
 const shrink = keyframes`
@@ -21,8 +21,25 @@ const grow = keyframes`
   }
 `
 
-// turn this into a full width fixed flex div with just the centered logo?
-// will make sure it is centered on all screen sizes can also add a max width
+const mobileShrink = keyframes`
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-${(window.innerWidth - 237.5) /
+      2}px, -15px) scale(0.75);
+  }
+`
+
+const mobileGrow = keyframes`
+  0% {
+    transform: translate(-${(window.innerWidth - 237.5) /
+      2}px, -15px) scale(0.75);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+`
 
 const Logo = styled.img`
   z-index: 1101;
@@ -35,6 +52,18 @@ const Logo = styled.img`
   animation-duration: 0.5s;
   animation-timing-function: cubic-bezier(0.84, 0.01, 0.36, 0.99);
   animation-fill-mode: forwards;
+
+  @media ${device.laptop} {
+    top: 15px;
+    width: 350px;
+    margin-left: -175px;
+  }
+
+  @media ${device.tablet} {
+    width: 300px;
+    margin-left: -150px;
+    animation-name: ${props => (props.isLarge ? mobileGrow : mobileShrink)};
+  }
 
   /* Stop animation from playing and add end result */
   animation: ${props =>
