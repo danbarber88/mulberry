@@ -136,18 +136,29 @@ export default props => (
         </ContentSection>
       </SectionOverlay>
     </Footer>
-
     <BottomBar>
       <ContentSection>
         <ContentContainer>
-          <p>© {new Date().getFullYear()} Mulberry Fitted Kitchens Ltd | Company reg. no: 4172958, England</p>
+          <p>
+            © {new Date().getFullYear()} Mulberry Fitted Kitchens Ltd | Company
+            reg. no: 4172958, England
+          </p>
         </ContentContainer>
         <ContentContainer>
-          <a target="_blank" href="https://www.facebook.com/MulberryKitchensHull">
-            <FontAwesomeIcon style={{color: '#fff'}} icon={["fab", "facebook"]} size="3x"/>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.facebook.com/MulberryKitchensHull"
+          >
+            <FontAwesomeIcon
+              style={{ color: '#fff' }}
+              icon={['fab', 'facebook']}
+              size="3x"
+            />
           </a>
         </ContentContainer>
       </ContentSection>
-    </BottomBar> {/* © new Date().getFullYear() */}
+    </BottomBar>{' '}
+    {/* © new Date().getFullYear() */}
   </>
 )

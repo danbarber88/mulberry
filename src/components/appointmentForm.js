@@ -82,9 +82,7 @@ class AppointmentForm extends Component {
             placeholder=""
           />
 
-          <label style={{ display: 'none' }} for="bot-field">
-            Do not fill this out:{' '}
-          </label>
+          <label style={{ display: 'none' }}>Do not fill this out: </label>
           <input
             style={{ display: 'none' }}
             name="bot-field"

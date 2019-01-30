@@ -18,16 +18,6 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 0.5px;
     color: #292929;
   }
-
-  // moved these to cotent section, only other place might need them is footer. probs can delete
-  // h1, h2{
-  //   font-size: 2rem;
-  //   border: none;
-  //   color: #000928;
-  //   font-weight: 400;
-  //   margin-top: 60px;
-  //   margin-bottom: 1.21875rem;
-  // }
 `
 
 const MainContainer = styled.div`

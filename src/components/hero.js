@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import arrow from '../images/arrow.svg'
 import styled, { keyframes } from 'styled-components'
+import logo from '../images/logo.svg'
 
 const float = keyframes`
   0% {
@@ -18,8 +19,8 @@ const float = keyframes`
 
 const Wrapper = styled.section`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100vh;
@@ -39,6 +40,13 @@ const BackgroundImg = styled(Img)`
   }
 `
 
+const Logo = styled.img`
+  z-index: 1;
+  width: 350px;
+  margin: 10px 0 0 0;
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25);
+`
+
 const MainText = styled.div`
   z-index: 1;
   display: flex;
@@ -49,14 +57,10 @@ const MainText = styled.div`
   text-shadow: 0px 3px 2px rgba(0, 0, 0, 0.6);
   letter-spacing: 2px;
   transition: opacity 0.25s;
-  opacity: ${props => (props.top ? 1 : 0)};
+  opacity: ${props => (props.topOfPage ? 1 : 0)};
 `
 
 const Arrow = styled.img`
-  position: absolute !important;
-  bottom: 0;
-  left: 50%;
-  margin-left: -100px;
   width: 200px;
   animation: 1.5s ${float} linear infinite;
   transition: opacity 0.5s;
@@ -68,7 +72,7 @@ class Hero extends Component {
     super(props)
 
     this.state = {
-      top: true,
+      topOfPage: true,
       arrowVisible: true,
     }
 
@@ -77,7 +81,6 @@ class Hero extends Component {
   }
 
   componentDidMount() {
-    // Pass in the height from the top of the page where you want the nav transition to toggle.
     window.addEventListener('scroll', () => {
       this.fadeText()
       this.fadeArrow(200)
@@ -91,11 +94,11 @@ class Hero extends Component {
   fadeText() {
     if (window.scrollY > 0) {
       this.setState({
-        top: false,
+        topOfPage: false,
       })
     } else {
       this.setState({
-        top: true,
+        topOfPage: true,
       })
     }
   }
@@ -114,7 +117,7 @@ class Hero extends Component {
 
   render() {
     return (
-      <Wrapper>
+      <>
         <StaticQuery
           query={graphql`
             query {
@@ -134,14 +137,17 @@ class Hero extends Component {
             />
           )}
         />
-        <MainText top={this.state.top}>
-          Your new kitchen will be everything you could imagine.
-          <br />A credit to your good taste,
-          <br />
-          giving added value to your home.
-        </MainText>
-        <Arrow src={arrow} visible={this.state.arrowVisible} />
-      </Wrapper>
+        <Wrapper>
+          <Logo src={logo} />
+          <MainText topOfPage={this.state.topOfPage}>
+            Your new kitchen will be everything you could imagine.
+            <br />A credit to your good taste,
+            <br />
+            giving added value to your home.
+          </MainText>
+          <Arrow src={arrow} visible={this.state.arrowVisible} />
+        </Wrapper>
+      </>
     )
   }
 }
