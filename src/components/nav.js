@@ -12,12 +12,12 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faBars)
 
-const fadeIn = keyframes`
+const slideDown = keyframes`
   0% {
-    opacity: 0;
+    transform: translateY(-87.25px);
   }
   100% {
-    opacity: 1;
+    transform: translateY(0);
   }
 `
 
@@ -97,8 +97,8 @@ const NavWrapper = styled.div`
   flex-wrap: wrap;
   width: 100%;
   background-color: rgba(0, 9, 40, 1);
-  opacity: 0;
-  animation-name: ${props => (props.isVisible ? fadeIn : null)};
+  transform: translateY(-87.25px);
+  animation-name: ${props => (props.isVisible ? slideDown : null)};
   animation-duration: 0.25s;
   animation-timing-function: cubic-bezier(0.84, 0.01, 0.36, 1);
   animation-fill-mode: forwards;
@@ -110,7 +110,8 @@ const NavWrapper = styled.div`
 
   /* Stop animation from playing and add end result */
   animation: ${props => (props.location === '/' ? null : 'none')};
-  opacity: ${props => (props.location === '/' ? 0 : 1)};
+  transform: ${props =>
+    props.location === '/' ? 'translateY(-87.27px)' : 'translateY(0)'};
 `
 
 class Nav extends Component {
@@ -134,7 +135,7 @@ class Nav extends Component {
     window.addEventListener('click', this.mobileNavBlur)
     // Pass in the height from the top of the page where you want the nav transition to toggle.
     window.addEventListener('scroll', () => {
-      this.activateAnimation(200)
+      this.activateAnimation(115)
     })
   }
 
