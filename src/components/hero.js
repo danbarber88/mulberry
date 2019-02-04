@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 import arrow from '../images/arrow.svg'
 import styled, { keyframes } from 'styled-components'
 import logo from '../images/logo.svg'
+import { device } from '../utils/device'
 
 const float = keyframes`
   0% {
@@ -45,6 +46,10 @@ const Logo = styled.img`
   width: 350px;
   margin: 10px 0 0 0;
   box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25);
+
+  @media ${device.mobileM} {
+    width: 300px;
+  }
 `
 
 const MainText = styled.div`
@@ -83,7 +88,7 @@ class Hero extends Component {
   componentDidMount() {
     window.addEventListener('scroll', () => {
       this.fadeText()
-      this.fadeArrow(200)
+      this.fadeArrow(300)
     })
   }
 
