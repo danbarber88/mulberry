@@ -18,6 +18,10 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 0.5px;
     color: #292929;
   }
+
+  .no-scroll {
+    overflow: hidden;
+  }
 `
 
 const MainContainer = styled.div`

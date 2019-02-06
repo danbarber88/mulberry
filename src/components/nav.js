@@ -1,25 +1,17 @@
 import React, { Component } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import logo from '../images/logo.svg'
 import { device } from '../utils/device'
 import Media from 'react-media'
+import Menu from './menu'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faBars)
-
-const slideDown = keyframes`
-  0% {
-    transform: translateY(-87.25px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-`
 
 // Styled Components
 
@@ -41,13 +33,6 @@ const NavItem = styled(Link)`
     margin: 0 10px;
     font-size: 0.8em;
   }
-
-  @media ${device.tablet} {
-    padding: 10px;
-    font-size: 1.2em;
-    background-color: #000928;
-    display: ${props => (props.visible ? 'block' : 'none')};
-  }
 `
 
 const NavItemContainer = styled.div`
@@ -57,12 +42,6 @@ const NavItemContainer = styled.div`
   align-items: center;
   margin: 0;
   min-width: 250px;
-
-  @media ${device.tablet} {
-    flex-basis: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
 `
 
 const Logo = styled.img`
@@ -85,6 +64,14 @@ const Hamburger = styled(FontAwesomeIcon)`
   color: #fff;
 `
 
+const MobileNavContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
 const NavWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -94,24 +81,32 @@ const NavWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   width: 100%;
   background-color: rgba(0, 9, 40, 1);
-  transform: translateY(-87.25px);
-  animation-name: ${props => (props.isVisible ? slideDown : null)};
-  animation-duration: 0.25s;
-  animation-timing-function: cubic-bezier(0.84, 0.01, 0.36, 1);
-  animation-fill-mode: forwards;
-  animation-delay: 0.4s;
+  transition: transform 0.25s cubic-bezier(0.84, 0.01, 0.36, 1);
 
-  @media ${device.tablet} {
-    justify-content: space-between;
-  }
-
-  /* Stop animation from playing and add end result */
-  animation: ${props => (props.location === '/' ? null : 'none')};
   transform: ${props =>
-    props.location === '/' ? 'translateY(-87.27px)' : 'translateY(0)'};
+    // If on the home page toggle nav visability based on isVisible prop.
+    props.isVisible && props.location === '/'
+      ? 'translateY(0)'
+      : 'translateY(-87.25px)'};
+
+  transform: ${props =>
+    // Just show the nav without toggling capabilities, if on any other page.
+    props.location !== '/' && 'translateY(0)'};
+`
+
+const Overlay = styled.div`
+  z-index: 1;
+  position: fixed;
+  top: 0
+  left: 0
+  height: 100vh;
+  width: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: ${props => (props.isOpen ? 'block' : 'none')};
+  opacity: ${props => (props.isOpen ? 1 : 0)};
+  transition: opacity 3s cubic-bezier(0.84, 0.01, 0.36, 1);
 `
 
 class Nav extends Component {
@@ -121,7 +116,6 @@ class Nav extends Component {
     this.state = {
       // default to nav not visible if on home page.
       navVisible: this.props.location === '/' ? false : true,
-      fromScroll: false,
       mobileNavOpen: false,
     }
 
@@ -129,6 +123,7 @@ class Nav extends Component {
     this.mobileNavToggle = this.mobileNavToggle.bind(this)
     this.mobileNavBlur = this.mobileNavBlur.bind(this)
     this.setWrapperRef = this.setWrapperRef.bind(this)
+    this.closeMenu = this.closeMenu.bind(this)
   }
 
   componentDidMount() {
@@ -146,105 +141,66 @@ class Nav extends Component {
 
   // Change state when user scrolls past set height causing a re render of Nav.
   activateAnimation(height) {
-    if (this.state.navVisible && window.scrollY < height) {
-      this.setState({
-        navVisible: false,
-        fromScroll: true,
-      })
-    }
+    this.setState({
+      navVisible: window.scrollY < height ? false : true,
+    })
+  }
 
-    if (!this.state.navVisible && window.scrollY > height) {
-      this.setState({
-        navVisible: true,
-        fromScroll: true,
-      })
+  lockScroll() {
+    const html = document.getElementsByTagName('html')[0]
+    if (this.state.mobileNavOpen) {
+      html.classList.add('no-scroll')
+    } else {
+      html.classList.remove('no-scroll')
     }
   }
 
   mobileNavToggle() {
-    this.setState({ mobileNavOpen: !this.state.mobileNavOpen })
-    document.querySelector('#nav-container').classList.toggle('open')
+    this.setState({ mobileNavOpen: !this.state.mobileNavOpen }, this.lockScroll)
   }
 
-  // ref to nav wrapper for mobileNavBlur
   setWrapperRef(node) {
     this.wrapperRef = node
   }
 
   // close nav when clicking outside of it.
-  // ref exists and click target does not contain ref node.
+  // ref exists and ref node does not contain click target
   mobileNavBlur(e) {
-    if (this.wrapperRef && !this.wrapperRef.contains(e.target)) {
-      this.setState({ mobileNavOpen: false })
+    if (this.state.mobileNavOpen && !this.wrapperRef.contains(e.target)) {
+      this.setState({ mobileNavOpen: false }, this.lockScroll)
     }
+  }
+
+  closeMenu() {
+    this.setState({ mobileNavOpen: false }, this.lockScroll)
   }
 
   render() {
     return (
       <Media
         query={device.tablet}
-        onChange={matches => (matches ? this.forceUpdate() : null)}
+        onChange={matches => matches && this.forceUpdate()}
       >
         {matches =>
           matches ? (
-            // Mobile nav
             <NavWrapper
-              ref={this.setWrapperRef}
               isVisible={this.state.navVisible}
               location={this.props.location}
             >
-              <Logo src={logo} />
-              <Hamburger
-                icon={['fas', 'bars']}
-                onClick={this.mobileNavToggle}
-              />
-              <NavItemContainer id="nav-container">
-                <NavItem
-                  to="/"
-                  visible={this.state.mobileNavOpen ? 1 : 0}
+              <Overlay isOpen={this.state.mobileNavOpen} />
+              <MobileNavContainer ref={this.setWrapperRef}>
+                <Menu
+                  close={this.closeMenu}
+                  isOpen={this.state.mobileNavOpen}
+                />
+                <Logo src={logo} />
+                <Hamburger
+                  icon={['fas', 'bars']}
                   onClick={this.mobileNavToggle}
-                >
-                  Home
-                </NavItem>
-                <NavItem
-                  to="/design-service"
-                  visible={this.state.mobileNavOpen ? 1 : 0}
-                  onClick={this.mobileNavToggle}
-                >
-                  Design Service
-                </NavItem>
-                <NavItem
-                  to="/projects"
-                  visible={this.state.mobileNavOpen ? 1 : 0}
-                  onClick={this.mobileNavToggle}
-                >
-                  Projects
-                </NavItem>
-                <NavItem
-                  to="/"
-                  visible={this.state.mobileNavOpen ? 1 : 0}
-                  onClick={this.mobileNavToggle}
-                >
-                  Testimonials
-                </NavItem>
-                <NavItem
-                  to="/"
-                  visible={this.state.mobileNavOpen ? 1 : 0}
-                  onClick={this.mobileNavToggle}
-                >
-                  News
-                </NavItem>
-                <NavItem
-                  to="/"
-                  visible={this.state.mobileNavOpen ? 1 : 0}
-                  onClick={this.mobileNavToggle}
-                >
-                  Contact Us
-                </NavItem>
-              </NavItemContainer>
+                />
+              </MobileNavContainer>
             </NavWrapper>
           ) : (
-            // Normal nav
             <NavWrapper
               isVisible={this.state.navVisible}
               location={this.props.location}
