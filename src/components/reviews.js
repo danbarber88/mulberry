@@ -4,6 +4,7 @@ import fiveStars from '../images/five-stars.svg'
 import reviewPlaceholder from '../images/review-placeholder.svg'
 import caret from '../images/caret-right.svg'
 import Button from './button'
+import { device } from '../utils/device'
 
 // BUG: Reviews go into a single line on IE, probably a flex issue.
 
@@ -24,6 +25,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
+
+  @media ${device.tablet} {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const ErrorContainer = styled.div`
@@ -41,6 +48,19 @@ const Review = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  @media ${device.laptop} {
+    width: 40%;
+  }
+
+  @media ${device.tablet} {
+    width: 70%;
+    margin-bottom: 50px;
+  }
+
+  @media ${device.mobileL} {
+    width: 100%;
+  }
 `
 
 const Name = styled.h3`

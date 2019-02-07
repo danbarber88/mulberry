@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { device } from '../utils/device'
 
 const Header = styled.p`
+  font-size: 18px;
   margin: 0;
   strong {
     color: #000928;

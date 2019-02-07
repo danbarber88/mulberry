@@ -59,6 +59,7 @@ export const ContentContainer = styled.div`
   }
 
   @media ${device.tablet} {
+    width: 100%;
     max-width: 100%;
   }
 `

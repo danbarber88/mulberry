@@ -3,9 +3,10 @@ import Img from 'gatsby-image'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import caret from '../images/caret-right.svg'
-import { ContentSection } from './contentSection'
+import { ContentSection, SecondaryHeader } from '../components/contentSection'
 import WorkImages from './workImages'
 import Reviews from '../components/reviews'
+import { device } from '../utils/device'
 
 const MainContainer = styled.div`
   display: flex;
@@ -25,8 +26,8 @@ const BackgroundImg = styled(Img)`
   opacity: 0.175;
 `
 
-const HeaderText = styled.h2`
-  margin-bottom: 50px !important;
+const HeaderText = styled(SecondaryHeader)`
+  margin-bottom: 50px;
 `
 
 const Caret = styled.img`
@@ -36,7 +37,7 @@ const Caret = styled.img`
 
 const StyledLink = styled(Link)`
   display: inline-block;
-  margin: 60px 0;
+  margin-top: 60px;
   font-size: 1.3rem;
   color: #000928;
   line-height: 20px;
@@ -44,6 +45,10 @@ const StyledLink = styled(Link)`
     margin-bottom: 59px;
     border-bottom: 1px solid #000928;
     text-decoration: none;
+  }
+
+  @media ${device.tablet} {
+    margin: 0;
   }
 `
 
