@@ -24,7 +24,7 @@ const Wrapper = styled.section`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: ${props => props.height};
   margin-top: -100px;
   background-color: #000;
 `
@@ -33,7 +33,7 @@ const BackgroundImg = styled(Img)`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: ${props => props.height};
   position: absolute !important;
   opacity: 0.6 !important;
   #background-img {
@@ -63,6 +63,33 @@ const MainText = styled.div`
   letter-spacing: 2px;
   transition: opacity 0.25s;
   opacity: ${props => (props.topOfPage ? 1 : 0)};
+
+  .hide {
+    display: none;
+  }
+
+  @media (max-height: 400px) {
+    display: none;
+  }
+
+  @media ${device.laptop} {
+    font-size: 26px;
+  }
+
+  @media ${device.tablet} {
+    margin: 0 10px;
+    .hide {
+      display: block;
+    }
+  }
+
+  @media ${device.mobileL} {
+    font-size: 20px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 17px;
+  }
 `
 
 const Arrow = styled.img`
@@ -79,13 +106,14 @@ class Hero extends Component {
     this.state = {
       topOfPage: true,
       arrowVisible: true,
+      height: window.innerHeight + 'px',
     }
 
-    this.fadeText = this.fadeText.bind(this)
-    this.fadeArrow = this.fadeArrow.bind(this)
+    this.viewHeightChange = this.viewHeightChange.bind(this)
   }
 
   componentDidMount() {
+    window.addEventListener('orientationchange', this.viewHeightChange)
     window.addEventListener('scroll', () => {
       this.fadeText()
       this.fadeArrow(300)
@@ -93,31 +121,38 @@ class Hero extends Component {
   }
 
   componentWillUnmount() {
+    window.removeEventListener('orientationchange', this.viewHeightChange)
     window.removeEventListener('scroll', this.fadeArrow)
   }
 
-  fadeText() {
-    if (window.scrollY > 0) {
-      this.setState({
-        topOfPage: false,
-      })
-    } else {
-      this.setState({
-        topOfPage: true,
-      })
+  viewHeightChange() {
+    // Orientation change event doesnt provide height when orientation is finished
+    // So i create a resize event on orientation change, change state and then remove the resize event.
+    /* Q: Why cant you use a resize event by itself?
+       A: Mobile browsers can change their height when doing things like removing
+       the address bar on scroll. Which made the hero image resize. */
+
+    const orientationFinished = () => {
+      this.setState(
+        {
+          height: window.innerHeight + 'px',
+        },
+        window.removeEventListener('resize', orientationFinished)
+      )
     }
+    window.addEventListener('resize', orientationFinished)
+  }
+
+  fadeText() {
+    this.setState({
+      topOfPage: window.scrollY > 0 ? false : true,
+    })
   }
 
   fadeArrow(height) {
-    if (window.scrollY < height) {
-      this.setState({
-        arrowVisible: true,
-      })
-    } else {
-      this.setState({
-        arrowVisible: false,
-      })
-    }
+    this.setState({
+      arrowVisible: window.scrollY < height ? true : false,
+    })
   }
 
   render() {
@@ -137,15 +172,17 @@ class Hero extends Component {
           `}
           render={data => (
             <BackgroundImg
+              height={this.state.height}
               fluid={data.hero.childImageSharp.fluid}
               id="background-img"
             />
           )}
         />
-        <Wrapper>
+        <Wrapper height={this.state.height}>
           <Logo src={logo} />
           <MainText topOfPage={this.state.topOfPage}>
-            Your new kitchen will be everything you could imagine.
+            Your new kitchen will <br className="hide" />
+            be everything you could imagine.
             <br />A credit to your good taste,
             <br />
             giving added value to your home.
