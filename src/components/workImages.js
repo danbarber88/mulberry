@@ -2,15 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { device } from '../utils/device'
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between
+  width: 100%;
 `
 
 const WorkImg = styled(Img)`
   width: 250px;
-  margin: 0 20px 0 0;
+  flex-basis: 23%;
+  margin-right: 2%;
+
+  @media ${device.tablet} {
+    flex-basis: 48%;
+    margin: 0 2% 2% 0;
+  }
+
+  @media ${device.mobileL} {
+    flex-basis: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 `
 
 const WorkImages = () => (
