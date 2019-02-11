@@ -6,9 +6,15 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 import Hero from '../components/hero'
-import { ContentSection, ContentContainer } from '../components/contentSection'
+import {
+  ContentSection,
+  ContentContainer,
+  MainHeader,
+  SecondaryHeader,
+} from '../components/contentSection'
 import LatestNewsItem from '../components/latestNewsItem'
 import WorkSection from '../components/workSection'
+import { device } from '../utils/device'
 
 // TODO: Try a hover effect on workImages
 // TODO: Special event box over the top of the hero for things like announcing
@@ -25,6 +31,14 @@ const NeffLogo = styled(Img)`
   img {
     margin: 0;
   }
+
+  @media ${device.laptop} {
+    margin: 30px 0 0 0;
+  }
+
+  @media ${device.mobileL} {
+    margin: 30px auto 0 auto;
+  }
 `
 
 const IndexPage = props => (
@@ -33,7 +47,7 @@ const IndexPage = props => (
     <Hero />
     <ContentSection>
       <ContentContainer marginBottom>
-        <h1>Kitchen Design in Hull</h1>
+        <MainHeader>Kitchen Design in Hull</MainHeader>
         <p>
           Bacon ipsum dolor amet flank pastrami ex ad culpa. Jerky ad mollit
           dolor beef ribs esse biltong minim sirloin elit leberkas short loin
@@ -48,8 +62,8 @@ const IndexPage = props => (
           nulla.
         </p>
       </ContentContainer>
-      <ContentContainer>
-        <h2>Latest News</h2>
+      <ContentContainer marginBottom>
+        <SecondaryHeader>Latest News</SecondaryHeader>
         {/* Generate these from news pages? */}
         <LatestNewsItem
           heading="True Handleless"
@@ -71,7 +85,7 @@ const IndexPage = props => (
     <WorkSection />
     <ContentSection>
       <ContentContainer marginBottom>
-        <h1>We are a NEFF 5* Master Partner</h1>
+        <SecondaryHeader>We are a NEFF 5* Master Partner</SecondaryHeader>
         <p>
           A Five Star Master Partner benefits from a higher discount structure
           than other NEFF retailers and it is part of Mulberry’s best value

@@ -2,14 +2,10 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { ContentSection, ContentContainer } from './contentSection'
+import BottomBar from './bottomBar'
 import styled from 'styled-components'
 import AppointmentForm from './appointmentForm'
-
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-
-library.add(faFacebook)
+import { device } from '../utils/device'
 
 const Footer = styled.section`
   position: relative;
@@ -59,22 +55,6 @@ const ContactDetails = styled.div`
   }
   .dont-hesitate {
     margin-top: 50px;
-  }
-`
-
-const BottomBar = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #000317;
-  height: 80px;
-  width: 100%;
-
-  p {
-    line-height: 48px;
-    font-size: 14px;
-    color: #fff;
-    margin: 0;
   }
 `
 
@@ -130,35 +110,12 @@ export default props => (
             </ContactDetails>
           </ContentContainer>
 
-          <ContentContainer marginBottom darkBg width="300px">
+          <ContentContainer darkBg width="300px">
             <AppointmentForm />
           </ContentContainer>
         </ContentSection>
       </SectionOverlay>
     </Footer>
-    <BottomBar>
-      <ContentSection>
-        <ContentContainer>
-          <p>
-            © {new Date().getFullYear()} Mulberry Fitted Kitchens Ltd | Company
-            reg. no: 4172958, England
-          </p>
-        </ContentContainer>
-        <ContentContainer>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.facebook.com/MulberryKitchensHull"
-          >
-            <FontAwesomeIcon
-              style={{ color: '#fff' }}
-              icon={['fab', 'facebook']}
-              size="3x"
-            />
-          </a>
-        </ContentContainer>
-      </ContentSection>
-    </BottomBar>{' '}
-    {/* © new Date().getFullYear() */}
+    <BottomBar />
   </>
 )
