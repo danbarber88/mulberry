@@ -32,13 +32,14 @@ const MenuWrapper = styled.div`
   z-index: 5;
   position: fixed;
   top: 0;
-  right: 0;
+  right: -300px;
   height: 100vh;
   width: 300px;
   padding-top: 70px;
   background-color: #cecece;
   transition: all 0.25s cubic-bezier(0.84, 0.01, 0.36, 1);
-  transform: ${props => (props.isOpen ? 'translateX(0)' : 'translateX(300px)')};
+  transform: ${props =>
+    props.isOpen ? 'translateX(-300px)' : 'translateX(0)'};
 `
 
 const MenuItem = styled(Link)`

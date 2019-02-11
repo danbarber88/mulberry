@@ -74,7 +74,7 @@ const MobileNavContainer = styled.div`
 
 const NavWrapper = styled.div`
   position: fixed;
-  top: 0;
+  top: -87.25px;
   left: 0;
   z-index: 2;
   display: flex;
@@ -88,12 +88,12 @@ const NavWrapper = styled.div`
   transform: ${props =>
     // If on the home page toggle nav visability based on isVisible prop.
     props.isVisible && props.location === '/'
-      ? 'translateY(0)'
-      : 'translateY(-87.25px)'};
+      ? 'translateY(87.25px)'
+      : 'translateY(0)'};
 
   transform: ${props =>
     // Just show the nav without toggling capabilities, if on any other page.
-    props.location !== '/' && 'translateY(0)'};
+    props.location !== '/' && 'translateY(87.25px)'};
 `
 
 const Overlay = styled.div`
