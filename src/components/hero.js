@@ -106,7 +106,7 @@ class Hero extends Component {
     this.state = {
       topOfPage: true,
       arrowVisible: true,
-      height: '0',
+      height: '100vh',
     }
 
     this.viewHeightChange = this.viewHeightChange.bind(this)
