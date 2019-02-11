@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Button from './button'
+import { device } from '../utils/device'
 
 const AppointmentFormContainer = styled.div`
+  width: 300px;
   text-align: center;
   padding-top: 24px;
 
@@ -40,6 +42,19 @@ const AppointmentFormContainer = styled.div`
     .privacy {
       text-decoration: underline;
     }
+  }
+
+  @media ${device.laptop} {
+    width: 275px;
+  }
+
+  @media ${device.tablet} {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  @media ${device.mobileM} {
+    width: 256px;
   }
 `
 

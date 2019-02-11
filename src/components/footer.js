@@ -29,13 +29,14 @@ const BackgroundImg = styled(Img)`
   background-color: #000928;
 `
 
-const SectionOverlay = styled.section`
+const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   width: 100%;
 `
 
 const ContactDetails = styled.div`
+  width: 370px;
   padding-top: 24px;
   h3 {
     font-weight: 600;
@@ -56,12 +57,25 @@ const ContactDetails = styled.div`
   .dont-hesitate {
     margin-top: 50px;
   }
+
+  @media ${device.laptop} {
+    width: 275px;
+  }
+
+  @media ${device.tablet} {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  @media ${device.mobileM} {
+    width: 256px;
+  }
 `
 
 export default props => (
   <>
     <Footer>
-      <SectionOverlay>
+      <Wrapper>
         <StaticQuery
           query={graphql`
             query {
@@ -80,7 +94,7 @@ export default props => (
         />
 
         <ContentSection>
-          <ContentContainer darkBg width="370px">
+          <ContentContainer darkBg>
             <ContactDetails>
               <h3>GET IN TOUCH</h3>
               <div className="contact-text bold">
@@ -110,11 +124,11 @@ export default props => (
             </ContactDetails>
           </ContentContainer>
 
-          <ContentContainer darkBg width="300px">
+          <ContentContainer darkBg>
             <AppointmentForm />
           </ContentContainer>
         </ContentSection>
-      </SectionOverlay>
+      </Wrapper>
     </Footer>
     <BottomBar />
   </>
