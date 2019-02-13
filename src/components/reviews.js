@@ -6,7 +6,6 @@ import caret from '../images/caret-right.svg'
 import Button from './button'
 import { device } from '../utils/device'
 
-// BUG: Reviews go into a single line on IE, probably a flex issue.
 // TODO: Make the placeholders and error responsive.
 
 const flash = keyframes`
@@ -49,6 +48,10 @@ const Review = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  a {
+    width: 100%;
+  }
 
   @media ${device.laptop} {
     width: 40%;
