@@ -7,6 +7,7 @@ import Button from './button'
 import { device } from '../utils/device'
 
 // BUG: Reviews go into a single line on IE, probably a flex issue.
+// TODO: Make the placeholders and error responsive.
 
 const flash = keyframes`
   0% {

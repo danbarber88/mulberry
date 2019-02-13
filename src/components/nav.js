@@ -4,7 +4,6 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import logo from '../images/logo.svg'
 import { device } from '../utils/device'
-import Media from 'react-media'
 import Menu from './menu'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -192,7 +191,7 @@ class Nav extends Component {
   }
 
   // close nav when clicking outside of it.
-  // ref exists and ref node does not contain click target
+  // mobile nav open and ref node does not contain click target
   mobileNavBlur(e) {
     if (this.state.mobileNavOpen && !this.wrapperRef.contains(e.target)) {
       this.setState({ mobileNavOpen: false }, this.lockScroll)
