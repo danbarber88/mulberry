@@ -63,7 +63,7 @@ const Icon = styled(FontAwesomeIcon)`
 
 const CloseIcon = styled(FontAwesomeIcon)`
   position: fixed;
-  top: 0
+  top: 0;
   right: 0;
   margin: 15px;
   font-size: 1em;

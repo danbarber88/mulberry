@@ -33,6 +33,10 @@ const NavItem = styled(Link)`
     margin: 0 10px;
     font-size: 0.8em;
   }
+
+  @media ${device.tablet} {
+    display: none;
+  }
 `
 
 const NavItemContainer = styled.div`
@@ -42,6 +46,10 @@ const NavItemContainer = styled.div`
   align-items: center;
   margin: 0;
   min-width: 250px;
+
+  @media ${device.tablet} {
+    display: none;
+  }
 `
 
 const Logo = styled.img`
@@ -49,7 +57,17 @@ const Logo = styled.img`
   margin: 5px 10px;
 
   @media ${device.tablet} {
-    margin: 5px;
+    display: none;
+  }
+`
+
+const MobileLogo = styled.img`
+  width: 250px;
+  margin: 5px;
+  display: none;
+
+  @media ${device.tablet} {
+    display: inline;
   }
 
   @media ${device.mobileL} {
@@ -62,6 +80,11 @@ const Hamburger = styled(FontAwesomeIcon)`
   margin: 0 10px;
   font-size: 2.5em;
   color: #fff;
+  display: none;
+
+  @media ${device.tablet} {
+    display: inline;
+  }
 `
 
 const MobileNavContainer = styled.div`
@@ -70,11 +93,16 @@ const MobileNavContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  display: none;
+
+  @media ${device.tablet} {
+    display: flex;
+  }
 `
 
 const NavWrapper = styled.div`
   position: fixed;
-  top: -87.25px;
+  top: -87px;
   left: 0;
   z-index: 2;
   display: flex;
@@ -88,19 +116,19 @@ const NavWrapper = styled.div`
   transform: ${props =>
     // If on the home page toggle nav visability based on isVisible prop.
     props.isVisible && props.location === '/'
-      ? 'translateY(87.25px)'
+      ? 'translateY(87px)'
       : 'translateY(0)'};
 
   transform: ${props =>
     // Just show the nav without toggling capabilities, if on any other page.
-    props.location !== '/' && 'translateY(87.25px)'};
+    props.location !== '/' && 'translateY(87px)'};
 `
 
 const Overlay = styled.div`
   z-index: 1;
   position: fixed;
-  top: 0
-  left: 0
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
@@ -177,49 +205,29 @@ class Nav extends Component {
 
   render() {
     return (
-      <Media
-        query={device.tablet}
-        onChange={matches => matches && this.forceUpdate()}
+      <NavWrapper
+        isVisible={this.state.navVisible}
+        location={this.props.location}
       >
-        {matches =>
-          matches ? (
-            <NavWrapper
-              isVisible={this.state.navVisible}
-              location={this.props.location}
-            >
-              <Overlay isOpen={this.state.mobileNavOpen} />
-              <MobileNavContainer ref={this.setWrapperRef}>
-                <Menu
-                  close={this.closeMenu}
-                  isOpen={this.state.mobileNavOpen}
-                />
-                <Logo src={logo} />
-                <Hamburger
-                  icon={['fas', 'bars']}
-                  onClick={this.mobileNavToggle}
-                />
-              </MobileNavContainer>
-            </NavWrapper>
-          ) : (
-            <NavWrapper
-              isVisible={this.state.navVisible}
-              location={this.props.location}
-            >
-              <NavItemContainer>
-                <NavItem to="/">Home</NavItem>
-                <NavItem to="/design-service">Design Service</NavItem>
-                <NavItem to="/projects">Projects</NavItem>
-              </NavItemContainer>
-              <Logo src={logo} />
-              <NavItemContainer>
-                <NavItem to="/">Testimonials</NavItem>
-                <NavItem to="/">News</NavItem>
-                <NavItem to="/">Contact Us</NavItem>
-              </NavItemContainer>
-            </NavWrapper>
-          )
-        }
-      </Media>
+        <Overlay isOpen={this.state.mobileNavOpen} />
+        <MobileNavContainer ref={this.setWrapperRef}>
+          <Menu close={this.closeMenu} isOpen={this.state.mobileNavOpen} />
+          <MobileLogo src={logo} />
+          <Hamburger icon={['fas', 'bars']} onClick={this.mobileNavToggle} />
+        </MobileNavContainer>
+
+        <NavItemContainer>
+          <NavItem to="/">Home</NavItem>
+          <NavItem to="/design-service">Design Service</NavItem>
+          <NavItem to="/projects">Projects</NavItem>
+        </NavItemContainer>
+        <Logo src={logo} />
+        <NavItemContainer>
+          <NavItem to="/">Testimonials</NavItem>
+          <NavItem to="/">News</NavItem>
+          <NavItem to="/">Contact Us</NavItem>
+        </NavItemContainer>
+      </NavWrapper>
     )
   }
 }
