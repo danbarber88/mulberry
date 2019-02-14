@@ -34,12 +34,19 @@ const Container = styled.div`
 `
 
 const ErrorContainer = styled.div`
-  width: 100%
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 60px;
   color: #8f5200;
+
+  h2 {
+    text-align: center;
+    font-weight: 200;
+    color: #292929;
+    margin: 20px;
+  }
 `
 
 const Review = styled.div`
@@ -115,6 +122,7 @@ class Reviews extends Component {
         const reviews = place.reviews
           .filter(review => review.rating === 5 && review.text.length > 0)
           .sort((a, b) => b.time - a.time)
+
         this.setState({
           reviews: [reviews[0], reviews[1]],
           loading: false,
@@ -195,7 +203,7 @@ class Reviews extends Component {
     if (this.state.error) {
       return (
         <ErrorContainer>
-          <h2>Failed to fetch reviews :(</h2>
+          <h2>FAILED TO FETCH REVIEWS</h2>
           <Button primary onClick={this.tryAgain.bind(this)}>
             Try Again
           </Button>
