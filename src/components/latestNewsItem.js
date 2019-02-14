@@ -26,11 +26,16 @@ const Description = styled.p`
 `
 
 const PostedDate = styled.span`
+  color: #8f5200;
+  font-size: 16px;
+  .on {
+    color: #292929;
+  }
+
   @media ${device.tablet} {
     display: block;
     line-height: 16px;
     font-size: 12px;
-    color: #656565;
 
     .on {
       display: none;
