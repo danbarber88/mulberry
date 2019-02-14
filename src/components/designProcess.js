@@ -105,7 +105,7 @@ const DesignProcess = props => (
             src={sign}
             width="120px"
             height="120px"
-            style={{ margin: '0' }}
+            style={{ marginBottom: '0' }}
           />
           <div>
             <StepHeader>1. Visit the Showroom</StepHeader>
