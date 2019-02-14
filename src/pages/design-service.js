@@ -1,6 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -16,7 +14,6 @@ import {
 import Button from '../components/button'
 import DesignProcess from '../components/designProcess'
 import Testimonial from '../components/testimonial'
-import { device } from '../utils/device'
 
 const DesignPage = props => (
   <Layout location={props.location.pathname}>
