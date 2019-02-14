@@ -45,14 +45,10 @@ export const ContentSection = styled.section`
 `
 
 export const ContentContainer = styled.div`
-  max-width: 50%;
+  max-width: 45%;
 
   width: ${props => props.width};
   color: ${props => (props.darkBg ? '#fff' : 'inherit')};
-
-  @media ${device.laptopL} {
-    max-width: 45%;
-  }
 
   @media ${device.laptop} {
     max-width: 80%;

@@ -25,8 +25,12 @@ const Wrapper = styled.section`
   align-items: center;
   width: 100%;
   height: ${props => props.height};
-  margin-top: -100px;
+  margin-top: -87px;
   background-color: #000;
+
+  @media ${device.mobileL} {
+    margin-top: -79.5px;
+  }
 `
 
 const BackgroundImg = styled(Img)`

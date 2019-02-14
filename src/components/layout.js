@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { createGlobalStyle } from 'styled-components'
+import { device } from '../utils/device'
 
 import Nav from './nav'
 import Footer from './footer'
@@ -28,8 +29,12 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 87px;
   width: 100%;
+
+  @media ${device.mobileL} {
+    margin-top: 79.5px;
+  }
 `
 const Layout = ({ location, children }) => (
   <div
