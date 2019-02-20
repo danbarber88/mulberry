@@ -13,13 +13,13 @@ const Wrapper = styled.div`
 
 const Text = styled.p`
   width: 70%;
-  font-size: 30px;
+  font-size: 26px;
   color: #000928;
   text-align: center;
   margin: 0;
 
   @media ${device.laptop} {
-    font-size: 26px;
+    font-size: 24px;
     width: 80%;
   }
 
@@ -35,13 +35,13 @@ const Text = styled.p`
 const Name = styled.p`
   display: flex;
   align-self: flex-end;
-  font-size: 34px;
+  font-size: 30px;
   color: #8f5200;
   margin-right: 15%;
   margin-bottom: 0;
 
   @media ${device.laptop} {
-    font-size: 30px;
+    font-size: 28px;
     margin-right: 10%;
   }
 

@@ -30,7 +30,7 @@ const BackgroundImg = styled(Img)`
 `
 
 const HeaderText = styled(SecondaryHeader)`
-  margin: 100px 0 75px 0;
+  margin: 60px 0 75px 0;
 `
 
 const StepContainer = styled.div`
@@ -39,6 +39,7 @@ const StepContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: -80px;
 
   @media ${device.tablet} {
     justify-content: center;
@@ -162,7 +163,7 @@ const DesignProcess = props => (
   </MainContainer>
 )
 
-Step.propTypes = {
+Icon.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
 }

@@ -37,6 +37,7 @@ const Wrapper = styled.div`
 `
 
 const BannerText = styled.div`
+  margin: 0 20%;
   z-index: 1;
   display: flex;
   text-align: center;
@@ -53,7 +54,7 @@ const BannerText = styled.div`
 
   @media ${device.tablet} {
     font-size: 20px;
-    margin: 0 10px;
+    margin: 0 10%;
   }
 
   @media ${device.mobileL} {
@@ -85,7 +86,8 @@ const Banner = props => (
     <Wrapper>
       {/* QUESTION: Too cheesy? need the persons name? */}
       <BannerText>
-        "The home should be the treasure chest of living." <br /> - Le Corbusier
+        Whether you have zero ideas or know exactly what you want, we are here
+        to help materialise your perfect kitchen.
       </BannerText>
     </Wrapper>
   </>
