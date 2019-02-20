@@ -59,7 +59,7 @@ const WorkSection = () => (
         query {
           background: file(relativePath: { eq: "uform/slab.jpg" }) {
             childImageSharp {
-              fluid(quality: 100, maxWidth: 2000) {
+              fluid(quality: 80, maxWidth: 2000) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
