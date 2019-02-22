@@ -12,18 +12,23 @@ import { device } from '../utils/device'
 const ProjectsPage = ({ location, data }) => (
   <Layout location={location.pathname}>
     <SEO title="Projects" keywords={[`gatsby`, `application`, `react`]} />
-    <div>
+    <ContentSection>
       {data.allContentfulProject.edges.map(project => (
-        <>
+        <div style={{ marginTop: '30px' }}>
+          <Img
+            fluid={project.node.images[0].fluid}
+            style={{
+              width: '610px',
+              height: 'auto',
+              boxShadow: '2px 2px 1px rgba(0, 0, 0, 0.25)',
+            }}
+          />
           <h1>
             {project.node.name} / {project.node.location}
           </h1>
-
-          <img src={project.node.images[0].fluid.src} />
-        </>
+        </div>
       ))}
-    </div>
-    <ContentSection />
+    </ContentSection>
   </Layout>
 )
 
@@ -35,8 +40,8 @@ export const query = graphql`
           name
           location
           images {
-            fluid {
-              src
+            fluid(maxWidth: 610, maxHeight: 404, quality: 100) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
         }
