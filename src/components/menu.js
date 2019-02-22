@@ -80,19 +80,19 @@ const Menu = props => (
       <Icon icon={['fas', 'pencil-alt']} />
       Design Service
     </MenuItem>
-    <MenuItem to="/" onClick={props.close}>
+    <MenuItem to="/projects" onClick={props.close}>
       <Icon icon={['fas', 'star']} />
       Projects
     </MenuItem>
-    <MenuItem to="/" onClick={props.close}>
+    <MenuItem to="/testimonials" onClick={props.close}>
       <Icon icon={['fas', 'comment']} />
       Testimonials
     </MenuItem>
-    <MenuItem to="/" onClick={props.close}>
+    <MenuItem to="/new" onClick={props.close}>
       <Icon icon={['fas', 'newspaper']} />
       News
     </MenuItem>
-    <MenuItem to="/" onClick={props.close}>
+    <MenuItem to="/contact" onClick={props.close}>
       <Icon icon={['fas', 'phone']} />
       Contact Us
     </MenuItem>
