@@ -35,8 +35,8 @@ const WorkImages = () => (
       query {
         first: file(relativePath: { eq: "uform/slab.jpg" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 200) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(quality: 100, maxWidth: 250) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
