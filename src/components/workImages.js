@@ -36,27 +36,27 @@ const WorkImages = () => (
         first: file(relativePath: { eq: "uform/slab.jpg" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 250) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         second: file(relativePath: { eq: "uform/inframe.jpg" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 200) {
+            fluid(quality: 100, maxWidth: 250) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         third: file(relativePath: { eq: "uform/shaker.jpg" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 200) {
+            fluid(quality: 100, maxWidth: 250) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         fourth: file(relativePath: { eq: "uform/raised-panel.jpg" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 200) {
+            fluid(quality: 100, maxWidth: 250) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
