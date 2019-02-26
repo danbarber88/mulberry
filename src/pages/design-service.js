@@ -15,6 +15,8 @@ import Button from '../components/button'
 import DesignProcess from '../components/designProcess'
 import Testimonial from '../components/testimonial'
 
+// TODO: ie11 image stretch problem
+
 const DesignPage = props => (
   <Layout location={props.location.pathname}>
     <SEO title="Design Service" keywords={[`gatsby`, `application`, `react`]} />

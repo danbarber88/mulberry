@@ -2,31 +2,25 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { device } from '../utils/device'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-
 import { ContentSection } from '../components/contentSection'
-import { device } from '../utils/device'
+import Project from '../components/project'
 
 const ProjectsPage = ({ location, data }) => (
   <Layout location={location.pathname}>
     <SEO title="Projects" keywords={[`gatsby`, `application`, `react`]} />
     <ContentSection>
-      {data.allContentfulProject.edges.map(project => (
-        <div style={{ marginTop: '30px' }}>
-          <Img
-            fluid={project.node.images[0].fluid}
-            style={{
-              width: '610px',
-              height: 'auto',
-              boxShadow: '2px 2px 1px rgba(0, 0, 0, 0.25)',
-            }}
-          />
-          <h1>
-            {project.node.name} / {project.node.location}
-          </h1>
-        </div>
+      {data.allContentfulProject.edges.map((project, i) => (
+        <Project
+          key={i}
+          displayName={project.node.displayName}
+          location={project.node.location}
+          thumbnail={project.node.thumbnail.fluid}
+          images={project.node.images}
+        />
       ))}
     </ContentSection>
   </Layout>
@@ -37,10 +31,15 @@ export const query = graphql`
     allContentfulProject {
       edges {
         node {
-          name
+          displayName
           location
+          thumbnail {
+            fluid(maxWidth: 610, maxHeight: 458, quality: 100) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+          }
           images {
-            fluid(maxWidth: 610, maxHeight: 404, quality: 100) {
+            fluid(maxWidth: 1132, maxHeight: 750, quality: 100) {
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
