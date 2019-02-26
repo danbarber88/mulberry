@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
+import Fade from 'react-reveal/Fade'
 
 import { device } from '../utils/device'
 
@@ -32,6 +33,15 @@ const Wrapper = styled.div`
       }
     }
   }
+
+  @media ${device.tablet} {
+    margin: 30px auto 0 auto;
+    flex-basis: 80%;
+  }
+
+  @media ${device.mobileL} {
+    flex-basis: 100%;
+  }
 `
 
 const Thumbnail = styled(Img)`
@@ -56,11 +66,17 @@ class Project extends Component {
     return (
       <>
         <Wrapper onClick={() => this.setState({ isOpen: true })}>
-          <Thumbnail fluid={thumbnail} />
-          <Name>
-            {displayName} <span>/ {location}</span>
-          </Name>
+          <Fade distance="50px" bottom>
+            <div>
+              <Thumbnail fluid={thumbnail} />
+              <Name>
+                {displayName}
+                {location && <span> / {location}</span>}
+              </Name>
+            </div>
+          </Fade>
         </Wrapper>
+
         {isOpen && (
           <Lightbox
             mainSrc={images[index].fluid.src}
