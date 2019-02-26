@@ -28,7 +28,7 @@ const ProjectsPage = ({ location, data }) => (
 
 export const query = graphql`
   query {
-    allContentfulProject {
+    allContentfulProject(sort: { fields: date, order: DESC }) {
       edges {
         node {
           displayName
