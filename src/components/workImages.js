@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { device } from '../utils/device'
 
@@ -8,12 +8,16 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
+
+  @media ${device.tablet} {
+    justify-content: center;
+  }
 `
 
-const WorkImg = styled(Img)`
-  width: 250px;
+const WorkImgLink = styled(Link)`
+  max-width: 260px;
   flex-basis: 23%;
   margin-right: 2%;
 
@@ -33,31 +37,18 @@ const WorkImages = () => (
   <StaticQuery
     query={graphql`
       query {
-        first: file(relativePath: { eq: "uform/slab.jpg" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 250) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        second: file(relativePath: { eq: "uform/inframe.jpg" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 250) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        third: file(relativePath: { eq: "uform/shaker.jpg" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 250) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        fourth: file(relativePath: { eq: "uform/raised-panel.jpg" }) {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 250) {
-              ...GatsbyImageSharpFluid_withWebp
+        allContentfulProject(
+          limit: 4
+          sort: { fields: date, order: DESC }
+          filter: { featureOnFrontPage: { eq: true } }
+        ) {
+          edges {
+            node {
+              thumbnail {
+                fluid(maxWidth: 260, maxHeight: 175, quality: 100) {
+                  ...GatsbyContentfulFluid_withWebp_noBase64
+                }
+              }
             }
           }
         }
@@ -65,10 +56,11 @@ const WorkImages = () => (
     `}
     render={data => (
       <Container>
-        <WorkImg fluid={data.first.childImageSharp.fluid} />
-        <WorkImg fluid={data.second.childImageSharp.fluid} />
-        <WorkImg fluid={data.third.childImageSharp.fluid} />
-        <WorkImg fluid={data.fourth.childImageSharp.fluid} />
+        {data.allContentfulProject.edges.map((project, i) => (
+          <WorkImgLink to="/projects">
+            <Img key={i} fluid={project.node.thumbnail.fluid} />
+          </WorkImgLink>
+        ))}
       </Container>
     )}
   />
