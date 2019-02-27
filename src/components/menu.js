@@ -24,8 +24,6 @@ library.add(
   faTimes
 )
 
-// TODO: Swipe to close.
-
 const MenuWrapper = styled.div`
   display: flex;
   flex-direction: column;

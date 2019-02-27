@@ -58,11 +58,6 @@ const AppointmentFormContainer = styled.div`
   }
 `
 
-// NOTE: Netlifys recaptcha doesnt work with react, can still add custom reCaptcha - CLICK ME!
-// netlify docs about custom recaptcha: https://www.netlify.com/docs/form-handling/#custom-recaptcha-2-with-your-own-settings
-// react-google-recaptcha: https://github.com/dozoisch/react-google-recaptcha
-// an example of this being implemented: https://github.com/imorente/gatsby-netlify-form-example/blob/master/src/pages/recaptcha.js
-
 class AppointmentForm extends Component {
   render() {
     return (
@@ -76,8 +71,7 @@ class AppointmentForm extends Component {
           Enter your details to arrange a consultation at our showroom. We will
           get back to you as soon as possible.
         </p>
-        {/* TODO: add action to direct to thank you page when complete */}
-        {/* TODO: add mulberry email to netlify dashboard when site finished */}
+
         <form
           name="appointment"
           method="post"

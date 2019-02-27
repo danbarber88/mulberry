@@ -6,8 +6,6 @@ import caret from '../images/caret-right.svg'
 import Button from './button'
 import { device } from '../utils/device'
 
-// TODO: Make the placeholders and error responsive.
-
 const flash = keyframes`
   0% {
     opacity: 1;

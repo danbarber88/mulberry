@@ -12,9 +12,6 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faBars)
 
-// TODO: Link logo to /
-// QUESTION: Should we have a nav at the top of the hero with bigger bolder links but no background color?
-
 // Styled Components
 
 const NavItem = styled(Link)`

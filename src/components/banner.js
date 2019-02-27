@@ -85,7 +85,6 @@ const Banner = props => (
       )}
     />
     <Wrapper>
-      {/* QUESTION: Too cheesy? need the persons name? */}
       <BannerText>
         Whether you have zero ideas or know exactly what you want, we are here
         to help materialise your perfect kitchen.
