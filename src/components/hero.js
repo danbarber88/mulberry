@@ -175,7 +175,7 @@ class Hero extends Component {
               hero: file(relativePath: { eq: "uform/inframe.jpg" }) {
                 childImageSharp {
                   fluid(quality: 100, maxWidth: 2000) {
-                    ...GatsbyImageSharpFluid_withWebp
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                   }
                 }
               }
@@ -186,6 +186,7 @@ class Hero extends Component {
               height={this.state.height}
               fluid={data.hero.childImageSharp.fluid}
               id="background-img"
+              backgroundColor="#495f79"
             />
           )}
         />

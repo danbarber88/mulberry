@@ -70,7 +70,7 @@ const Banner = props => (
           hero: file(relativePath: { eq: "design.jpg" }) {
             childImageSharp {
               fluid(quality: 100, maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }
@@ -80,6 +80,7 @@ const Banner = props => (
         <BackgroundImg
           fluid={data.hero.childImageSharp.fluid}
           id="background-img"
+          backgroundColor="#716559"
         />
       )}
     />
