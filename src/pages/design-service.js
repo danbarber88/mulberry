@@ -15,10 +15,15 @@ import Button from '../components/button'
 import DesignProcess from '../components/designProcess'
 import Testimonial from '../components/testimonial'
 
-const DesignPage = props => (
-  <Layout location={props.location.pathname}>
+const DesignPage = ({ location, data }) => (
+  <Layout location={location.pathname}>
     <SEO title="Design Service" keywords={[`gatsby`, `application`, `react`]} />
-    <Banner />
+    <Banner
+      img={data.bannerImg.childImageSharp.fluid}
+      backgroundColor="#716559"
+      text="Whether you have zero ideas or know exactly what you want, we are here
+      to help materialise your perfect kitchen."
+    />
     <ContentSection>
       <ContentContainer marginBottom>
         <MainHeader>Design sets us apart</MainHeader>
@@ -60,5 +65,17 @@ const DesignPage = props => (
     />
   </Layout>
 )
+
+export const query = graphql`
+  query {
+    bannerImg: file(relativePath: { eq: "design.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+  }
+`
 
 export default DesignPage

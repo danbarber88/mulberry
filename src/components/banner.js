@@ -1,7 +1,6 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
 import { device } from '../utils/device'
 
 const BackgroundImg = styled(Img)`
@@ -64,31 +63,13 @@ const BannerText = styled.div`
 
 const Banner = props => (
   <>
-    <StaticQuery
-      query={graphql`
-        query {
-          hero: file(relativePath: { eq: "design.jpg" }) {
-            childImageSharp {
-              fluid(quality: 100, maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp_noBase64
-              }
-            }
-          }
-        }
-      `}
-      render={data => (
-        <BackgroundImg
-          fluid={data.hero.childImageSharp.fluid}
-          id="background-img"
-          backgroundColor="#716559"
-        />
-      )}
+    <BackgroundImg
+      fluid={props.img}
+      id="background-img"
+      backgroundColor={props.backgroundColor}
     />
     <Wrapper>
-      <BannerText>
-        Whether you have zero ideas or know exactly what you want, we are here
-        to help materialise your perfect kitchen.
-      </BannerText>
+      <BannerText>{props.text}</BannerText>
     </Wrapper>
   </>
 )
