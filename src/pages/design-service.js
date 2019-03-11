@@ -13,7 +13,7 @@ import {
 } from '../components/contentSection'
 import Button from '../components/button'
 import DesignProcess from '../components/designProcess'
-import Testimonial from '../components/testimonial'
+import TestimonialBanner from '../components/testimonialBanner'
 
 const DesignPage = ({ location, data }) => (
   <Layout location={location.pathname}>
@@ -59,7 +59,7 @@ const DesignPage = ({ location, data }) => (
       </ContentContainer>
     </ContentSection>
     <DesignProcess />
-    <Testimonial
+    <TestimonialBanner
       text="Thank you for designing such a stunning kitchen - we love it, even the cat is happy as he's got a new hammock! Also for the first class service and support you gave throughout the fitting, from your first visit to discuss ideas to your last visit to deliver the cutlery drawer - nothing was too much trouble for you. We will certainly recommend Mulberry Kitchens in the future."
       name="Mrs E"
     />
