@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade'
 
 const Name = styled.h4`
   color: #000928;
-  font-size: 1.4em;
+  font-size: 1.5em;
   margin-top: 0;
   margin-bottom: 25px;
   font-weight: 400;
