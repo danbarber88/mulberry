@@ -36,16 +36,20 @@ const Wrapper = styled.div`
 `
 
 const BannerText = styled.div`
-  margin: 0 20%;
+  width: 80%;
   z-index: 1;
   display: flex;
   text-align: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 30px;
-  text-shadow: 0px 3px 2px rgba(0, 0, 0, 0.6);
-  letter-spacing: 2px;
-  text-align: center;
+
+  p {
+    margin: 0 auto;
+    color: #fff;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0px 3px 2px rgba(0, 0, 0, 0.6);
+  }
 
   @media ${device.laptop} {
     font-size: 26px;
@@ -69,7 +73,9 @@ const Banner = props => (
       backgroundColor={props.backgroundColor}
     />
     <Wrapper>
-      <BannerText>{props.text}</BannerText>
+      <BannerText>
+        <p>{props.text}</p>
+      </BannerText>
     </Wrapper>
   </>
 )
