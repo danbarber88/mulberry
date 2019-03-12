@@ -86,7 +86,7 @@ const Menu = props => (
       <Icon icon={['fas', 'comment']} />
       Testimonials
     </MenuItem>
-    <MenuItem to="/new" onClick={props.close}>
+    <MenuItem to="/news" onClick={props.close}>
       <Icon icon={['fas', 'newspaper']} />
       News
     </MenuItem>
