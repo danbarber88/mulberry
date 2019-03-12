@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import Img from './gatsbyImageWithIEPolyfill'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { ContentSection, SecondaryHeader } from '../components/contentSection'

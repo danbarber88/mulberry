@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import Img from './gatsbyImageWithIEPolyfill'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import caret from '../images/caret-right.svg'

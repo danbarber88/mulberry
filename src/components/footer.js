@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import Img from './gatsbyImageWithIEPolyfill'
 import { ContentSection, ContentContainer } from './contentSection'
 import BottomBar from './bottomBar'
 import styled from 'styled-components'

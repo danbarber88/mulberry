@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import Img from './gatsbyImageWithIEPolyfill'
 import arrow from '../images/arrow.svg'
 import styled, { keyframes } from 'styled-components'
 import logo from '../images/logo.svg'
