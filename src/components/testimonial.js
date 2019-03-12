@@ -1,64 +1,38 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import Fade from 'react-reveal/Fade'
+
 import { device } from '../utils/device'
 
-const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 70px 0;
-`
-
-const Text = styled.p`
-  width: 70%;
-  font-size: 26px;
+const Name = styled.h4`
   color: #000928;
+  font-size: 1.4em;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-weight: 400;
+`
+
+const Wrapper = styled.div`
+  break-inside: avoid;
   text-align: center;
-  margin: 0;
-
-  @media ${device.laptop} {
-    font-size: 24px;
-    width: 80%;
-  }
-
-  @media ${device.tablet} {
-    font-size: 20px;
-  }
-
-  @media ${device.mobileL} {
-    font-size: 16px;
-  }
+  margin-bottom: 60px;
 `
 
-const Name = styled.p`
-  display: flex;
-  align-self: flex-end;
-  font-size: 30px;
-  color: #8f5200;
-  margin-right: 15%;
-  margin-bottom: 0;
-
-  @media ${device.laptop} {
-    font-size: 28px;
-    margin-right: 10%;
-  }
-
-  @media ${device.tablet} {
-    font-size: 24px;
-  }
-
-  @media ${device.mobileL} {
-    font-size: 20px;
-  }
-`
-
-const Testimonial = props => (
+const Testimonial = ({ name, text }) => (
   <Wrapper>
-    <Text>"{props.text}"</Text>
-    <Name>- {props.name}</Name>
+    <Fade distance="50px" bottom>
+      <div>
+        <Name>{name}</Name>
+        <p>{text}</p>
+      </div>
+    </Fade>
   </Wrapper>
 )
+
+Testimonial.propTypes = {
+  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+}
 
 export default Testimonial
