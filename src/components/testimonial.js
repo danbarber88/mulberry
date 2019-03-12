@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Fade from 'react-reveal/Fade'
-
-import { device } from '../utils/device'
 
 const Name = styled.h4`
   color: #000928;
