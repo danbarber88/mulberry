@@ -34,7 +34,7 @@ const TestimonialsPage = ({ location, data }) => (
     <SEO title="Testimonials" keywords={[`gatsby`, `application`, `react`]} />
     <Banner
       img={data.bannerImg.childImageSharp.fluid}
-      backgroundColor="#504f43"
+      backgroundColor="#565a5e"
       text='"Our kitchen is truly stunning and is the new heart of our home."'
     />
     <ContentSection>
