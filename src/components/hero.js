@@ -115,20 +115,21 @@ class Hero extends Component {
 
     this.viewHeightChange = this.viewHeightChange.bind(this)
     this.setHeight = this.setHeight.bind(this)
+    this.fadeArrow = this.fadeArrow.bind(this, 300)
+    this.fadeText = this.fadeText.bind(this)
   }
 
   componentDidMount() {
     this.setHeight()
     window.addEventListener('orientationchange', this.viewHeightChange)
-    window.addEventListener('scroll', () => {
-      this.fadeText()
-      this.fadeArrow(300)
-    })
+    window.addEventListener('scroll', this.fadeText)
+    window.addEventListener('scroll', this.fadeArrow)
   }
 
   componentWillUnmount() {
     window.removeEventListener('orientationchange', this.viewHeightChange)
     window.removeEventListener('scroll', this.fadeArrow)
+    window.removeEventListener('scroll', this.fadeText)
   }
 
   setHeight() {

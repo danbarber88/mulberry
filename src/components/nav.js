@@ -146,7 +146,7 @@ class Nav extends Component {
       mobileNavOpen: false,
     }
 
-    this.activateAnimation = this.activateAnimation.bind(this)
+    this.activateAnimation = this.activateAnimation.bind(this, 115)
     this.mobileNavToggle = this.mobileNavToggle.bind(this)
     this.mobileNavBlur = this.mobileNavBlur.bind(this)
     this.setWrapperRef = this.setWrapperRef.bind(this)
@@ -156,9 +156,7 @@ class Nav extends Component {
   componentDidMount() {
     window.addEventListener('click', this.mobileNavBlur)
     // Pass in the height from the top of the page where you want the nav transition to toggle.
-    window.addEventListener('scroll', () => {
-      this.activateAnimation(115)
-    })
+    window.addEventListener('scroll', this.activateAnimation)
   }
 
   componentWillUnmount() {
