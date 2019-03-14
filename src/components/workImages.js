@@ -57,8 +57,8 @@ const WorkImages = () => (
     render={data => (
       <Container>
         {data.allContentfulProject.edges.map((project, i) => (
-          <WorkImgLink to="/projects">
-            <Img key={i} fluid={project.node.thumbnail.fluid} />
+          <WorkImgLink key={i}  to="/projects">
+            <Img fluid={project.node.thumbnail.fluid} />
           </WorkImgLink>
         ))}
       </Container>
