@@ -26,6 +26,7 @@
     "intersection-observer": "^0.5.1",
     "npm": "^6.9.0",
     "object-fit-images": "^3.2.4",
+    "path": "^0.12.7",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
