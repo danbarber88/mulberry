@@ -36,10 +36,6 @@ export const ContentSection = styled.section`
   }
 
   @media ${device.laptop} {
-    width: 70%;
-  }
-
-  @media ${device.laptop} {
     width: 80%;
   }
 `

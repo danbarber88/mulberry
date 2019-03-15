@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 `
 
 const BannerText = styled.div`
-  width: 80%;
+  width: 70%;
   z-index: 1;
   display: flex;
   text-align: center;
@@ -51,17 +51,27 @@ const BannerText = styled.div`
     text-shadow: 0px 3px 2px rgba(0, 0, 0, 0.6);
   }
 
+  @media ${device.laptopL} {
+    width: 80%;
+  }
+
   @media ${device.laptop} {
-    font-size: 26px;
+    p {
+      font-size: 26px;
+    }
   }
 
   @media ${device.tablet} {
-    font-size: 20px;
+    p {
+      font-size: 20px;
+    }
     margin: 0 10%;
   }
 
   @media ${device.mobileL} {
-    font-size: 16px;
+    p {
+      font-size: 16px;
+    }
   }
 `
 
