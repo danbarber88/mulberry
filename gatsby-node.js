@@ -18,6 +18,7 @@ exports.createPages = ({ graphql, actions }) => {
                   src
                 }
               }
+              facesVisible
               images {
                 fluid {
                   src
@@ -45,6 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
             featureImage: edge.node.featureImage,
             images: edge.node.images,
             text: edge.node.text,
+            crop: edge.node.facesVisible ? 'FACES' : 'CENTER',
           },
         })
         resolve()

@@ -41,13 +41,11 @@ export const ContentSection = styled.section`
 `
 
 export const ContentContainer = styled.div`
-  max-width: 45%;
-
-  width: ${props => props.width};
+  width: ${props => props.width || '45%'};
   color: ${props => (props.darkBg ? '#fff' : 'inherit')};
 
   @media ${device.laptop} {
-    max-width: 80%;
+    width: 80%;
   }
 
   @media ${device.tablet} {
