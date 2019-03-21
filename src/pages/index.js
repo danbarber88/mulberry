@@ -59,7 +59,7 @@ const IndexPage = props => (
           nulla.
         </p>
       </ContentContainer>
-      <ContentContainer marginBottom>
+      <ContentContainer marginBottom width="auto">
         <SecondaryHeader>Latest News</SecondaryHeader>
         {/* Generate these from news pages? */}
         <LatestNewsItem

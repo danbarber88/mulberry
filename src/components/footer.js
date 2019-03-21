@@ -124,7 +124,7 @@ export default props => (
             </ContactDetails>
           </ContentContainer>
 
-          <ContentContainer darkBg>
+          <ContentContainer darkBg width="300px">
             <AppointmentForm />
           </ContentContainer>
         </ContentSection>

@@ -36,7 +36,7 @@ export const query = graphql`
             }
           }
           images {
-            fluid(maxWidth: 1132, maxHeight: 750, quality: 100) {
+            fluid(maxWidth: 1800, maxHeight: 1200, quality: 100) {
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }

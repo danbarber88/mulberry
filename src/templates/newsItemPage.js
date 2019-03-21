@@ -12,18 +12,31 @@ import {
   ContentContainer,
   MainHeader,
 } from '../components/contentSection'
+import Button from '../components/button'
 
 import { device } from '../utils/device'
 
 const FeatureImage = styled(Img)`
-  height: 350px;
   width: 100%;
-  margin: 30px 0 60px 0;
+  margin: 30px 0 0 0;
+
+  @media ${device.tablet} {
+    margin: 20px 0 0 0;
+  }
+
+  @media ${device.mobileL} {
+    height: 130px;
+  }
 `
 
 const Title = styled(MainHeader)`
-  margin: 0;
+  margin: 40px 0 0 0;
   font-size: 2.2rem;
+
+  @media ${device.mobileL} {
+    font-size: 1.75rem;
+    margin: 30px 0 0 0;
+  }
 `
 
 const PostedDate = styled.p`
@@ -33,19 +46,38 @@ const PostedDate = styled.p`
   margin: 0 0 30px 0;
 `
 
-const Thumb = styled(Img)`
-  width: 200px;
-  max-height: 150px;
+const Thumb = styled.div`
+  width: 35%;
+  height: auto;
   margin: 0 0 10px 10px;
   cursor: pointer;
 `
 
 const Gallery = styled.div`
+  margin: 43px 0 0 0;
   width: 45%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-content: flex-start;
   flex-wrap: wrap;
+
+  @media ${device.laptop} {
+    display: none;
+  }
+`
+
+const GalleryButton = styled(Button)`
+  display: none;
+
+  @media ${device.laptop} {
+    display: block;
+    margin: 40px auto 0 auto;
+  }
+
+  @media ${device.tablet} {
+    width: 100%;
+  }
 `
 
 class NewsItemPage extends Component {
@@ -70,27 +102,46 @@ class NewsItemPage extends Component {
 
     return (
       <Layout location={this.props.location.pathname}>
-        <SEO title={title} keywords={[`gatsby`, `application`, `react`]} />
+        <SEO title={title} />
         <ContentSection>
-          <FeatureImage fluid={featureImage.fluid} backgroundColor="3D4044" />
+          {featureImage && (
+            <FeatureImage
+              fluid={featureImage.fluid}
+              backgroundColor="#615f5b"
+            />
+          )}
+
           <ContentContainer width="55%">
             <Title>{title}</Title>
             <PostedDate>on {date}</PostedDate>
+
             <div
               dangerouslySetInnerHTML={{
                 __html: text.childMarkdownRemark.html,
               }}
             />
-          </ContentContainer>
-          <Gallery>
-            {images.map((image, i) => (
-              <div
-                onClick={() => this.setState({ index: i, galleryOpen: true })}
+
+            {images && (
+              <GalleryButton
+                onClick={() => this.setState({ index: 0, galleryOpen: true })}
               >
-                <Thumb key={i} fluid={image.fluid} />
-              </div>
-            ))}
-          </Gallery>
+                view image gallery
+              </GalleryButton>
+            )}
+          </ContentContainer>
+
+          {images && (
+            <Gallery>
+              {images.map((image, i) => (
+                <Thumb
+                  key={i}
+                  onClick={() => this.setState({ index: i, galleryOpen: true })}
+                >
+                  <Img fluid={image.fluid} backgroundColor="#615f5b" />
+                </Thumb>
+              ))}
+            </Gallery>
+          )}
         </ContentSection>
 
         {galleryOpen && (
@@ -142,12 +193,7 @@ export const pageQuery = graphql`
         }
       }
       images {
-        fluid(
-          resizingBehavior: FILL
-          maxWidth: 1132
-          maxHeight: 750
-          quality: 100
-        ) {
+        fluid(maxWidth: 1800, maxHeight: 1200, quality: 100) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
