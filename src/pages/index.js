@@ -61,8 +61,15 @@ const IndexPage = props => (
       </ContentContainer>
       <ContentContainer marginBottom width="auto">
         <SecondaryHeader>Latest News</SecondaryHeader>
-        {/* Generate these from news pages? */}
-        <LatestNewsItem
+        {props.data.latestNews.edges.map((item, i) => (
+          <LatestNewsItem
+            slug={item.node.slug}
+            heading={item.node.title}
+            date={item.node.date}
+            description={item.node.text.childMarkdownRemark.excerpt}
+          />
+        ))}
+        {/* <LatestNewsItem
           heading="True Handleless"
           date="13th Feb 2018"
           description="Presenting our latest display kitchen."
@@ -76,7 +83,7 @@ const IndexPage = props => (
           heading="Macmillan Coffee Morning - Thank you!"
           date="3rd Oct 2017"
           description="Thanks so much to all who visited and donated."
-        />
+        /> */}
       </ContentContainer>
     </ContentSection>
     <WorkSection />
@@ -108,6 +115,23 @@ export const query = graphql`
       childImageSharp {
         fluid(quality: 95, maxWidth: 200) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    latestNews: allContentfulNewsItem(
+      sort: { fields: date, order: DESC }
+      limit: 3
+    ) {
+      edges {
+        node {
+          date(formatString: "Do MMMM YYYY")
+          title
+          slug
+          text {
+            childMarkdownRemark {
+              excerpt(pruneLength: 50, format: HTML)
+            }
+          }
         }
       }
     }
