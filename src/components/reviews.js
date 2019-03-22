@@ -90,7 +90,6 @@ const SmallCaret = styled.img`
   height: 15px;
   width: auto;
   margin-left: 5px;
-  transition: 300ms linear all;
 `
 
 class Reviews extends Component {

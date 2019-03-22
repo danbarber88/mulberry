@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { device } from '../utils/device'
+import { Link } from 'gatsby'
 
 const Header = styled.p`
   font-size: 18px;
@@ -15,9 +16,9 @@ const Header = styled.p`
   }
 `
 
-const Description = styled.p`
+const Description = styled.div`
   margin: 0;
-  padding: 0 0 10px 20px;
+  padding: 0 0 0 20px;
 
   @media ${device.tablet} {
     padding: 5px 0 20px 0;
@@ -43,16 +44,20 @@ const PostedDate = styled.span`
   }
 `
 
-const LatestNewsItem = ({ heading, date, description }) => (
-  <>
+const LatestNewsItem = ({ slug, heading, date, description }) => (
+  <Link to={slug}>
     <Header>
       <strong>{heading}</strong>{' '}
       <PostedDate>
         <span className="on">on</span> {date}
       </PostedDate>
     </Header>
-    <Description>{description}</Description>
-  </>
+    <Description
+      dangerouslySetInnerHTML={{
+        __html: description,
+      }}
+    />
+  </Link>
 )
 
 LatestNewsItem.propTypes = {
