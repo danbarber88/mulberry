@@ -90,7 +90,7 @@ const Menu = props => (
       <Icon icon={['fas', 'newspaper']} />
       News
     </MenuItem>
-    <MenuItem to="/contact" onClick={props.close}>
+    <MenuItem to="/contact-us" onClick={props.close}>
       <Icon icon={['fas', 'phone']} />
       Contact Us
     </MenuItem>

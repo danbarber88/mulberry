@@ -63,5 +63,4 @@ ContentContainer.propTypes = {
   width: PropTypes.string, // Percentage
   darkBg: PropTypes.bool,
   marginTop: PropTypes.bool,
-  marginBottom: PropTypes.bool,
 }
