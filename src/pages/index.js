@@ -43,7 +43,7 @@ const IndexPage = props => (
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <Hero />
     <ContentSection>
-      <ContentContainer marginBottom>
+      <ContentContainer>
         <MainHeader>Kitchen Design in Hull</MainHeader>
         <p>
           Bacon ipsum dolor amet flank pastrami ex ad culpa. Jerky ad mollit
@@ -59,36 +59,22 @@ const IndexPage = props => (
           nulla.
         </p>
       </ContentContainer>
-      <ContentContainer marginBottom width="auto">
+      <ContentContainer width="auto">
         <SecondaryHeader>Latest News</SecondaryHeader>
         {props.data.latestNews.edges.map((item, i) => (
           <LatestNewsItem
+            key={i}
             slug={item.node.slug}
             heading={item.node.title}
             date={item.node.date}
             description={item.node.text.childMarkdownRemark.excerpt}
           />
         ))}
-        {/* <LatestNewsItem
-          heading="True Handleless"
-          date="13th Feb 2018"
-          description="Presenting our latest display kitchen."
-        />
-        <LatestNewsItem
-          heading="Mulberry stays off naughty list"
-          date="13th Dec 2017"
-          description="Great timing on this one!"
-        />
-        <LatestNewsItem
-          heading="Macmillan Coffee Morning - Thank you!"
-          date="3rd Oct 2017"
-          description="Thanks so much to all who visited and donated."
-        /> */}
       </ContentContainer>
     </ContentSection>
     <WorkSection />
     <ContentSection>
-      <ContentContainer marginBottom>
+      <ContentContainer>
         <SecondaryHeader>We are a NEFF 5* Master Partner</SecondaryHeader>
         <p>
           A Five Star Master Partner benefits from a higher discount structure

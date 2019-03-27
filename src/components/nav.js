@@ -222,7 +222,7 @@ class Nav extends Component {
         <NavItemContainer>
           <NavItem to="/testimonials">Testimonials</NavItem>
           <NavItem to="/news">News</NavItem>
-          <NavItem to="/contact">Contact Us</NavItem>
+          <NavItem to="/contact-us">Contact Us</NavItem>
         </NavItemContainer>
       </NavWrapper>
     )

@@ -25,7 +25,7 @@ const DesignPage = ({ location, data }) => (
       to help materialise your perfect kitchen."
     />
     <ContentSection>
-      <ContentContainer marginBottom>
+      <ContentContainer>
         <MainHeader>Design sets us apart</MainHeader>
         <p>
           Selling point about big brands not being able to provide the same
@@ -41,7 +41,7 @@ const DesignPage = ({ location, data }) => (
           nulla.
         </p>
       </ContentContainer>
-      <ContentContainer marginBottom>
+      <ContentContainer>
         <SecondaryHeader>Let us help</SecondaryHeader>
         <p>
           Tell the customer that they can come and see us for any reasons and
