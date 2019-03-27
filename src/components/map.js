@@ -1,6 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
 import {
   withScriptjs,
   withGoogleMap,
@@ -8,7 +6,6 @@ import {
   Marker,
 } from 'react-google-maps'
 
-import { device } from '../utils/device'
 const mapStyles = require('../utils/mapStyles.json')
 
 const Map = withScriptjs(

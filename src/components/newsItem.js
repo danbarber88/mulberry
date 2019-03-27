@@ -5,7 +5,6 @@ import Img from 'gatsby-image'
 import { Link } from 'gatsby'
 
 import { SecondaryHeader } from '../components/contentSection'
-import caret from '../images/caret-right.svg'
 
 import { device } from '../utils/device'
 
@@ -60,12 +59,6 @@ const Date = styled.p`
 
 const Excerpt = styled.div`
   margin-top: 20px;
-`
-
-const SmallCaret = styled.img`
-  height: 15px;
-  width: auto;
-  margin-left: 5px;
 `
 
 const NewsItem = ({ slug, date, title, thumbnail, text }) => (

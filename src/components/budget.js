@@ -8,6 +8,7 @@ import {
   SecondaryHeader,
 } from '../components/contentSection'
 import { device } from '../utils/device'
+import goldenCaret from '../images/golden-caret-right.svg'
 
 const MainContainer = styled.div`
   display: flex;
@@ -34,15 +35,36 @@ const LogoContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+
+  @media ${device.laptop} {
+    display: none;
+  }
 `
 
 const SupplierLogo = styled.div`
-  width: 175px;
+  width: ${props => props.width};
   height: auto;
 
   img {
     margin: 0;
   }
+`
+
+const BulletPoint = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+
+  p {
+    margin-left: 15px;
+    margin-bottom: 0;
+  }
+`
+
+const GoldenCaret = styled.img`
+  min-width: 15px;
+  margin: 0;
 `
 
 const Budget = props => (
@@ -67,13 +89,13 @@ const Budget = props => (
     <ContentSection>
       <ContentContainer>
         <LogoContainer>
-          <SupplierLogo style={{ width: '175px' }}>
+          <SupplierLogo width="175px">
             <Img fluid={props.neffLogo} />
           </SupplierLogo>
-          <SupplierLogo style={{ width: '140px' }}>
+          <SupplierLogo width="140px">
             <Img fluid={props.cosentinoLogo} />
           </SupplierLogo>
-          <SupplierLogo style={{ width: '220px' }}>
+          <SupplierLogo width="220px">
             <Img fluid={props.hafeleLogo} />
           </SupplierLogo>
         </LogoContainer>
@@ -82,25 +104,31 @@ const Budget = props => (
       <ContentContainer>
         <SecondaryHeader>The budget question</SecondaryHeader>
         <p>
-          Our showroom is of a fairly large size on National Avenue and we have
-          made the utmost effort to ensure that any visiting customer will be
-          able to see something they like. We can answer any queries you may
-          have and get the ball rolling on your new kitchen.
+          During your first visit to our showroom our designers may inquire
+          about your budget, if you do not feel comfortable sharing that
+          information then please don’t hesitate to let the designer know that
+          is the case.
         </p>
-        <p>
-          We offer a free design service, meaning that no costs will be incurred
-          if for any reason your design does not meet your expectations.
-        </p>
-        <p>
-          Our showroom is of a fairly large size on National Avenue and we have
-          made the utmost effort to ensure that any visiting customer will be
-          able to see something they like. We can answer any queries you may
-          have and get the ball rolling on your new kitchen.
-        </p>
-        <p>
-          We offer a free design service, meaning that no costs will be incurred
-          if for any reason your design does not meet your expectations.
-        </p>
+        <p>We ask because:</p>
+        <BulletPoint>
+          <GoldenCaret src={goldenCaret} />
+          <p>
+            We can raise or lower your expectations during your first
+            consultation, our priority is transparency, we have your best
+            interests in mind.
+          </p>
+        </BulletPoint>
+        <BulletPoint>
+          <GoldenCaret src={goldenCaret} />
+          <p>
+            We can maximise the potential of your design cutting out all guess
+            work.
+          </p>
+        </BulletPoint>
+        <BulletPoint>
+          <GoldenCaret src={goldenCaret} />
+          <p>We can specify the best appliances for your needs and budget.</p>
+        </BulletPoint>
       </ContentContainer>
     </ContentSection>
   </MainContainer>

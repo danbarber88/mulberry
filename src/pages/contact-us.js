@@ -1,5 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
@@ -10,7 +9,6 @@ import {
   ContentSection,
   ContentContainer,
   MainHeader,
-  SecondaryHeader,
 } from '../components/contentSection'
 import Budget from '../components/budget'
 import TestimonialBanner from '../components/testimonialBanner'
@@ -40,9 +38,16 @@ const ContactDetails = styled.div`
   }
 
   .address {
+    color: #000928;
     line-height: 20px;
     margin-bottom: 1rem;
     margin-top: 0.4rem;
+    font-weight: 600;
+  }
+
+  .opening {
+    color: #000928;
+    font-weight: 600;
   }
 
   .phone {
@@ -51,6 +56,31 @@ const ContactDetails = styled.div`
 
   .email {
     margin-bottom: 1rem;
+  }
+
+  @media ${device.laptop} {
+    border-left: none;
+    padding-left: 0;
+
+    .email {
+      margin-bottom: 2rem;
+    }
+
+    .address,
+    .opening {
+      font-size: 2rem;
+      line-height: 2.2rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media ${device.mobileL} {
+    .address,
+    .opening {
+      font-size: 1.8rem;
+      line-height: 2rem;
+    }
   }
 `
 
@@ -83,22 +113,18 @@ const ContactUsPage = props => (
       </ContentContainer>
       <ContactDetails>
         <p className="address">
-          <strong>
-            289 National Avenue, <br />
-            Hull, HU5 4JB
-          </strong>
+          289 National Avenue, <br />
+          Hull, HU5 4JB
         </p>
         <p className="phone">
-          <strong>T:</strong>01482 475 370
+          <strong>T: </strong>01482 475 370
         </p>
         <p className="email">
-          <strong>E:</strong>info@mulberrykitchens.co.uk
+          <strong>E: </strong>info@mulberrykitchens.co.uk
         </p>
-        <p>
-          <strong>Opening hours:</strong>
-        </p>
-        <p>Mon to Fri: 09:00 - 16:30</p>
-        <p>Saturday: 10:00 - 13:00</p>
+        <p className="opening">Opening hours:</p>
+        <p>Mon to Fri: 9:00am - 4:30pm</p>
+        <p>Saturday: 10:00am - 1:00pm</p>
         <p>Sunday: Closed</p>
       </ContactDetails>
     </ContentSection>

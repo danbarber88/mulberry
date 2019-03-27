@@ -11,6 +11,10 @@ export const MainHeader = styled.h1`
   font-weight: 400;
   margin-top: 60px;
   margin-bottom: 1.21875rem;
+
+  @media ${device.mobileL} {
+    font-size: 1.8rem;
+  }
 `
 
 export const SecondaryHeader = styled.h2`
@@ -20,6 +24,10 @@ export const SecondaryHeader = styled.h2`
   font-weight: 400;
   margin-top: 60px;
   margin-bottom: 1.21875rem;
+
+  @media ${device.mobileL} {
+    font-size: 1.8rem;
+  }
 `
 
 // Ideally, ContentSections children will be two side by side ContentContainers - can contain whatever

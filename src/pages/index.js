@@ -63,6 +63,7 @@ const IndexPage = props => (
         <SecondaryHeader>Latest News</SecondaryHeader>
         {props.data.latestNews.edges.map((item, i) => (
           <LatestNewsItem
+            key={i}
             slug={item.node.slug}
             heading={item.node.title}
             date={item.node.date}
