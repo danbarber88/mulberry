@@ -37,8 +37,7 @@ const Name = styled.p`
   align-self: flex-end;
   font-size: 30px;
   color: #8f5200;
-  margin-right: 15%;
-  margin-bottom: 0;
+  margin: 10px 15% 0 0;
 
   @media ${device.laptop} {
     font-size: 28px;

@@ -30,6 +30,7 @@ const BackgroundImg = styled(Img)`
 
 const LogoContainer = styled.div`
   height: 100%;
+  min-height: 450px;
   padding-top: 50px;
   display: flex;
   flex-direction: column;
