@@ -60,7 +60,11 @@ const DesignPage = ({ location, data }) => (
     </ContentSection>
     <DesignProcess />
     <TestimonialBanner
-      text="Thank you for designing such a stunning kitchen - we love it, even the cat is happy as he's got a new hammock! Also for the first class service and support you gave throughout the fitting, from your first visit to discuss ideas to your last visit to deliver the cutlery drawer - nothing was too much trouble for you. We will certainly recommend Mulberry Kitchens in the future."
+      text="Thank you for designing such a stunning kitchen - we love it, even the
+      cat is happy as he's got a new hammock! Also for the first class service and
+      support you gave throughout the fitting, from your first visit to discuss
+      ideas to your last visit to deliver the cutlery drawer - nothing was too 
+      much trouble for you. We will certainly recommend Mulberry Kitchens in the future."
       name="Mrs E"
     />
   </Layout>

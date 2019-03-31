@@ -91,7 +91,7 @@ const ContactUsPage = props => (
     <Map
       googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${
         process.env.GATSBY_GOOGLE_API_KEY
-      }&v=3.exp&libraries=geometry,drawing,places`}
+      }&v=3.exp&libraries=places`}
       loadingElement={<div style={{ height: `25vw` }} />}
       containerElement={<MapWrapper />}
       mapElement={<div style={{ height: `100%` }} />}
