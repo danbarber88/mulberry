@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Banner from '../components/banner'
 import { ContentSection, SecondaryHeader } from '../components/contentSection'
-import Button from '../components/Button'
+import Button from '../components/button'
 
 import { device } from '../utils/device.js'
 
@@ -105,70 +105,83 @@ const CardButton = styled(Button)`
   width: 100%;
 `
 
-const ThankYouPage = ({ location, data }) => (
-  <Layout location={location.pathname}>
-    <SEO title="Thanks!" keywords={[`gatsby`, `application`, `react`]} />
-    <Banner
-      img={data.bannerImg.childImageSharp.fluid}
-      backgroundColor="#716559"
-      header="Thank You!"
-      text="We are checking our diary, we will be in touch very soon."
-    />
-    <ContentSection>
-      <Arrow src={blueArrow} />
-      <CardContainer>
-        <CardLink to="/projects">
-          <Card>
-            <CardImg fluid={data.project.childImageSharp.fluid} />
-            <CardContent>
-              <CardHeader>Projects</CardHeader>
-              <p>
-                Selling point about big brands not being able to provide the
-                same level as we can - pastrami ex ad culpa. Jerky ad mollit
-                dolor beef ribs esse biltong minim sirloin elit leberkas short
-                loin flank ex ut. Ribeye alcatra fatback, tail id sausage
-                laboris pancetta shoulder ut rump turkey et.
-              </p>
-              <CardButton>Projects</CardButton>
-            </CardContent>
-          </Card>
-        </CardLink>
-        <CardLink to="/contact-us">
-          <Card>
-            <CardImg fluid={data.contact.childImageSharp.fluid} />
-            <CardContent>
-              <CardHeader>Contact Us</CardHeader>
-              <p>
-                Selling point about big brands not being able to provide the
-                same level as we can - pastrami ex ad culpa. Jerky ad mollit
-                dolor beef ribs esse biltong minim sirloin elit leberkas short
-                loin flank ex ut. Ribeye alcatra fatback, tail id sausage
-                laboris pancetta shoulder ut rump turkey et.
-              </p>
-              <CardButton>Contact Us</CardButton>
-            </CardContent>
-          </Card>
-        </CardLink>
-        <CardLink to="/testimonials">
-          <Card>
-            <CardImg fluid={data.testimonial.childImageSharp.fluid} />
-            <CardContent>
-              <CardHeader>Testimonials</CardHeader>
-              <p>
-                Selling point about big brands not being able to provide the
-                same level as we can - pastrami ex ad culpa. Jerky ad mollit
-                dolor beef ribs esse biltong minim sirloin elit leberkas short
-                loin flank ex ut. Ribeye alcatra fatback, tail id sausage
-                laboris pancetta shoulder ut rump turkey et.
-              </p>
-              <CardButton>Testimonials</CardButton>
-            </CardContent>
-          </Card>
-        </CardLink>
-      </CardContainer>
-    </ContentSection>
-  </Layout>
-)
+class ThankYouPage extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
+  render() {
+    const { location, data } = this.props
+    return (
+      <Layout location={location.pathname}>
+        <SEO title="Thanks!" keywords={[`gatsby`, `application`, `react`]} />
+        <Banner
+          img={data.bannerImg.childImageSharp.fluid}
+          backgroundColor="#716559"
+          header="Thank You!"
+          text="We are checking our diary, we will be in touch very soon."
+        />
+        <ContentSection>
+          <Arrow src={blueArrow} />
+          <CardContainer>
+            <CardLink to="/projects">
+              <Card>
+                <CardImg fluid={data.project.childImageSharp.fluid} />
+                <CardContent>
+                  <CardHeader>Projects</CardHeader>
+                  <p>
+                    Selling point about big brands not being able to provide the
+                    same level as we can - pastrami ex ad culpa. Jerky ad mollit
+                    dolor beef ribs esse biltong minim sirloin elit leberkas
+                    short loin flank ex ut. Ribeye alcatra fatback, tail id
+                    sausage laboris pancetta shoulder ut rump turkey et.
+                  </p>
+                  <CardButton>Projects</CardButton>
+                </CardContent>
+              </Card>
+            </CardLink>
+            <CardLink to="/contact-us">
+              <Card>
+                <CardImg fluid={data.contact.childImageSharp.fluid} />
+                <CardContent>
+                  <CardHeader>Contact Us</CardHeader>
+                  <p>
+                    Selling point about big brands not being able to provide the
+                    same level as we can - pastrami ex ad culpa. Jerky ad mollit
+                    dolor beef ribs esse biltong minim sirloin elit leberkas
+                    short loin flank ex ut. Ribeye alcatra fatback, tail id
+                    sausage laboris pancetta shoulder ut rump turkey et.
+                  </p>
+                  <CardButton>Contact Us</CardButton>
+                </CardContent>
+              </Card>
+            </CardLink>
+            <CardLink to="/testimonials">
+              <Card>
+                <CardImg fluid={data.testimonial.childImageSharp.fluid} />
+                <CardContent>
+                  <CardHeader>Testimonials</CardHeader>
+                  <p>
+                    Selling point about big brands not being able to provide the
+                    same level as we can - pastrami ex ad culpa. Jerky ad mollit
+                    dolor beef ribs esse biltong minim sirloin elit leberkas
+                    short loin flank ex ut. Ribeye alcatra fatback, tail id
+                    sausage laboris pancetta shoulder ut rump turkey et.
+                  </p>
+                  <CardButton>Testimonials</CardButton>
+                </CardContent>
+              </Card>
+            </CardLink>
+          </CardContainer>
+        </ContentSection>
+      </Layout>
+    )
+  }
+}
 
 export const query = graphql`
   query {
