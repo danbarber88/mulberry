@@ -84,20 +84,16 @@ class AppointmentForm extends Component {
           <input type="tel" name="phone" placeholder="Telephone" />
           <input type="text" name="budget" placeholder="Budget" />
 
-          <input
+          {/* <input
             // Need this input to fix a bug with netlify where it isnt finding the last input in this list
             style={{ display: 'none' }}
             type="text"
             name=""
             placeholder=""
-          />
+          /> */}
 
-          <label style={{ display: 'none' }}>Do not fill this out: </label>
-          <input
-            style={{ display: 'none' }}
-            name="bot-field"
-            placeholder="Ignore this field"
-          />
+          <label>Do not fill this out: </label>
+          <input name="bot-field" placeholder="Ignore this field" />
 
           <div className="form-text">
             <p>Required *</p>
