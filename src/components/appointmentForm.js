@@ -75,6 +75,7 @@ class AppointmentForm extends Component {
         <form
           name="appointment"
           method="post"
+          action="/thank-you"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >

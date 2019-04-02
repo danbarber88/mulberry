@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 import { MainHeader } from './contentSection'
-import Button from './button'
 
 const BackgroundImg = styled(Img)`
   top: 0;
@@ -58,6 +57,14 @@ const Header = styled(MainHeader)`
   color: #fff;
   font-weight: 600;
   margin-top: 0;
+
+  @media ${device.laptopL} {
+    font-size: 3rem;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 2.5rem;
+  }
 `
 
 const BannerText = styled.div`
@@ -95,15 +102,6 @@ const BannerText = styled.div`
   }
 `
 
-const HomeLink = styled(Link)`
-  z-index: 1;
-`
-
-const HomeButton = styled(Button)`
-  margin: 40px 0 0 0;
-  font-weight: 400;
-`
-
 const Banner = props => (
   <>
     <BackgroundImg
@@ -116,11 +114,6 @@ const Banner = props => (
       <BannerText>
         <p>{props.text}</p>
       </BannerText>
-      {props.button && (
-        <HomeLink to="/">
-          <HomeButton primary>{props.button}</HomeButton>
-        </HomeLink>
-      )}
     </Wrapper>
   </>
 )
@@ -130,7 +123,6 @@ Banner.propTypes = {
   backgroundColor: PropTypes.string.isRequired,
   header: PropTypes.string,
   text: PropTypes.string,
-  button: PropTypes.string,
 }
 
 export default Banner

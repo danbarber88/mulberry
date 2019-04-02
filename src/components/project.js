@@ -45,7 +45,7 @@ const Wrapper = styled.div`
 `
 
 const Thumbnail = styled(Img)`
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
   background-color: #c6c6c6;
 `
 
