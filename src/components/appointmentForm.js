@@ -92,7 +92,6 @@ class AppointmentForm extends Component {
             placeholder=""
           /> */}
 
-          <label>Do not fill this out: </label>
           <input name="bot-field" placeholder="Ignore this field" />
 
           <div className="form-text">
