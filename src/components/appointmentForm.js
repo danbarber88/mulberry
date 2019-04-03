@@ -84,14 +84,10 @@ class AppointmentForm extends Component {
           <input type="tel" name="phone" placeholder="Telephone" />
           <input type="text" name="budget" placeholder="Budget" />
 
-          {/* <input
-            // Need this input to fix a bug with netlify where it isnt finding the last input in this list
-            style={{ display: 'none' }}
-            type="text"
-            name=""
-            placeholder=""
-          /> */}
-
+          {/*
+            Netlify takes care of hiding this input in production, it is not visible
+            on the site but can be seen in the source.
+          */}
           <input name="bot-field" placeholder="Ignore this field" />
 
           <div className="form-text">

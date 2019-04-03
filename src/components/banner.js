@@ -3,7 +3,6 @@ import Img from './gatsbyImageWithIEPolyfill'
 import styled from 'styled-components'
 import { device } from '../utils/device'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 
 import { MainHeader } from './contentSection'
 

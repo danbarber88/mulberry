@@ -106,10 +106,6 @@ const CardButton = styled(Button)`
 `
 
 class ThankYouPage extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     window.scrollTo(0, 0)
   }
