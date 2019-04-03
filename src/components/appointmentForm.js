@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Button from './button'
 import { device } from '../utils/device'
+import { navigateTo } from 'gatsby-link'
 
 const AppointmentFormContainer = styled.div`
   width: 300px;
@@ -58,7 +59,37 @@ const AppointmentFormContainer = styled.div`
   }
 `
 
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
+
 class AppointmentForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state,
+      }),
+    })
+      .then(() => navigateTo(form.getAttribute('action')))
+      .catch(error => alert(error))
+  }
+
   render() {
     return (
       <AppointmentFormContainer>
@@ -78,17 +109,41 @@ class AppointmentForm extends Component {
           action="/thank-you"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          onSubmit={this.handleSubmit}
         >
-          <input type="text" name="name" placeholder="Full Name *" required />
-          <input type="email" name="email" placeholder="Email *" required />
-          <input type="tel" name="phone" placeholder="Telephone" />
-          <input type="text" name="budget" placeholder="Budget" />
-
-          {/*
-            Netlify takes care of hiding this input in production, it is not visible
-            on the site but can be seen in the source.
-          */}
-          <input name="bot-field" placeholder="Ignore this field" />
+          <p hidden>
+            <label>
+              Don’t fill this out:{' '}
+              <input name="bot-field" onChange={this.handleChange} />
+            </label>
+          </p>
+          <input type="hidden" name="form-name" value="contact" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name *"
+            onChange={this.handleChange}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email *"
+            onChange={this.handleChange}
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Telephone"
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="budget"
+            placeholder="Budget"
+            onChange={this.handleChange}
+          />
 
           <div className="form-text">
             <p>Required *</p>
