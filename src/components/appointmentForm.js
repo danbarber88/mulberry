@@ -83,6 +83,11 @@ class AppointmentForm extends Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
+        'intro-text': `${
+          this.state.name
+        } wishes to book an appointment to visit the showroom and talk to a designer. Please get in touch with ${
+          this.state.name
+        } and arrange a suit`,
         ...this.state,
       }),
     })
