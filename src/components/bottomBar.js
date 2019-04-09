@@ -2,6 +2,7 @@ import React from 'react'
 import { ContentSection } from './contentSection'
 import styled from 'styled-components'
 import { device } from '../utils/device'
+import { Link } from 'gatsby'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -47,6 +48,15 @@ const Copyright = styled.div`
   }
 `
 
+const CookieLink = styled(Link)`
+  color: #fff;
+  text-decoration: underline;
+
+  @media ${device.tablet} {
+    margin: 0 auto;
+  }
+`
+
 const FacebookIcon = styled(FontAwesomeIcon)`
   margin: 10px 0;
   color: #fff;
@@ -60,6 +70,10 @@ const BottomBar = props => (
         <span>© {new Date().getFullYear()} Mulberry Fitted Kitchens Ltd</span>
         <span className="seperator">|</span>
         <span>Company reg. no: 4172958, England</span>
+        <span className="seperator">|</span>
+        <span>
+          <CookieLink to="/cookie-policy">Cookie Policy</CookieLink>
+        </span>
       </Copyright>
       <a
         target="_blank"
