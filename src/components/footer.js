@@ -19,6 +19,17 @@ const Footer = styled.section`
   }
 `
 
+const FooterContentContainer = styled(ContentContainer)`
+  @media ${device.laptop} {
+    width: auto;
+  }
+
+  @media ${device.tablet} {
+    width: 100%;
+    max-width: 100%;
+  }
+`
+
 const BackgroundImg = styled(Img)`
   top: 0;
   left: 0;
@@ -94,7 +105,7 @@ export default props => (
         />
 
         <ContentSection>
-          <ContentContainer darkBg>
+          <FooterContentContainer darkBg>
             <ContactDetails>
               <h3>GET IN TOUCH</h3>
               <div className="contact-text bold">
@@ -122,11 +133,11 @@ export default props => (
                 </p>
               </div>
             </ContactDetails>
-          </ContentContainer>
+          </FooterContentContainer>
 
-          <ContentContainer darkBg width="300px">
+          <FooterContentContainer darkBg width="300px">
             <AppointmentForm />
-          </ContentContainer>
+          </FooterContentContainer>
         </ContentSection>
       </Wrapper>
     </Footer>
