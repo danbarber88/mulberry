@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Button from './button'
 import { device } from '../utils/device'
 import { navigateTo } from 'gatsby-link'
+import { Link } from 'gatsby'
 
 const AppointmentFormContainer = styled.div`
   width: 300px;
@@ -57,6 +58,13 @@ const AppointmentFormContainer = styled.div`
   @media ${device.mobileM} {
     width: 256px;
   }
+`
+
+const PrivacyLink = styled(Link)`
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  text-decoration: underline;
 `
 
 function encode(data) {
@@ -147,6 +155,7 @@ class AppointmentForm extends Component {
 
           <div className="form-text">
             <p>Required *</p>
+            <PrivacyLink to="/privacy-policy">Privacy Policy</PrivacyLink>
           </div>
           <Button primary type="submit">
             Request Appointment
