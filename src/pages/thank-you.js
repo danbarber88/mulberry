@@ -114,7 +114,7 @@ class ThankYouPage extends Component {
     const { location, data } = this.props
     return (
       <Layout location={location.pathname}>
-        <SEO title="Thanks!" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO title="Thanks!" />
         <Banner
           img={data.bannerImg.childImageSharp.fluid}
           backgroundColor="#716559"

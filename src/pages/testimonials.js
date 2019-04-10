@@ -31,7 +31,11 @@ const TestimonialContainer = styled.div`
 
 const TestimonialsPage = ({ location, data }) => (
   <Layout location={location.pathname}>
-    <SEO title="Testimonials" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="Testimonials"
+      description="Mulberry Fitted Kitchens Ltd – Our collection of testimonies from Mulberry customers will help answer any question you might have about buying a kitchen with us."
+      keywords={[`review`, `testimonial`]}
+    />
     <Banner
       img={data.bannerImg.childImageSharp.fluid}
       backgroundColor="#565a5e"

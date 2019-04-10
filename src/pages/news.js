@@ -9,7 +9,10 @@ import NewsItem from '../components/newsItem'
 
 const NewsPage = ({ location, data }) => (
   <Layout location={location.pathname}>
-    <SEO title="News" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="News"
+      description="Mulberry Fitted Kitchens Ltd – All the latest news about Mulberry, new offers and events."
+    />
     <ContentSection>
       {data.allContentfulNewsItem.edges.map((newsItem, i) => (
         <NewsItem

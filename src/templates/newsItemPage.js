@@ -102,7 +102,7 @@ class NewsItemPage extends Component {
 
     return (
       <Layout location={this.props.location.pathname}>
-        <SEO title={title} />
+        <SEO title={title} description={text.childMarkdownRemark.excerpt} />
         <ContentSection>
           {featureImage && (
             <FeatureImage
@@ -200,6 +200,7 @@ export const pageQuery = graphql`
       text {
         childMarkdownRemark {
           html
+          excerpt(pruneLength: 250)
         }
       }
     }

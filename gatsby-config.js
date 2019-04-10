@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://focused-einstein-08a40b.netlify.com/',
     title: `Mulberry Fitted Kitchens Ltd - Kitchen Design & Installation in Hull`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Mulberry Fitted Kitchens Ltd specialises in the design and installation of bespoke luxury kitchens in Hull & East Yorkshire.`,
     author: ``,
   },
   plugins: [
@@ -32,8 +32,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Mulberry Kitchens`,
+        short_name: `Mulberry`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#000928`,

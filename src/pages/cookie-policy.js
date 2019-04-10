@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { device } from '../utils/device'
 
 import Layout from '../components/layout'
+import SEO from '../components/seo'
 import {
   ContentSection,
   ContentContainer,
@@ -45,6 +46,7 @@ const TableData = styled.div`
 
 const CookiePolicyPage = props => (
   <Layout location={props.location.pathname}>
+    <SEO title="Cookies" />
     <ContentSection>
       <ContentContainer width="60%">
         <Header>Cookie Policy</Header>

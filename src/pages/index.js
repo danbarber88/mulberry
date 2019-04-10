@@ -40,7 +40,17 @@ const NeffLogo = styled(Img)`
 
 const IndexPage = props => (
   <Layout location={props.location.pathname}>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      keywords={[
+        `kitchens`,
+        `kitchen showrooms`,
+        `fitted kitchens`,
+        `bespoke`,
+        `luxury`,
+        `designers`,
+        `design`,
+      ]}
+    />
     <Hero />
     <ContentSection>
       <ContentContainer>

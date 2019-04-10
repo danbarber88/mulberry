@@ -17,7 +17,11 @@ import TestimonialBanner from '../components/testimonialBanner'
 
 const DesignPage = ({ location, data }) => (
   <Layout location={location.pathname}>
-    <SEO title="Design Service" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="Design Service"
+      description="Mulberry Fitted Kitchens Ltd – Offers a free, no obligation design service. Visit our showroom to arrange a home visit."
+      keywords={[`design service`, `designers`, `bespoke`]}
+    />
     <Banner
       img={data.bannerImg.childImageSharp.fluid}
       backgroundColor="#716559"

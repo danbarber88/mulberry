@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { device } from '../utils/device'
 import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
+import SEO from '../components/seo'
 import {
   ContentSection,
   ContentContainer,
@@ -16,6 +16,7 @@ const Header = styled(MainHeader)`
 
 const PrivacyPolicyPage = props => (
   <Layout location={props.location.pathname}>
+    <SEO title="Privacy Policy" />
     <ContentSection>
       <ContentContainer width="60%">
         <Header>Privacy Policy</Header>

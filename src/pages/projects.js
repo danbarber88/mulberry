@@ -8,7 +8,11 @@ import Project from '../components/project'
 
 const ProjectsPage = ({ location, data }) => (
   <Layout location={location.pathname}>
-    <SEO title="Projects" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="Projects"
+      description="Mulberry Fitted Kitchens Ltd – Have installed many stunning kitchens over the years, here is a small selection and example of our work."
+      keywords={[`projects`, `example`]}
+    />
     <ContentSection>
       {data.allContentfulProject.edges.map((project, i) => (
         <Project

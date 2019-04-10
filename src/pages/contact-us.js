@@ -86,7 +86,10 @@ const ContactDetails = styled.div`
 
 const ContactUsPage = props => (
   <Layout location={props.location.pathname}>
-    <SEO title="Contact Us" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="Contact Us"
+      description="Mulberry Fitted Kitchens Ltd – 289 National Avenue, Hull, HU5 4JB. Phone: 01482 475370. Email: info@mulberrykitchens.co.uk."
+    />
 
     <Map
       googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${
