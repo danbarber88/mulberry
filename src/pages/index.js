@@ -41,6 +41,7 @@ const NeffLogo = styled(Img)`
 const IndexPage = props => (
   <Layout location={props.location.pathname}>
     <SEO
+      title="Home"
       keywords={[
         `kitchens`,
         `kitchen showrooms`,
