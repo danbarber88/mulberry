@@ -107,7 +107,7 @@ class NewsItemPage extends Component {
           {featureImage && (
             <FeatureImage
               fluid={featureImage.fluid}
-              backgroundColor="#615f5b"
+              backgroundColor="#cecece"
             />
           )}
 
@@ -137,7 +137,7 @@ class NewsItemPage extends Component {
                   key={i}
                   onClick={() => this.setState({ index: i, galleryOpen: true })}
                 >
-                  <Img fluid={image.fluid} backgroundColor="#615f5b" />
+                  <Img fluid={image.fluid} backgroundColor="#cecece" />
                 </Thumb>
               ))}
             </Gallery>

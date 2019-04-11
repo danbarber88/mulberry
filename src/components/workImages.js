@@ -58,7 +58,10 @@ const WorkImages = () => (
       <Container>
         {data.allContentfulProject.edges.map((project, i) => (
           <WorkImgLink key={i} to="/projects" aria-label="Visit Projects Page">
-            <Img fluid={project.node.thumbnail.fluid} />
+            <Img
+              fluid={project.node.thumbnail.fluid}
+              backgroundColor="#cecece"
+            />
           </WorkImgLink>
         ))}
       </Container>

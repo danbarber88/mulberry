@@ -46,7 +46,7 @@ const Wrapper = styled.div`
 
 const Thumbnail = styled(Img)`
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
-  background-color: #c6c6c6;
+  background-color: #cecece;
 `
 
 class Project extends Component {
