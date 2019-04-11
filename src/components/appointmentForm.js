@@ -10,10 +10,33 @@ const AppointmentFormContainer = styled.div`
   text-align: center;
   padding-top: 24px;
 
-  input {
-    width: 100%;
-    padding: 10px 0 10px 20px;
-    margin: 7.5px 0;
+  .form-group {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+
+    label {
+      transition: all 0.3s ease;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    input {
+      transition: all 0.3s ease;
+      width: 100%;
+      padding: 10px 0 10px 20px;
+      margin: 0 0 7.5px 0;
+      outline: none;
+      border: 1px solid #fff;
+
+      &:focus {
+        border-color: #bf6e00;
+
+        + label {
+          color: #bf6e00;
+        }
+      }
+    }
   }
 
   ${Button} {
@@ -125,33 +148,46 @@ class AppointmentForm extends Component {
               <input name="bot-field" onChange={this.handleChange} />
             </label>
           </p>
+
           <input type="hidden" name="form-name" value="contact" />
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name *"
-            onChange={this.handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email *"
-            onChange={this.handleChange}
-            required
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Telephone"
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="budget"
-            placeholder="Budget"
-            onChange={this.handleChange}
-          />
+          <div className="form-group">
+            <input
+              id="name"
+              type="text"
+              name="name"
+              onChange={this.handleChange}
+              required
+            />
+            <label htmlFor="name">Full Name *</label>
+          </div>
+          <div className="form-group">
+            <input
+              id="email"
+              type="email"
+              name="email"
+              onChange={this.handleChange}
+              required
+            />
+            <label htmlFor="email">Email *</label>
+          </div>
+          <div className="form-group">
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="phone">Telephone</label>
+          </div>
+          <div className="form-group">
+            <input
+              id="budget"
+              type="text"
+              name="budget"
+              onChange={this.handleChange}
+            />
+            <label htmlFor="budget">Budget</label>
+          </div>
 
           <div className="form-text">
             <p>Required *</p>
