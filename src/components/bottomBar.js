@@ -79,6 +79,7 @@ const BottomBar = props => (
         target="_blank"
         rel="noopener noreferrer"
         href="https://www.facebook.com/MulberryKitchensHull"
+        aria-label="Visit our facebook page"
       >
         <FacebookIcon icon={['fab', 'facebook']} />
       </a>

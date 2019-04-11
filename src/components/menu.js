@@ -69,7 +69,11 @@ const CloseIcon = styled(FontAwesomeIcon)`
 
 const Menu = props => (
   <MenuWrapper isOpen={props.isOpen}>
-    <CloseIcon icon={['fas', 'times']} onClick={props.close} />
+    <CloseIcon
+      icon={['fas', 'times']}
+      onClick={props.close}
+      aria-label="Close"
+    />
     <MenuItem to="/" onClick={props.close}>
       <Icon icon={['fas', 'home']} />
       Home
