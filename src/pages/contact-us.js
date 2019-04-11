@@ -17,7 +17,11 @@ import { device } from '../utils/device'
 
 const MapWrapper = styled.div`
   width: 100%;
-  height: 25vw;
+  height: 20vw;
+
+  @media ${device.laptop} {
+    height: 25vw;
+  }
 
   @media ${device.tablet} {
     height: 200px;
