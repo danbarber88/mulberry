@@ -86,12 +86,14 @@ class NewsItemPage extends Component {
 
     this.state = {
       index: 0,
+      disableNext: false,
+      disablePrev: true,
       galleryOpen: false,
     }
   }
 
   render() {
-    const { index, galleryOpen } = this.state
+    const { index, galleryOpen, disablePrev, disableNext } = this.state
     const {
       title,
       date,
@@ -135,7 +137,14 @@ class NewsItemPage extends Component {
               {images.map((image, i) => (
                 <Thumb
                   key={i}
-                  onClick={() => this.setState({ index: i, galleryOpen: true })}
+                  onClick={() =>
+                    this.setState({
+                      index: i,
+                      disableNext: i === images.length - 1,
+                      disablePrev: i === 0,
+                      galleryOpen: true,
+                    })
+                  }
                 >
                   <Img fluid={image.fluid} backgroundColor="#cecece" />
                 </Thumb>
@@ -148,21 +157,31 @@ class NewsItemPage extends Component {
           <Lightbox
             mainSrc={images[index].fluid.src}
             nextSrc={
-              images.length > 1 && images[(index + 1) % images.length].fluid.src
+              images.length > 1 && !disableNext && images[index + 1].fluid.src
             }
             prevSrc={
-              images.length > 1 &&
-              images[(index + images.length - 1) % images.length].fluid.src
+              images.length > 1 && !disablePrev && images[index - 1].fluid.src
             }
-            onCloseRequest={() => this.setState({ galleryOpen: false })}
+            onCloseRequest={() =>
+              this.setState({
+                index: 0,
+                galleryOpen: false,
+                disableNext: false,
+                disablePrev: true,
+              })
+            }
             onMovePrevRequest={() =>
               this.setState({
-                index: (index + images.length - 1) % images.length,
+                index: index - 1,
+                disablePrev: index === 1,
+                disableNext: false,
               })
             }
             onMoveNextRequest={() =>
               this.setState({
-                index: (index + 1) % images.length,
+                index: index + 1,
+                disablePrev: false,
+                disableNext: index === images.length - 2,
               })
             }
           />

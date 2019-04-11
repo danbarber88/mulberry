@@ -55,12 +55,14 @@ class Project extends Component {
 
     this.state = {
       index: 0,
+      disableNext: false,
+      disablePrev: true,
       isOpen: false,
     }
   }
 
   render() {
-    const { index, isOpen } = this.state
+    const { index, isOpen, disablePrev, disableNext } = this.state
     const { thumbnail, displayName, location, images } = this.props
 
     return (
@@ -81,21 +83,31 @@ class Project extends Component {
           <Lightbox
             mainSrc={images[index].fluid.src}
             nextSrc={
-              images.length > 1 && images[(index + 1) % images.length].fluid.src
+              images.length > 1 && !disableNext && images[index + 1].fluid.src
             }
             prevSrc={
-              images.length > 1 &&
-              images[(index + images.length - 1) % images.length].fluid.src
+              images.length > 1 && !disablePrev && images[index - 1].fluid.src
             }
-            onCloseRequest={() => this.setState({ isOpen: false })}
+            onCloseRequest={() =>
+              this.setState({
+                index: 0,
+                isOpen: false,
+                disableNext: false,
+                disablePrev: true,
+              })
+            }
             onMovePrevRequest={() =>
               this.setState({
-                index: (index + images.length - 1) % images.length,
+                index: index - 1,
+                disablePrev: index === 1,
+                disableNext: false,
               })
             }
             onMoveNextRequest={() =>
               this.setState({
-                index: (index + 1) % images.length,
+                index: index + 1,
+                disablePrev: false,
+                disableNext: index === images.length - 2,
               })
             }
           />
