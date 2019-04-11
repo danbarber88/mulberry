@@ -189,7 +189,7 @@ class Reviews extends Component {
               : review.text}
             {review.text.length > 350 ? (
               <span>
-                <SmallCaret src={caret} />
+                <SmallCaret src={caret} alt="read more" />
               </span>
             ) : null}
           </p>

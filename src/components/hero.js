@@ -192,7 +192,7 @@ class Hero extends Component {
           )}
         />
         <Wrapper height={this.state.height}>
-          <Logo src={logo} />
+          <Logo src={logo} alt="Mulberry logo" />
           <MainText topOfPage={this.state.topOfPage}>
             Your new kitchen will <br className="hide" />
             be everything you could imagine.
@@ -200,7 +200,11 @@ class Hero extends Component {
             <br />
             giving added value to your home.
           </MainText>
-          <Arrow src={arrow} visible={this.state.arrowVisible} />
+          <Arrow
+            src={arrow}
+            visible={this.state.arrowVisible}
+            alt="Scroll down"
+          />
         </Wrapper>
       </>
     )

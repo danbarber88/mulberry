@@ -104,6 +104,7 @@ const DesignProcess = props => (
         <Step>
           <Icon
             src={sign}
+            alt="Visit the Showroom"
             width="120px"
             height="120px"
             style={{ marginBottom: '0' }}
@@ -120,7 +121,7 @@ const DesignProcess = props => (
           </div>
         </Step>
         <Step>
-          <Icon src={home} width="110px" height="110px" />
+          <Icon src={home} alt="Home Visit" width="110px" height="110px" />
           <div>
             <StepHeader>2. Home Visit</StepHeader>
             <p>
@@ -133,7 +134,12 @@ const DesignProcess = props => (
           </div>
         </Step>
         <Step>
-          <Icon src={presentation} width="120px" height="110px" />
+          <Icon
+            src={presentation}
+            alt="Design Presentation"
+            width="120px"
+            height="110px"
+          />
           <div>
             <StepHeader>3. Design Presentation</StepHeader>
             <p>
@@ -146,7 +152,7 @@ const DesignProcess = props => (
           </div>
         </Step>
         <Step>
-          <Icon src={tape} width="120px" height="80px" />
+          <Icon src={tape} alt="Installation" width="120px" height="80px" />
           <div>
             <StepHeader>4. Installation</StepHeader>
             <p>

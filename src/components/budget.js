@@ -112,7 +112,7 @@ const Budget = props => (
         </p>
         <p>We ask because:</p>
         <BulletPoint>
-          <GoldenCaret src={goldenCaret} />
+          <GoldenCaret src={goldenCaret} alt="Budget bullet point" />
           <p>
             We can raise or lower your expectations during your first
             consultation, our priority is transparency, we have your best
@@ -120,14 +120,14 @@ const Budget = props => (
           </p>
         </BulletPoint>
         <BulletPoint>
-          <GoldenCaret src={goldenCaret} />
+          <GoldenCaret src={goldenCaret} alt="Budget bullet point" />
           <p>
             We can maximise the potential of your design cutting out all guess
             work.
           </p>
         </BulletPoint>
         <BulletPoint>
-          <GoldenCaret src={goldenCaret} />
+          <GoldenCaret src={goldenCaret} alt="Budget bullet point" />
           <p>We can specify the best appliances for your needs and budget.</p>
         </BulletPoint>
       </ContentContainer>

@@ -122,7 +122,7 @@ class ThankYouPage extends Component {
           text="We are checking our diary, we will be in touch very soon."
         />
         <ContentSection>
-          <Arrow src={blueArrow} />
+          <Arrow src={blueArrow} alt="scroll down" />
           <CardContainer>
             <CardLink to="/projects">
               <Card>

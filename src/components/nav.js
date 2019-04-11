@@ -216,6 +216,7 @@ class Nav extends Component {
           <Menu close={this.closeMenu} isOpen={this.state.mobileNavOpen} />
           <MobileLogo
             src={logo}
+            alt="Mulberry logo"
             onClick={() => {
               this.setState({ navVisible: false })
               navigateTo('/')
@@ -231,6 +232,7 @@ class Nav extends Component {
         </NavItemContainer>
         <Logo
           src={logo}
+          alt="Mulberry logo"
           onClick={() => {
             this.setState({ navVisible: false })
             navigateTo('/')
