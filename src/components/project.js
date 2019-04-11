@@ -80,8 +80,11 @@ class Project extends Component {
         {isOpen && (
           <Lightbox
             mainSrc={images[index].fluid.src}
-            nextSrc={images[(index + 1) % images.length].fluid.src}
+            nextSrc={
+              images.length > 1 && images[(index + 1) % images.length].fluid.src
+            }
             prevSrc={
+              images.length > 1 &&
               images[(index + images.length - 1) % images.length].fluid.src
             }
             onCloseRequest={() => this.setState({ isOpen: false })}
