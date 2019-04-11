@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { navigateTo } from 'gatsby-link'
 import PropTypes from 'prop-types'
 import logo from '../images/logo.svg'
 import { device } from '../utils/device'
@@ -55,6 +56,7 @@ const Logo = styled.img`
   width: 250px;
   margin: 5px 10px;
   height: 77.25px;
+  cursor: pointer;
 
   @media ${device.tablet} {
     display: none;
@@ -212,7 +214,13 @@ class Nav extends Component {
         <Overlay isOpen={this.state.mobileNavOpen} />
         <MobileNavContainer ref={this.setWrapperRef}>
           <Menu close={this.closeMenu} isOpen={this.state.mobileNavOpen} />
-          <MobileLogo src={logo} />
+          <MobileLogo
+            src={logo}
+            onClick={() => {
+              this.setState({ navVisible: false })
+              navigateTo('/')
+            }}
+          />
           <Hamburger icon={['fas', 'bars']} onClick={this.mobileNavToggle} />
         </MobileNavContainer>
 
@@ -221,7 +229,13 @@ class Nav extends Component {
           <NavItem to="/design-service">Design Service</NavItem>
           <NavItem to="/projects">Projects</NavItem>
         </NavItemContainer>
-        <Logo src={logo} />
+        <Logo
+          src={logo}
+          onClick={() => {
+            this.setState({ navVisible: false })
+            navigateTo('/')
+          }}
+        />
         <NavItemContainer>
           <NavItem to="/testimonials">Testimonials</NavItem>
           <NavItem to="/news">News</NavItem>
