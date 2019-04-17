@@ -6,6 +6,7 @@ import { navigateTo } from 'gatsby-link'
 import { Link } from 'gatsby'
 
 const AppointmentFormContainer = styled.div`
+  min-width: ${props => (props.footer ? 'none' : '325px')};
   width: 300px;
   text-align: center;
   padding-top: 24px;
@@ -17,7 +18,8 @@ const AppointmentFormContainer = styled.div`
 
     label {
       transition: all 0.3s ease;
-      color: #fff;
+      color: ${props => (props.footer ? '#fff' : '#000928')};
+      font-weight: ${props => (props.footer ? '400' : '600')};
       font-size: 1.1rem;
     }
 
@@ -27,7 +29,8 @@ const AppointmentFormContainer = styled.div`
       padding: 10px 0 10px 20px;
       margin: 0 0 7.5px 0;
       outline: none;
-      border: 1px solid #fff;
+      border: ${props =>
+        props.footer ? '1px solid #fff ' : '1px solid #000928'};
 
       &:focus {
         border-color: #bf6e00;
@@ -47,10 +50,12 @@ const AppointmentFormContainer = styled.div`
 
   h3 {
     font-weight: 600;
+    color: ${props => (props.footer ? '#fff' : '#000928')};
   }
 
   p {
     font-weight: 200;
+    color: ${props => (props.footer ? '#fff' : '#000928')};
   }
 
   .form-text {
@@ -86,7 +91,7 @@ const AppointmentFormContainer = styled.div`
 const PrivacyLink = styled(Link)`
   font-size: 12px;
   margin: 0;
-  color: #fff;
+  color: ${props => (props.footer ? '#fff ' : '#000928')};
   text-decoration: underline;
 `
 
@@ -123,7 +128,7 @@ class AppointmentForm extends Component {
 
   render() {
     return (
-      <AppointmentFormContainer>
+      <AppointmentFormContainer footer={this.props.footer}>
         <h3>
           REQUEST AN
           <br />
@@ -141,6 +146,7 @@ class AppointmentForm extends Component {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
+          autocomplete="false"
         >
           <p hidden>
             <label>
@@ -172,12 +178,12 @@ class AppointmentForm extends Component {
           </div>
           <div className="form-group">
             <input
-              id="phone"
+              id="customer-phone"
               type="tel"
-              name="phone"
+              name="customer-phone"
               onChange={this.handleChange}
             />
-            <label htmlFor="phone">Telephone</label>
+            <label htmlFor="customer-phone">Telephone</label>
           </div>
           <div className="form-group">
             <input
