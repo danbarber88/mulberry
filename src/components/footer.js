@@ -11,7 +11,7 @@ const Footer = styled.section`
   position: relative;
   width: 100%;
   img {
-    opacity: 0.03 !important;
+    opacity: 0.05 !important;
   }
 
   p {
@@ -110,7 +110,8 @@ export default props => (
               <h3>GET IN TOUCH</h3>
               <div className="contact-text bold">
                 <p>289 National Avenue,</p>
-                <p>Hull, HU5 4JB</p>
+                <p>Hull,</p>
+                <p>HU5 4JB</p>
               </div>
               <div className="contact-text">
                 <p>
@@ -125,6 +126,7 @@ export default props => (
                 <p>Mon to Fri: 9:00am - 4:30pm</p>
                 <p>Saturday: 10:00am - 1:00pm</p>
                 <p>Sunday: Closed</p>
+                <p>Closed on all UK bank holidays.</p>
               </div>
               <div className="dont-hesitate">
                 <p>
@@ -136,7 +138,7 @@ export default props => (
           </FooterContentContainer>
 
           <FooterContentContainer darkBg width="300px">
-            <AppointmentForm />
+            <AppointmentForm footer />
           </FooterContentContainer>
         </ContentSection>
       </Wrapper>
