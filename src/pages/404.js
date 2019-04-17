@@ -30,8 +30,8 @@ const Text = styled.p`
   }
 `
 
-const NotFoundPage = () => (
-  <Layout>
+const NotFoundPage = props => (
+  <Layout location={props.location.pathname}>
     <SEO title="404: Not found" />
     <Container>
       <Header>NOT FOUND</Header>

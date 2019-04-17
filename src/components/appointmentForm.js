@@ -6,7 +6,6 @@ import { navigateTo } from 'gatsby-link'
 import { Link } from 'gatsby'
 
 const AppointmentFormContainer = styled.div`
-  min-width: ${props => (props.footer ? 'none' : '325px')};
   width: 300px;
   text-align: center;
   padding-top: 24px;
@@ -91,7 +90,7 @@ const AppointmentFormContainer = styled.div`
 const PrivacyLink = styled(Link)`
   font-size: 12px;
   margin: 0;
-  color: ${props => (props.footer ? '#fff ' : '#000928')};
+  color: ${props => (props.footer ? '#fff' : '#000928')};
   text-decoration: underline;
 `
 
@@ -146,7 +145,6 @@ class AppointmentForm extends Component {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
-          autocomplete="false"
         >
           <p hidden>
             <label>
@@ -197,7 +195,9 @@ class AppointmentForm extends Component {
 
           <div className="form-text">
             <p>Required *</p>
-            <PrivacyLink to="/privacy-policy">Privacy Policy</PrivacyLink>
+            <PrivacyLink to="/privacy-policy" footer={this.props.footer}>
+              Privacy Policy
+            </PrivacyLink>
           </div>
           <Button primary type="submit">
             Request Appointment

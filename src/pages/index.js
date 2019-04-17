@@ -57,17 +57,18 @@ const IndexPage = props => (
       <ContentContainer>
         <MainHeader>Kitchen Design in Hull</MainHeader>
         <p>
-          Bacon ipsum dolor amet flank pastrami ex ad culpa. Jerky ad mollit
-          dolor beef ribs esse biltong minim sirloin elit leberkas short loin
-          flank ex ut. Ribeye alcatra fatback, tail id sausage laboris pancetta
-          shoulder ut rump turkey et. Est aute sausage nulla, sed elit officia
-          ground round dolore tenderloin in chicken laboris.
+          In recent years, the kitchen has become the centre of the house, with
+          more focus on entertaining and cooking as a social activity. It’s a
+          trend that we have been watching with interest, as more clients have
+          approached the company in the hope of creating a beautiful, practical
+          and awe-inspiring hub for their home.
         </p>
         <p>
-          Jerky ad mollit dolor beef ribs esse biltong minim sirloin elit
-          leberkas short loin flank ex ut. Ribeye alcatra fatback, tail id
-          sausage laboris pancetta shoulder ut rump turkey et. Est aute sausage
-          nulla.
+          Since opening our doors in 2001, Mulberry has specialised in designing
+          bespoke kitchens and we pride ourselves on the attention to detail
+          that adds that personal touch to every design. Our team of skilled and
+          knowledgeable staff can cater for every customer’s needs, from smaller
+          kitchens to grand open-plan spaces.
         </p>
       </ContentContainer>
       <ContentContainer width="auto">

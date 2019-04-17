@@ -112,11 +112,12 @@ const DesignProcess = props => (
           <div>
             <StepHeader>1. Visit the Showroom</StepHeader>
             <p>
-              Bacon ipsum dolor amet flank pastrami ex ad culpa. Jerky ad mollit
-              dolor beef ribs esse biltong minim sirloin elit leberkas short
-              loin flank ex ut. Ribeye alcatra fatback, tail id sausage laboris
-              pancetta shoulder ut rump turkey et. Est aute sausage nulla, sed
-              elit officia ground round dolore tenderloin in chicken laboris.
+              The initial process of having your dream kitchen realised is to
+              pay a visit to our showroom, armed with your own ideas, plans, etc
+              or in the hope of being inspired by our room settings. We pride
+              ourselves on not being "pushy". We would really like you to enjoy
+              the experience and we will always be available to answer your
+              questions or to help in any way we can.
             </p>
           </div>
         </Step>
@@ -125,11 +126,12 @@ const DesignProcess = props => (
           <div>
             <StepHeader>2. Home Visit</StepHeader>
             <p>
-              Bacon ipsum dolor amet flank pastrami ex ad culpa. Jerky ad mollit
-              dolor beef ribs esse biltong minim sirloin elit leberkas short
-              loin flank ex ut. Ribeye alcatra fatback, tail id sausage laboris
-              pancetta shoulder ut rump turkey et. Est aute sausage nulla, sed
-              elit officia ground round dolore tenderloin in chicken laboris.
+              Some people bring in plans but the majority ask us to arrange a
+              home consultation. While there, Geoff will take measurements while
+              Colleen discusses your requirements in finer detail. During this
+              meeting we also gain an insight into the pros and cons of your
+              current kitchen layout. It is our intention to ensure your design
+              is as efficient as it is stunning.
             </p>
           </div>
         </Step>
@@ -143,11 +145,13 @@ const DesignProcess = props => (
           <div>
             <StepHeader>3. Design Presentation</StepHeader>
             <p>
-              Bacon ipsum dolor amet flank pastrami ex ad culpa. Jerky ad mollit
-              dolor beef ribs esse biltong minim sirloin elit leberkas short
-              loin flank ex ut. Ribeye alcatra fatback, tail id sausage laboris
-              pancetta shoulder ut rump turkey et. Est aute sausage nulla, sed
-              elit officia ground round dolore tenderloin in chicken laboris.
+              Customers are asked to make a mutually convenient appointment to
+              revisit the showroom. At this presentation, we now have the
+              opportunity to present to you our designs alongside our state of
+              the art rendered images and virtual reality views. It is now the
+              time to amend, tweak or to change anything in order to achieve
+              your vision. Nothing is too much trouble, weekend and evening
+              appointments are available if necessary.
             </p>
           </div>
         </Step>
@@ -156,11 +160,15 @@ const DesignProcess = props => (
           <div>
             <StepHeader>4. Installation</StepHeader>
             <p>
-              Bacon ipsum dolor amet flank pastrami ex ad culpa. Jerky ad mollit
-              dolor beef ribs esse biltong minim sirloin elit leberkas short
-              loin flank ex ut. Ribeye alcatra fatback, tail id sausage laboris
-              pancetta shoulder ut rump turkey et. Est aute sausage nulla, sed
-              elit officia ground round dolore tenderloin in chicken laboris.
+              The average installation will take about one week and will have
+              several personnel attending. In addition to the joiner, there will
+              be a plumber/gas fitter, electrician and possibly a
+              builder/plasterer depending on the installation. Mulberry will
+              undertake as many or as few works as the client dictates. These
+              can include minor building works, removal of interior walls,
+              lowering of ceilings and skimming walls etc. If you are having
+              building works, granite, flooring or tiling the installation time
+              will increase accordingly.
             </p>
           </div>
         </Step>
