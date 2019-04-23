@@ -105,10 +105,9 @@ const Budget = props => (
       <ContentContainer>
         <SecondaryHeader>The budget question</SecondaryHeader>
         <p>
-          During your first visit to our showroom our designers may inquire
-          about your budget, if you do not feel comfortable sharing that
-          information then please don’t hesitate to let the designer know that
-          is the case.
+          During your first consultation, our designers will ask about your
+          budget. This is specifically the total cost you will be comfortable
+          investing into your new kitchen.
         </p>
         <p>We ask because:</p>
         <BulletPoint>
@@ -122,13 +121,20 @@ const Budget = props => (
         <BulletPoint>
           <GoldenCaret src={goldenCaret} alt="Budget bullet point" />
           <p>
-            We can maximise the potential of your design cutting out all guess
-            work.
+            The product knowledge of our experienced designers allows them to
+            specify what is best for you. Knowing your budget allows us to
+            choose the best components without compromising other areas of the
+            design.
           </p>
         </BulletPoint>
         <BulletPoint>
           <GoldenCaret src={goldenCaret} alt="Budget bullet point" />
-          <p>We can specify the best appliances for your needs and budget.</p>
+          <p>
+            We are genuinely attempting to make our creative collaboration with
+            you as helpful and efficient as possible, without disappointment by
+            over specifying or under specifying and reducing the ‘wow’ effect we
+            are all trying to achieve.
+          </p>
         </BulletPoint>
       </ContentContainer>
     </ContentSection>

@@ -141,8 +141,8 @@ const ContactUsPage = props => (
       hafeleLogo={props.data.hafeleLogo.childImageSharp.fluid}
     />
     <TestimonialBanner
-      text="Just a short note to say thank you to all concerned at Mulberry for helping to create our lovely kitchen. From coming into your showroom to the final workmen leaving our house we have been delighted with everyone's expertise"
-      name="Carole & Allan"
+      text="Your computer generated images were spot on and the finished product was of an exceptional standard and below budget. All our questions were answered speedily and our requests for changes during the design and build were handled with the utmost care."
+      name="Ian & Rosemary Stewart"
     />
   </Layout>
 )
