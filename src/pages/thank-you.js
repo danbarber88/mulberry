@@ -34,7 +34,8 @@ const CardContainer = styled.div`
 `
 
 const CardLink = styled(Link)`
-  min-width: 335px;
+  width: 335px;
+  min-height: 641px;
   margin: 0 20px;
 
   @media ${device.laptopL} {
@@ -58,6 +59,7 @@ const CardLink = styled(Link)`
 `
 
 const Card = styled.div`
+  height: 100%;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
   border: 1px solid #ccc;
 
@@ -67,6 +69,10 @@ const Card = styled.div`
 `
 
 const CardContent = styled.div`
+  height: 416px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 20px;
 `
 
@@ -128,14 +134,14 @@ class ThankYouPage extends Component {
               <Card>
                 <CardImg fluid={data.project.childImageSharp.fluid} />
                 <CardContent>
-                  <CardHeader>Projects</CardHeader>
-                  <p>
-                    Selling point about big brands not being able to provide the
-                    same level as we can - pastrami ex ad culpa. Jerky ad mollit
-                    dolor beef ribs esse biltong minim sirloin elit leberkas
-                    short loin flank ex ut. Ribeye alcatra fatback, tail id
-                    sausage laboris pancetta shoulder ut rump turkey et.
-                  </p>
+                  <div>
+                    <CardHeader>Projects</CardHeader>
+                    <p>
+                      If we get the opportunity to take pictures of a completed
+                      job we are always more than happy to display them here on
+                      our website to serve as great examples of our work.
+                    </p>
+                  </div>
                   <CardButton>Projects</CardButton>
                 </CardContent>
               </Card>
@@ -144,14 +150,20 @@ class ThankYouPage extends Component {
               <Card>
                 <CardImg fluid={data.contact.childImageSharp.fluid} />
                 <CardContent>
-                  <CardHeader>Contact Us</CardHeader>
-                  <p>
-                    Selling point about big brands not being able to provide the
-                    same level as we can - pastrami ex ad culpa. Jerky ad mollit
-                    dolor beef ribs esse biltong minim sirloin elit leberkas
-                    short loin flank ex ut. Ribeye alcatra fatback, tail id
-                    sausage laboris pancetta shoulder ut rump turkey et.
-                  </p>
+                  <div>
+                    <CardHeader>Contact Us</CardHeader>
+                    <p>
+                      If you have any questions don't hesitate to get in touch.
+                    </p>
+                    <p>
+                      289 National Avenue, <br />
+                      Hull, HU5 4JB
+                    </p>
+                    <p>
+                      <strong>T: </strong>01482 475 370 <br />
+                      <strong>E: </strong>info@mulberrykitchens.co.uk
+                    </p>
+                  </div>
                   <CardButton>Contact Us</CardButton>
                 </CardContent>
               </Card>
@@ -160,14 +172,14 @@ class ThankYouPage extends Component {
               <Card>
                 <CardImg fluid={data.testimonial.childImageSharp.fluid} />
                 <CardContent>
-                  <CardHeader>Testimonials</CardHeader>
-                  <p>
-                    Selling point about big brands not being able to provide the
-                    same level as we can - pastrami ex ad culpa. Jerky ad mollit
-                    dolor beef ribs esse biltong minim sirloin elit leberkas
-                    short loin flank ex ut. Ribeye alcatra fatback, tail id
-                    sausage laboris pancetta shoulder ut rump turkey et.
-                  </p>
+                  <div>
+                    <CardHeader>Testimonials</CardHeader>
+                    <p>
+                      There is nothing better than receiving a kind word from a
+                      customer upon a jobs completion. This is a selection of
+                      the testimonials we have collected over the years.
+                    </p>
+                  </div>
                   <CardButton>Testimonials</CardButton>
                 </CardContent>
               </Card>
