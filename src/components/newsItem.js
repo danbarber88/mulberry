@@ -62,7 +62,7 @@ const Excerpt = styled.div`
 `
 
 const NewsItem = ({ slug, date, title, thumbnail, text }) => (
-  <Wrapper to={slug}>
+  <Wrapper to={`/${slug}`}>
     <Thumbnail fluid={thumbnail} backgroundColor="#cecece" />
     <div>
       <Title>{title}</Title>
