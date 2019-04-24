@@ -118,8 +118,6 @@ class AppointmentForm extends Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        'email-context':
-          'A customer is requesting an appointment in the showroom, please get in touch with them to arrange an agreeable time.',
         ...this.state,
       }),
     })
