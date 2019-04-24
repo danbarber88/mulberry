@@ -98,6 +98,7 @@ const MainText = styled.div`
 
 const Arrow = styled.img`
   width: 200px;
+  cursor: pointer;
   animation: 1.5s ${float} linear infinite;
   transition: opacity 0.5s;
   opacity: ${props => (props.visible ? 1 : 0)};
@@ -167,6 +168,13 @@ class Hero extends Component {
     })
   }
 
+  arrowClick() {
+    const hero = document.getElementById('hero-wrapper')
+    const nav = document.getElementById('nav')
+    const navHeight = nav.offsetHeight
+    window.scrollTo(0, hero.offsetHeight - navHeight)
+  }
+
   render() {
     return (
       <>
@@ -191,7 +199,7 @@ class Hero extends Component {
             />
           )}
         />
-        <Wrapper height={this.state.height}>
+        <Wrapper height={this.state.height} id="hero-wrapper">
           <Logo src={logo} alt="Mulberry logo" />
           <MainText topOfPage={this.state.topOfPage}>
             Your new kitchen will <br className="hide" />
@@ -204,6 +212,7 @@ class Hero extends Component {
             src={arrow}
             visible={this.state.arrowVisible}
             alt="Scroll down"
+            onClick={this.arrowClick}
           />
         </Wrapper>
       </>

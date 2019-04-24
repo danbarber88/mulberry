@@ -210,6 +210,7 @@ class Nav extends Component {
       <NavWrapper
         isVisible={this.state.navVisible}
         location={this.props.location}
+        id="nav"
       >
         <Overlay isOpen={this.state.mobileNavOpen} />
         <MobileNavContainer ref={this.setWrapperRef}>
