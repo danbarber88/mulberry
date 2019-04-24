@@ -6,6 +6,7 @@ import {
   Marker,
 } from 'react-google-maps'
 
+import mapIcon from '../images/map-icon.svg'
 const mapStyles = require('../utils/mapStyles.json')
 
 const Map = withScriptjs(
@@ -18,7 +19,13 @@ const Map = withScriptjs(
         disableDefaultUI: true,
       }}
     >
-      <Marker position={{ lat: 53.755539, lng: -0.382404 }} />
+      <Marker
+        icon={{
+          url: mapIcon,
+          scaledSize: { width: 32, height: 32 },
+        }}
+        position={{ lat: 53.755529, lng: -0.382204 }}
+      />
     </GoogleMap>
   ))
 )
