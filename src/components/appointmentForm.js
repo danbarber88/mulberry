@@ -127,7 +127,7 @@ class AppointmentForm extends Component {
 
   render() {
     return (
-      <AppointmentFormContainer footer={this.props.footer}>
+      <AppointmentFormContainer footer={this.props.footer ? 1 : 0}>
         <h3>
           REQUEST AN
           <br />
@@ -195,7 +195,10 @@ class AppointmentForm extends Component {
 
           <div className="form-text">
             <p>Required *</p>
-            <PrivacyLink to="/privacy-policy" footer={this.props.footer}>
+            <PrivacyLink
+              to="/privacy-policy"
+              footer={this.props.footer ? 1 : 0}
+            >
               Privacy Policy
             </PrivacyLink>
           </div>
