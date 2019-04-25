@@ -23,6 +23,16 @@ const GlobalStyle = createGlobalStyle`
   .no-scroll {
     overflow: hidden;
   }
+
+  .ril__navButtons {
+    outline: none
+  }
+
+  // used when disabling lightbox buttons
+  .disabled, .disabled:hover {
+    opacity: 0.1;
+    background-color: rgba(0, 0, 0, 1);
+  }
 `
 
 const MainContainer = styled.div`
