@@ -10,6 +10,8 @@ import {
 import { device } from '../utils/device'
 import goldenCaret from '../images/golden-caret-right.svg'
 
+import SupplierLogo from './supplierLogo'
+
 const MainContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -39,15 +41,6 @@ const LogoContainer = styled.div`
 
   @media ${device.laptop} {
     display: none;
-  }
-`
-
-const SupplierLogo = styled.div`
-  width: ${props => props.width};
-  height: auto;
-
-  img {
-    margin: 0;
   }
 `
 
@@ -90,15 +83,21 @@ const Budget = props => (
     <ContentSection>
       <ContentContainer>
         <LogoContainer>
-          <SupplierLogo width="175px">
-            <Img fluid={props.neffLogo} />
-          </SupplierLogo>
-          <SupplierLogo width="140px">
-            <Img fluid={props.cosentinoLogo} />
-          </SupplierLogo>
-          <SupplierLogo width="220px">
-            <Img fluid={props.hafeleLogo} />
-          </SupplierLogo>
+          <SupplierLogo
+            width="175px"
+            img={props.neffLogo}
+            url="http://www.neff.co.uk/"
+          />
+          <SupplierLogo
+            width="140px"
+            img={props.cosentinoLogo}
+            url="http://microsite.cosentino.com/sites/irbiVm"
+          />
+          <SupplierLogo
+            width="220px"
+            img={props.hafeleLogo}
+            url="http://www.ideasforliving.co.uk/"
+          />
         </LogoContainer>
       </ContentContainer>
 

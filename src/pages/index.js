@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
@@ -16,25 +15,19 @@ import {
 import LatestNewsItem from '../components/latestNewsItem'
 import WorkSection from '../components/workSection'
 import { device } from '../utils/device'
+import SupplierLogo from '../components/supplierLogo'
 
 const LogoContainer = styled(ContentContainer)`
   display: flex;
   align-items: center;
-`
-
-const NeffLogo = styled(Img)`
-  width: 200px;
-  margin: 0 auto;
-  img {
-    margin: 0;
-  }
+  justify-content: center;
 
   @media ${device.laptop} {
-    margin: 30px 0 0 0;
+    padding: 30px 0 0 0;
   }
 
   @media ${device.mobileL} {
-    margin: 30px auto 0 auto;
+    padding: 30px auto 0 auto;
   }
 `
 
@@ -101,7 +94,11 @@ const IndexPage = props => (
         </p>
       </ContentContainer>
       <LogoContainer width="40%">
-        <NeffLogo fluid={props.data.neffLogo.childImageSharp.fluid} />
+        <SupplierLogo
+          width="200px"
+          img={props.data.neffLogo.childImageSharp.fluid}
+          url="http://www.neff.co.uk/"
+        />
       </LogoContainer>
     </ContentSection>
   </Layout>
