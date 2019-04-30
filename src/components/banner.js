@@ -67,7 +67,7 @@ const Header = styled(MainHeader)`
 `
 
 const BannerText = styled.div`
-  width: 70%;
+  width: 900px;
   z-index: 1;
   display: flex;
 
