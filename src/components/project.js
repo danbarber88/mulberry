@@ -45,8 +45,12 @@ const Wrapper = styled.div`
 `
 
 const Thumbnail = styled(Img)`
+  transition: all 0.2s ease-in-out;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
-  background-color: #cecece;
+
+  :hover {
+    opacity: 0.9;
+  }
 `
 
 class Project extends Component {
