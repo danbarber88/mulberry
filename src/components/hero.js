@@ -48,6 +48,7 @@ const BackgroundImg = styled(Img)`
 const Logo = styled.img`
   z-index: 1;
   width: 350px;
+  height: 108.16px;
   margin: 10px 0 0 0;
   box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25);
 
