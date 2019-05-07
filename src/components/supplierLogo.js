@@ -42,6 +42,10 @@ const ButtonContainer = styled.div`
   margin: 0 auto;
 `
 
+const ModalButton = styled(Button)`
+  margin: 20px 10px 0 10px;
+`
+
 class SupplierLogo extends Component {
   constructor(props) {
     super(props)
@@ -82,11 +86,11 @@ class SupplierLogo extends Component {
             you. Please get in touch for an accurate quote.
           </ModalText>
           <ButtonContainer>
-            <Button onClick={this.closeModal}>go back</Button>
+            <ModalButton onClick={this.closeModal}>go back</ModalButton>
             <a href={this.props.url} target="_blank" rel="noopener noreferrer">
-              <Button primary onClick={this.closeModal}>
+              <ModalButton primary onClick={this.closeModal}>
                 i understand
-              </Button>
+              </ModalButton>
             </a>
           </ButtonContainer>
         </Modal>
