@@ -56,6 +56,11 @@ const ContactDetails = styled.div`
   .bold {
     font-weight: 600;
   }
+  .orange-header {
+    font-size: 1.2rem;
+    color: #8f5200;
+    margin-bottom: 0 !important;
+  }
   .contact-text {
     margin: 20px 0;
     p {
@@ -63,7 +68,7 @@ const ContactDetails = styled.div`
     }
   }
   .opening-times p {
-    margin: 10px 0;
+    margin-bottom: 10px;
   }
   .dont-hesitate {
     margin-top: 50px;
@@ -108,7 +113,8 @@ export default props => (
           <FooterContentContainer darkBg>
             <ContactDetails>
               <h3>GET IN TOUCH</h3>
-              <div className="contact-text bold">
+              <div className="contact-text">
+                <p className="orange-header bold">Showroom</p>
                 <p>289 National Avenue,</p>
                 <p>Hull,</p>
                 <p>HU5 4JB</p>
@@ -122,7 +128,7 @@ export default props => (
                 </p>
               </div>
               <div className="contact-text opening-times">
-                <p className="bold">Opening Times</p>
+                <p className="orange-header bold">Opening Times</p>
                 <p>Mon to Fri: 9:00am - 4:30pm</p>
                 <p>Saturday: 10:00am - 1:00pm</p>
                 <p>Sunday: Closed</p>
