@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
-import Fade from 'react-reveal/Fade'
 
 import { device } from '../utils/device'
 
@@ -70,15 +69,13 @@ class Project extends Component {
     return (
       <>
         <Wrapper onClick={() => this.setState({ isOpen: true })}>
-          <Fade distance="50px" bottom>
-            <div>
-              <Thumbnail fluid={thumbnail} />
-              <Name>
-                {displayName}
-                {location && <span> / {location}</span>}
-              </Name>
-            </div>
-          </Fade>
+          <div>
+            <Thumbnail backgroundColor="#cecece" fluid={thumbnail} />
+            <Name>
+              {displayName}
+              {location && <span> / {location}</span>}
+            </Name>
+          </div>
         </Wrapper>
 
         {isOpen && (

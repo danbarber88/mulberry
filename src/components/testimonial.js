@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Fade from 'react-reveal/Fade'
 
 const Name = styled.h4`
   color: #000928;
@@ -19,12 +18,10 @@ const Wrapper = styled.div`
 
 const Testimonial = ({ name, text }) => (
   <Wrapper>
-    <Fade distance="50px" bottom>
-      <div>
-        <Name>{name}</Name>
-        <p>{text}</p>
-      </div>
-    </Fade>
+    <div>
+      <Name>{name}</Name>
+      <p>{text}</p>
+    </div>
   </Wrapper>
 )
 
