@@ -95,7 +95,7 @@ const Menu = props => (
       News
     </MenuItem>
     <MenuItem to="/contact-us" onClick={props.close}>
-      <Icon icon={['fas', 'phone']} />
+      <Icon icon={['fas', 'phone']} className="fa-flip-horizontal" />
       Contact Us
     </MenuItem>
   </MenuWrapper>
