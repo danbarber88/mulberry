@@ -57,6 +57,9 @@ const BulletPoint = styled.div`
 `
 
 const GoldenCaret = styled.img`
+  width: 15px;
+  min-width: 15px;
+  min-height: 24px;
   margin: 0;
 `
 

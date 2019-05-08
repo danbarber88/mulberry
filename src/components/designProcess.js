@@ -64,7 +64,7 @@ const Step = styled.div`
 `
 
 const Icon = styled.img`
-  width: ${props => props.width};
+  min-width: ${props => props.width};
   height: ${props => props.height};
   margin-right: 20px;
 
