@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import blueArrow from '../images/blue-arrow.svg'

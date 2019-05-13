@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { graphql } from 'gatsby'
 import Img from '../components/gatsbyImageWithIEPolyfill'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
