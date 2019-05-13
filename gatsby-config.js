@@ -13,6 +13,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     'gatsby-transformer-remark',
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
