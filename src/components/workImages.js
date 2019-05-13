@@ -45,7 +45,7 @@ const WorkImages = () => (
           edges {
             node {
               thumbnail {
-                fluid(maxWidth: 260, maxHeight: 175, quality: 100) {
+                fluid(maxWidth: 260, maxHeight: 175, quality: 90) {
                   ...GatsbyContentfulFluid_withWebp_noBase64
                 }
               }

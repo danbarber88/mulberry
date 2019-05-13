@@ -184,7 +184,7 @@ class Hero extends Component {
             query {
               hero: file(relativePath: { eq: "uform/inframe.jpg" }) {
                 childImageSharp {
-                  fluid(quality: 100, maxWidth: 2000) {
+                  fluid(quality: 95, maxWidth: 2000) {
                     ...GatsbyImageSharpFluid_withWebp_noBase64
                   }
                 }

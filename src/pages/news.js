@@ -41,7 +41,7 @@ export const query = graphql`
           title
           slug
           featureImage {
-            fluid(maxWidth: 600, maxHeight: 400, quality: 100) {
+            fluid(maxWidth: 600, maxHeight: 400, quality: 95) {
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
@@ -55,7 +55,7 @@ export const query = graphql`
     }
     defaultThumb: file(relativePath: { eq: "default-thumbnail.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 300) {
+        fluid(maxWidth: 300, quality: 90) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
