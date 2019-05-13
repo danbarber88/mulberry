@@ -6,9 +6,9 @@ import { Link } from 'gatsby'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 
-library.add(faFacebook)
+library.add(faFacebookSquare)
 
 const Wrapper = styled.div`
   display: flex;
@@ -81,7 +81,7 @@ const BottomBar = props => (
         href="https://www.facebook.com/MulberryKitchensHull"
         aria-label="Visit our facebook page"
       >
-        <FacebookIcon icon={['fab', 'facebook']} />
+        <FacebookIcon icon={['fab', 'facebook-square']} />
       </a>
     </Container>
   </Wrapper>
