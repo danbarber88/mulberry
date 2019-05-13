@@ -97,7 +97,8 @@ class NewsItemPage extends Component {
       date,
       featureImage,
       text,
-      images,
+      galleryImages,
+      thumbnailImages,
     } = this.props.data.contentfulNewsItem
 
     return (
@@ -121,7 +122,7 @@ class NewsItemPage extends Component {
               }}
             />
 
-            {images && (
+            {thumbnailImages && (
               <GalleryButton
                 onClick={() => this.setState({ index: 0, galleryOpen: true })}
               >
@@ -130,9 +131,9 @@ class NewsItemPage extends Component {
             )}
           </ContentContainer>
 
-          {images && (
+          {thumbnailImages && (
             <Gallery>
-              {images.map((image, i) => (
+              {thumbnailImages.map((image, i) => (
                 <Thumb
                   key={i}
                   onClick={() =>
@@ -152,17 +153,20 @@ class NewsItemPage extends Component {
         {galleryOpen && (
           <Lightbox
             keyRepeatLimit={0}
-            mainSrc={images[index].fluid.src}
+            mainSrc={galleryImages[index].fluid.src}
             // have these loop round because they need a next img when they reach the end
             nextSrc={
-              images.length > 1 && images[(index + 1) % images.length].fluid.src
+              galleryImages.length > 1 &&
+              galleryImages[(index + 1) % galleryImages.length].fluid.src
             }
             prevSrc={
-              images.length > 1 &&
-              images[(index + images.length - 1) % images.length].fluid.src
+              galleryImages.length > 1 &&
+              galleryImages[
+                (index + galleryImages.length - 1) % galleryImages.length
+              ].fluid.src
             }
             onAfterOpen={() => {
-              if (images.length > 1) {
+              if (galleryImages.length > 1) {
                 const prevButton = document.querySelector('.ril__navButtonPrev')
                 const nextButton = document.querySelector('.ril__navButtonNext')
                 // if starting at the beginning of the gallery then disable prev button
@@ -171,7 +175,7 @@ class NewsItemPage extends Component {
                   prevButton.classList.add('disabled')
                 }
                 // if starting at the end of the gallery then disable next button
-                if (index === images.length - 1) {
+                if (index === galleryImages.length - 1) {
                   nextButton.disabled = true
                   nextButton.classList.add('disabled')
                 }
@@ -184,7 +188,7 @@ class NewsItemPage extends Component {
               })
             }
             onMovePrevRequest={() => {
-              if (images.length > 1) {
+              if (galleryImages.length > 1) {
                 // Previous image in gallery unless we are at the start.
                 this.setState({
                   index: index === 0 ? 0 : index - 1,
@@ -205,11 +209,13 @@ class NewsItemPage extends Component {
               }
             }}
             onMoveNextRequest={() => {
-              if (images.length > 1) {
+              if (galleryImages.length > 1) {
                 // Next image in the gallery unless we are at the end
                 this.setState({
                   index:
-                    index === images.length - 1 ? images.length - 1 : index + 1,
+                    index === galleryImages.length - 1
+                      ? galleryImages.length - 1
+                      : index + 1,
                 })
 
                 const prevButton = document.querySelector('.ril__navButtonPrev')
@@ -220,7 +226,7 @@ class NewsItemPage extends Component {
                 prevButton.disabled = false
 
                 // Next image will be last in gallery, disable next button
-                if (index === images.length - 2) {
+                if (index === galleryImages.length - 2) {
                   nextButton.disabled = true
                   nextButton.classList.add('disabled')
                 }
@@ -251,13 +257,18 @@ export const pageQuery = graphql`
           cropFocus: $crop
           maxWidth: 1350
           maxHeight: 400
-          quality: 100
+          quality: 95
         ) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
-      images {
-        fluid(maxWidth: 1800, maxHeight: 1200, quality: 100) {
+      galleryImages: images {
+        fluid(maxWidth: 1800, maxHeight: 1200, quality: 95) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+      }
+      thumbnailImages: images {
+        fluid(maxWidth: 220, maxHeight: 147, quality: 90) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
