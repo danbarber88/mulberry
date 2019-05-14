@@ -25,15 +25,15 @@ const DesignPage = ({ location, data }) => (
     <Banner
       img={data.bannerImg.childImageSharp.fluid}
       backgroundColor="#716559"
-      text="Whether you have zero ideas or know exactly what you want, we are here
-      to help materialise your perfect kitchen."
+      text='"You embraced our concept and then took us through the journey of
+      design, tear down, build and finish in easy steps, helping us throughout the whole process"'
     />
     <ContentSection>
       <ContentContainer>
         <MainHeader>Design sets us apart</MainHeader>
         <p>
           When you choose a local kitchen company you are going to receive a
-          service that just cannot be matched by the larger retailers. Our
+          service that cannot be matched by the larger retailers. Our
           designers, Geoff and Colleen have a combined experience of over 35
           years between them, completing hundreds of projects, large and small,
           throughout our local area.
