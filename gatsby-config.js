@@ -14,6 +14,7 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     'gatsby-transformer-remark',
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
