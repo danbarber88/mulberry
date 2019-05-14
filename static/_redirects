@@ -1,3 +1,17 @@
-http://www.mulberrykitchens.co.uk/info.php https://focused-einstein-08a40b.netlify.com/
-https://focused-einstein-08a40b.netlify.com/test https://focused-einstein-08a40b.netlify.com/design-service
-/projects /contact-us
+# Redirect default Netlify subdomain to primary domain
+# https://focused-einstein-08a40b.netlify.com/* https://www.mulberrykitchens.co.uk/:splat
+
+http://www.mulberrykitchens.co.uk https://www.mulberrykitchens.co.uk
+
+http://www.mulberrykitchens.co.uk/about.php https://www.mulberrykitchens.co.uk
+http://www.mulberrykitchens.co.uk/kitchen-design.php https://www.mulberrykitchens.co.uk/design-service
+http://www.mulberrykitchens.co.uk/supply-only.php https://www.mulberrykitchens.co.uk
+http://www.mulberrykitchens.co.uk/testimonials.php https://www.mulberrykitchens.co.uk/testimonials
+http://www.mulberrykitchens.co.uk/projects.php https://www.mulberrykitchens.co.uk/projects
+http://www.mulberrykitchens.co.uk/news.php https://www.mulberrykitchens.co.uk/news
+http://www.mulberrykitchens.co.uk/contact.php https://www.mulberrykitchens.co.uk/contact-us
+http://www.mulberrykitchens.co.uk/info.php https://www.mulberrykitchens.co.uk/design-service
+http://www.mulberrykitchens.co.uk/neff.php https://www.mulberrykitchens.co.uk
+http://www.mulberrykitchens.co.uk/ex-display.php https://www.mulberrykitchens.co.uk
+
+http://www.mulberrykitchens.co.uk/customer-details.php name=:name https://www.mulberrykitchens.co.uk/projects
