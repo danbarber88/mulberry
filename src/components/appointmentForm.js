@@ -167,10 +167,10 @@ class AppointmentForm extends Component {
           <div className="form-group">
             <input
               id="email"
-              type="email"
+              type="text"
               name="email"
               onChange={this.handleChange}
-              pattern=".{1,}"
+              pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$"
               required
             />
             <label htmlFor="email">Email *</label>
