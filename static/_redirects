@@ -1,5 +1,5 @@
 # Redirect default Netlify subdomain to primary domain
-# https://focused-einstein-08a40b.netlify.com/* https://www.mulberrykitchens.co.uk/:splat
+# https://mulberrykitchens.netlify.com/* https://www.mulberrykitchens.co.uk/:splat
 
 http://www.mulberrykitchens.co.uk https://www.mulberrykitchens.co.uk
 
