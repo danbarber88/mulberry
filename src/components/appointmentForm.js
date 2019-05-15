@@ -126,7 +126,12 @@ class AppointmentForm extends Component {
   }
 
   invalidEmail = e => {
-    e.target.setCustomValidity('Invalid email address')
+    console.log(e.target.value)
+    if (e.target.value.length > 0) {
+      e.target.setCustomValidity('Invalid email address.')
+    } else {
+      e.target.setCustomValidity('Please fill out this field.')
+    }
   }
 
   resetEmailValidation = e => {
