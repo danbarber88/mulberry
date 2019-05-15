@@ -170,6 +170,7 @@ class AppointmentForm extends Component {
               type="email"
               name="email"
               onChange={this.handleChange}
+              pattern=".{1,}"
               required
             />
             <label htmlFor="email">Email *</label>
