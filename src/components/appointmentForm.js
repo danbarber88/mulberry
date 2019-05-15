@@ -125,6 +125,14 @@ class AppointmentForm extends Component {
       .catch(error => alert(error))
   }
 
+  invalidEmail = e => {
+    e.target.setCustomValidity('Invalid email address')
+  }
+
+  resetEmailValidation = e => {
+    e.target.setCustomValidity('')
+  }
+
   render() {
     return (
       <AppointmentFormContainer footer={this.props.footer ? 1 : 0}>
@@ -170,7 +178,9 @@ class AppointmentForm extends Component {
               type="text"
               name="email"
               onChange={this.handleChange}
-              pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$"
+              pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{3,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$"
+              onInvalid={this.invalidEmail}
+              onInput={this.resetEmailValidation}
               required
             />
             <label htmlFor="email">Email *</label>
