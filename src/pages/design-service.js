@@ -33,10 +33,10 @@ const DesignPage = ({ location, data }) => (
         <MainHeader>Design sets us apart</MainHeader>
         <p>
           When you choose a local kitchen company you are going to receive a
-          service that cannot be matched by the larger retailers. Our
-          designers, Geoff and Colleen have a combined experience of over 35
-          years between them, completing hundreds of projects, large and small,
-          throughout our local area.
+          service that cannot be matched by the larger retailers. Our designers,
+          Geoff and Colleen have a combined experience of over 35 years between
+          them, completing hundreds of projects, large and small, throughout our
+          local area.
         </p>
         <p>
           Therefore when you ask us to design your kitchen, we will be utilising
@@ -48,7 +48,7 @@ const DesignPage = ({ location, data }) => (
         <SecondaryHeader>Let us help</SecondaryHeader>
         <p>
           The amount of choice you face when considering a new kitchen can be
-          daunting, we are always ready to help in any way possible. Mulberry
+          daunting but we are always ready to help in any way possible. Mulberry
           offers a free no obligation design service, please feel free to visit
           our showroom at any time. If you wish to talk to a designer during
           this visit please book an appointment.

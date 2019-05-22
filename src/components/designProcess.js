@@ -146,11 +146,11 @@ const DesignProcess = props => (
             <StepHeader>3. Design Presentation</StepHeader>
             <p>
               Customers are asked to make a mutually convenient appointment to
-              revisit the showroom. At this presentation, we now have the
-              opportunity to present to you our designs alongside our state of
-              the art rendered images and virtual reality views. It is now the
-              time to amend, tweak or to change anything in order to achieve
-              your vision. Nothing is too much trouble, weekend and evening
+              revisit the showroom. On this occasion we now have the opportunity
+              to present to you our designs alongside our state of the art
+              rendered images and virtual reality views. It is now the time to
+              amend, tweak or to change anything in order to achieve your
+              vision. Nothing is too much trouble, weekend and evening
               appointments are available if necessary.
             </p>
           </div>
