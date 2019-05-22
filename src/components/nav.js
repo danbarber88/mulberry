@@ -55,7 +55,7 @@ const NavItemContainer = styled.div`
 const Logo = styled.img`
   width: 250px;
   margin: 5px 10px;
-  height: 77.25px;
+  height: 77px;
   cursor: pointer;
 
   @media ${device.tablet} {
@@ -67,7 +67,7 @@ const MobileLogo = styled.img`
   width: 250px;
   margin: 5px;
   display: none;
-  height: 77.25px;
+  height: 77px;
 
   @media ${device.tablet} {
     display: inline;
@@ -75,7 +75,7 @@ const MobileLogo = styled.img`
 
   @media ${device.mobileL} {
     width: 225px;
-    height: 69.53px;
+    height: 70px;
   }
 `
 
