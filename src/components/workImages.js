@@ -8,8 +8,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
+
+  a:last-child {
+    margin-right: 0;
+  }
 
   @media ${device.tablet} {
     justify-content: center;
