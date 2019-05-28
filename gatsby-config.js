@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://focused-einstein-08a40b.netlify.com/',
+    siteUrl: 'https://www.mulberrykitchens.co.uk/',
     title: `Mulberry Fitted Kitchens Ltd - Kitchen Design & Installation in Hull`,
     description: `Mulberry Fitted Kitchens Ltd specialises in the design and installation of bespoke luxury kitchens in Hull & East Yorkshire.`,
     author: ``,
@@ -52,9 +52,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        // host: 'https://www.example.com',
-        //sitemap: 'https://www.example.com/sitemap.xml',
-        policy: [{ userAgent: '*', disallow: '/' }],
+        host: 'https://www.mulberrykitchens.co.uk',
+        sitemap: 'https://www.mulberrykitchens.co.uk/sitemap.xml',
+        // policy: [{ userAgent: '*', disallow: '/' }],
       },
     },
   ],
