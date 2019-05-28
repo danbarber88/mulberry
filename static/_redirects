@@ -1,10 +1,8 @@
 # Redirect default Netlify subdomain to primary domain
-https://mulberrykitchens.netlify.com/* https://www.mulberrykitchens.co.uk/:splat
+https://mulberrykitchens.netlify.com/* https://www.mulberrykitchens.co.uk/:splat 301!
 
-https://mulberrykitchens.co.uk https://www.mulberrykitchens.co.uk
-https://mulberrykitchens.co.uk/* https://www.mulberrykitchens.co.uk/:splat
+https://mulberrykitchens.co.uk/* https://www.mulberrykitchens.co.uk/:splat 301!
 
-http://www.mulberrykitchens.co.uk https://www.mulberrykitchens.co.uk
 http://www.mulberrykitchens.co.uk/* https://www.mulberrykitchens.co.uk/:splat
 
 https://www.mulberrykitchens.co.uk/about.php https://www.mulberrykitchens.co.uk
