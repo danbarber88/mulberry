@@ -50,6 +50,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-35682438-1',
+      },
+    },
+    {
       resolve: `gatsby-plugin-canoncical-urls`,
       options: {
         siteUrl: `https://www.mulberrykitchens.co.uk`,
