@@ -50,6 +50,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-canoncical-urls`,
+      options: {
+        siteUrl: `https://www.mulberrykitchens.co.uk`,
+        stripQueryString: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://www.mulberrykitchens.co.uk',
