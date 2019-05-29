@@ -56,7 +56,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-canoncical-urls`,
+      resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: `https://www.mulberrykitchens.co.uk`,
         stripQueryString: true,
