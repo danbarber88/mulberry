@@ -34,7 +34,6 @@ const LogoContainer = styled(ContentContainer)`
 const IndexPage = props => (
   <Layout location={props.location.pathname}>
     <SEO
-      title="Home"
       keywords={[
         `kitchens`,
         `kitchen showrooms`,
