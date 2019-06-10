@@ -38,7 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       result.data.allContentfulNewsItem.edges.forEach(edge => {
         createPage({
-          path: `${edge.node.slug}`,
+          path: `${edge.node.slug}/`,
           component: newsItemPageTemplate,
           context: {
             title: edge.node.title,
