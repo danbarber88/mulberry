@@ -77,7 +77,7 @@ const WorkSection = () => (
       <HeaderText>...what our customers say about us</HeaderText>
       <Reviews />
       <div>
-        <StyledLink to="/testimonials">MORE TESTIMONIALS</StyledLink>
+        <StyledLink to="/testimonials/">MORE TESTIMONIALS</StyledLink>
         <Caret src={caret} alt="arrow" />
       </div>
     </ContentSection>

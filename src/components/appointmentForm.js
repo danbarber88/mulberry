@@ -153,7 +153,7 @@ class AppointmentForm extends Component {
         <form
           name="appointment"
           method="post"
-          action="/thank-you"
+          action="/thank-you/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
@@ -211,7 +211,7 @@ class AppointmentForm extends Component {
           <div className="form-text">
             <p>Required *</p>
             <PrivacyLink
-              to="/privacy-policy"
+              to="/privacy-policy/"
               footer={this.props.footer ? 1 : 0}
             >
               Privacy Policy

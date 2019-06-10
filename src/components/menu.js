@@ -78,23 +78,23 @@ const Menu = props => (
       <Icon icon={['fas', 'home']} />
       Home
     </MenuItem>
-    <MenuItem to="/design-service" onClick={props.close}>
+    <MenuItem to="/design-service/" onClick={props.close}>
       <Icon icon={['fas', 'pencil-alt']} />
       Design Service
     </MenuItem>
-    <MenuItem to="/projects" onClick={props.close}>
+    <MenuItem to="/projects/" onClick={props.close}>
       <Icon icon={['fas', 'star']} />
       Projects
     </MenuItem>
-    <MenuItem to="/testimonials" onClick={props.close}>
+    <MenuItem to="/testimonials/" onClick={props.close}>
       <Icon icon={['fas', 'comment']} />
       Testimonials
     </MenuItem>
-    <MenuItem to="/news" onClick={props.close}>
+    <MenuItem to="/news/" onClick={props.close}>
       <Icon icon={['fas', 'newspaper']} />
       News
     </MenuItem>
-    <MenuItem to="/contact-us" onClick={props.close}>
+    <MenuItem to="/contact-us/" onClick={props.close}>
       <Icon icon={['fas', 'phone']} className="fa-flip-horizontal" />
       Contact Us
     </MenuItem>

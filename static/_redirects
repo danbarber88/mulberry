@@ -5,15 +5,15 @@ https://mulberrykitchens.co.uk/* https://www.mulberrykitchens.co.uk/:splat 301!
 
 http://www.mulberrykitchens.co.uk/* https://www.mulberrykitchens.co.uk/:splat
 
-https://www.mulberrykitchens.co.uk/about.php https://www.mulberrykitchens.co.uk
-https://www.mulberrykitchens.co.uk/kitchen-design.php https://www.mulberrykitchens.co.uk/design-service
-https://www.mulberrykitchens.co.uk/supply-only.php https://www.mulberrykitchens.co.uk
-https://www.mulberrykitchens.co.uk/testimonials.php https://www.mulberrykitchens.co.uk/testimonials
-https://www.mulberrykitchens.co.uk/projects.php https://www.mulberrykitchens.co.uk/projects
-https://www.mulberrykitchens.co.uk/news.php https://www.mulberrykitchens.co.uk/news
-https://www.mulberrykitchens.co.uk/contact.php https://www.mulberrykitchens.co.uk/contact-us
-https://www.mulberrykitchens.co.uk/info.php https://www.mulberrykitchens.co.uk/design-service
-https://www.mulberrykitchens.co.uk/neff.php https://www.mulberrykitchens.co.uk
-https://www.mulberrykitchens.co.uk/ex-display.php https://www.mulberrykitchens.co.uk
+https://www.mulberrykitchens.co.uk/about.php https://www.mulberrykitchens.co.uk/
+https://www.mulberrykitchens.co.uk/kitchen-design.php https://www.mulberrykitchens.co.uk/design-service/
+https://www.mulberrykitchens.co.uk/supply-only.php https://www.mulberrykitchens.co.uk/
+https://www.mulberrykitchens.co.uk/testimonials.php https://www.mulberrykitchens.co.uk/testimonials/
+https://www.mulberrykitchens.co.uk/projects.php https://www.mulberrykitchens.co.uk/projects/
+https://www.mulberrykitchens.co.uk/news.php https://www.mulberrykitchens.co.uk/news/
+https://www.mulberrykitchens.co.uk/contact.php https://www.mulberrykitchens.co.uk/contact-us/
+https://www.mulberrykitchens.co.uk/info.php https://www.mulberrykitchens.co.uk/design-service/
+https://www.mulberrykitchens.co.uk/neff.php https://www.mulberrykitchens.co.uk/
+https://www.mulberrykitchens.co.uk/ex-display.php https://www.mulberrykitchens.co.uk/
 
-https://www.mulberrykitchens.co.uk/customer-details.php name=:name https://www.mulberrykitchens.co.uk/projects
+https://www.mulberrykitchens.co.uk/customer-details.php name=:name https://www.mulberrykitchens.co.uk/projects/

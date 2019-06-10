@@ -53,10 +53,10 @@ const DesignPage = ({ location, data }) => (
           our showroom at any time. If you wish to talk to a designer during
           this visit please book an appointment.
         </p>
-        <Link to="/request-appointment">
+        <Link to="/request-appointment/">
           <Button primary>book appointment</Button>
         </Link>
-        <Link to="/contact-us">
+        <Link to="/contact-us/">
           <Button>find us</Button>
         </Link>
       </ContentContainer>

@@ -45,7 +45,7 @@ const PostedDate = styled.span`
 `
 
 const LatestNewsItem = ({ slug, heading, date, description }) => (
-  <Link to={`/${slug}`}>
+  <Link to={`/${slug}/`}>
     <Header>
       <strong>{heading}</strong>{' '}
       <PostedDate>

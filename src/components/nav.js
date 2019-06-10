@@ -228,8 +228,8 @@ class Nav extends Component {
 
         <NavItemContainer>
           <NavItem to="/">Home</NavItem>
-          <NavItem to="/design-service">Design Service</NavItem>
-          <NavItem to="/projects">Projects</NavItem>
+          <NavItem to="/design-service/">Design Service</NavItem>
+          <NavItem to="/projects/">Projects</NavItem>
         </NavItemContainer>
         <Logo
           src={logo}
@@ -240,9 +240,9 @@ class Nav extends Component {
           }}
         />
         <NavItemContainer>
-          <NavItem to="/testimonials">Testimonials</NavItem>
-          <NavItem to="/news">News</NavItem>
-          <NavItem to="/contact-us">Contact Us</NavItem>
+          <NavItem to="/testimonials/">Testimonials</NavItem>
+          <NavItem to="/news/">News</NavItem>
+          <NavItem to="/contact-us/">Contact Us</NavItem>
         </NavItemContainer>
       </NavWrapper>
     )
