@@ -16,7 +16,10 @@ const Header = styled(MainHeader)`
 
 const PrivacyPolicyPage = props => (
   <Layout location={props.location.pathname}>
-    <SEO title="Privacy Policy" />
+    <SEO
+      title="Privacy Policy"
+      description="Read our privacy policy, which explains what information we collect on our website."
+    />
     <ContentSection>
       <ContentContainer width="60%">
         <Header>Privacy Policy</Header>

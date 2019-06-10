@@ -46,7 +46,10 @@ const TableData = styled.div`
 
 const CookiePolicyPage = props => (
   <Layout location={props.location.pathname}>
-    <SEO title="Cookies" />
+    <SEO
+      title="Cookies"
+      description="Read our cookie policy, which explains how we use cookies on our website."
+    />
     <ContentSection>
       <ContentContainer width="60%">
         <Header>Cookie Policy</Header>

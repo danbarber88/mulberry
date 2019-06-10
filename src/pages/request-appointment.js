@@ -15,7 +15,10 @@ const Container = styled.div`
 
 const AppointmentFormPage = props => (
   <Layout location={props.location.pathname}>
-    <SEO title="Request Appointment" />
+    <SEO
+      title="Request Appointment"
+      description="Book an appointment to make sure a designer will be present when you visit our showroom."
+    />
     <Container>
       <AppointmentForm />
     </Container>
