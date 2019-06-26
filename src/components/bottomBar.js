@@ -77,7 +77,7 @@ const BottomBar = props => (
       </Copyright>
       <a
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         href="https://www.facebook.com/MulberryKitchensHull"
         aria-label="Visit our facebook page"
       >
