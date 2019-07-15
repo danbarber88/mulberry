@@ -41,6 +41,7 @@ const TableHeader = styled.div`
 `
 
 const TableData = styled.div`
+  height: 100%;
   padding-top: 20px;
 `
 
@@ -87,7 +88,6 @@ const CookiePolicyPage = props => (
           we suggest you check the third-party websites for more information
           about their cookies and how to manage them.
         </p>
-        <p>We only use one set of third party cookies:</p>
 
         <CookieTable>
           <TableColumn>
@@ -105,6 +105,27 @@ const CookiePolicyPage = props => (
               only by the relevant people at Mulberry Kitchens and Google. The
               information is anonymous and never reveals any personal or
               financial data.
+            </TableData>
+          </TableColumn>
+        </CookieTable>
+
+        <CookieTable>
+          <TableColumn>
+            <TableHeader>COOKIE NAME</TableHeader>
+            <TableData>Hotjar</TableData>
+          </TableColumn>
+          <TableColumn>
+            <TableHeader>COOKIE FUNCTION</TableHeader>
+            <TableData>
+              Hotjar uses cookies and other technologies to collect data on our
+              users’ behavior and their devices (in particular device's IP
+              address (captured and stored only in anonymized form), device
+              screen size, device type (unique device identifiers), browser
+              information, geographic location (country only), preferred
+              language used to display our website). Hotjar stores this
+              information in a pseudonymized user profile. Neither Hotjar nor we
+              will ever use this information to identify individual users or to
+              match it with further data on an individual user.
             </TableData>
           </TableColumn>
         </CookieTable>
