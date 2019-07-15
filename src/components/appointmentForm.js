@@ -68,9 +68,6 @@ const AppointmentFormContainer = styled.div`
         font-weight: 700;
       }
     }
-    .privacy {
-      text-decoration: underline;
-    }
   }
 
   @media ${device.laptop} {
@@ -85,13 +82,6 @@ const AppointmentFormContainer = styled.div`
   @media ${device.mobileM} {
     width: 256px;
   }
-`
-
-const PrivacyLink = styled(Link)`
-  font-size: 12px;
-  margin: 0;
-  color: ${props => (props.footer ? '#fff' : '#000928')};
-  text-decoration: underline;
 `
 
 function encode(data) {
@@ -214,12 +204,6 @@ class AppointmentForm extends Component {
 
           <div className="form-text">
             <p>Required *</p>
-            <PrivacyLink
-              to="/privacy-policy/"
-              footer={this.props.footer ? 1 : 0}
-            >
-              Privacy Policy
-            </PrivacyLink>
           </div>
           <Button primary type="submit">
             Request Appointment

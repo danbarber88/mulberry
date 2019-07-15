@@ -63,6 +63,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        id: `${process.env.HOTJAR_ID}`,
+        sv: '6',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://www.mulberrykitchens.co.uk',

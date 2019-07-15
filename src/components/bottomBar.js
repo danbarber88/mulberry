@@ -25,7 +25,7 @@ const Container = styled(ContentSection)`
   color: #fff;
   font-size: 0.9em;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     flex-direction: column-reverse;
     padding: 15px 0;
   }
@@ -36,7 +36,7 @@ const Copyright = styled.div`
     padding-right: 5px;
   }
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     .seperator {
       display: none;
     }
@@ -48,11 +48,11 @@ const Copyright = styled.div`
   }
 `
 
-const CookieLink = styled(Link)`
+const PolicyLink = styled(Link)`
   color: #fff;
   text-decoration: underline;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     margin: 0 auto;
   }
 `
@@ -72,7 +72,11 @@ const BottomBar = props => (
         <span>Company reg. no: 4172958, England</span>
         <span className="seperator">|</span>
         <span>
-          <CookieLink to="/cookie-policy/">Cookie Policy</CookieLink>
+          <PolicyLink to="/cookie-policy/">Cookie Policy</PolicyLink>
+        </span>
+        <span className="seperator">|</span>
+        <span>
+          <PolicyLink to="/privacy-policy/">Privacy Policy</PolicyLink>
         </span>
       </Copyright>
       <a
