@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Button from './button'
 import { device } from '../utils/device'
 import { navigateTo } from 'gatsby-link'
-import { Link } from 'gatsby'
 
 const AppointmentFormContainer = styled.div`
   width: 300px;
