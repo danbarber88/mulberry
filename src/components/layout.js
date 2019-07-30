@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
   }
 
+  .ril-caption-content {
+    margin: 0 auto;
+  }
+
   .ril__navButtons {
     outline: none
   }

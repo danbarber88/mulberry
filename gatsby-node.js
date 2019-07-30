@@ -4,9 +4,27 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
+    const viewPageTemplate = path.resolve('src/templates/viewPage.js')
     const newsItemPageTemplate = path.resolve('src/templates/newsItemPage.js')
     return graphql(`
       {
+        allContentfulView {
+          edges {
+            node {
+              url
+              customerName
+              optionalText {
+                optionalText
+              }
+              images {
+                description
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+        }
         allContentfulNewsItem(limit: 1000) {
           edges {
             node {
@@ -35,6 +53,19 @@ exports.createPages = ({ graphql, actions }) => {
       if (result.errors) {
         reject(result.errors)
       }
+
+      result.data.allContentfulView.edges.forEach(edge => {
+        createPage({
+          path: `views/${edge.node.url}/`,
+          component: viewPageTemplate,
+          context: {
+            url: edge.node.url,
+            customerName: edge.node.customerName,
+            optionalText: edge.node.optionalText,
+            images: edge.node.images,
+          },
+        })
+      })
 
       result.data.allContentfulNewsItem.edges.forEach(edge => {
         createPage({

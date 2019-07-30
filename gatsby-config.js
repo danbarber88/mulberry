@@ -74,7 +74,7 @@ module.exports = {
       options: {
         host: 'https://www.mulberrykitchens.co.uk',
         sitemap: 'https://www.mulberrykitchens.co.uk/sitemap.xml',
-        // policy: [{ userAgent: '*', disallow: '/' }],
+        policy: [{ userAgent: '*', disallow: '/views/*' }],
       },
     },
   ],
