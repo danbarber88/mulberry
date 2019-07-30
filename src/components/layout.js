@@ -9,6 +9,7 @@ import Footer from './footer'
 const GlobalStyle = createGlobalStyle`
   * {
     letter-spacing: 1px;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
   }
 
   a:hover {

@@ -4,8 +4,13 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearchPlus } from '@fortawesome/free-solid-svg-icons'
 
 import { device } from '../utils/device'
+
+library.add(faSearchPlus)
 
 const Name = styled.h4`
   color: #000928;
@@ -19,6 +24,12 @@ const Name = styled.h4`
   }
 `
 
+const Icon = styled(FontAwesomeIcon)`
+  float: right;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+`
+
 const Wrapper = styled.div`
   cursor: pointer;
   flex-basis: 48%;
@@ -29,6 +40,9 @@ const Wrapper = styled.div`
       span {
         opacity: 1;
         margin-left: 0;
+      }
+      ${Icon} {
+        opacity: 1;
       }
     }
   }
@@ -74,6 +88,7 @@ class Project extends Component {
             <Name>
               {displayName}
               {location && <span> / {location}</span>}
+              <Icon icon={['fas', 'search-plus']} />
             </Name>
           </div>
         </Wrapper>
