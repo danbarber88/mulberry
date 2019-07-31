@@ -38,6 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               facesVisible
               images {
+                description
                 fluid {
                   src
                 }

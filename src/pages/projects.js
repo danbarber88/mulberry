@@ -40,6 +40,7 @@ export const query = graphql`
             }
           }
           images {
+            description
             fluid(maxWidth: 1800, maxHeight: 1200, quality: 95) {
               ...GatsbyContentfulFluid_withWebp_noBase64
             }

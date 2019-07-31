@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Lightbox from 'react-image-lightbox'
-import 'react-image-lightbox/style.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearchPlus } from '@fortawesome/free-solid-svg-icons'
+
+import LightboxWrapper from '../components/lightboxWrapper'
 
 import { device } from '../utils/device'
 
@@ -71,18 +71,25 @@ class Project extends Component {
     super(props)
 
     this.state = {
-      index: 0,
-      isOpen: false,
+      galleryOpen: false,
     }
+
+    this.closeGallery = this.closeGallery.bind(this)
+  }
+
+  closeGallery() {
+    this.setState({
+      galleryOpen: false,
+    })
   }
 
   render() {
-    const { index, isOpen } = this.state
+    const { galleryOpen } = this.state
     const { thumbnail, displayName, location, images } = this.props
 
     return (
       <>
-        <Wrapper onClick={() => this.setState({ isOpen: true })}>
+        <Wrapper onClick={() => this.setState({ galleryOpen: true })}>
           <div>
             <Thumbnail backgroundColor="#cecece" fluid={thumbnail} />
             <Name>
@@ -93,85 +100,8 @@ class Project extends Component {
           </div>
         </Wrapper>
 
-        {isOpen && (
-          <Lightbox
-            keyRepeatLimit={0}
-            mainSrc={images[index].fluid.src}
-            // have these loop round because they need a next img when they reach the end
-            nextSrc={
-              images.length > 1 && images[(index + 1) % images.length].fluid.src
-            }
-            prevSrc={
-              images.length > 1 &&
-              images[(index + images.length - 1) % images.length].fluid.src
-            }
-            onAfterOpen={() => {
-              if (images.length > 1) {
-                const prevButton = document.querySelector('.ril__navButtonPrev')
-                const nextButton = document.querySelector('.ril__navButtonNext')
-
-                // if starting at the beginning of the gallery then disable prev button
-                if (index === 0) {
-                  prevButton.disabled = true
-                  prevButton.classList.add('disabled')
-                }
-                // if starting at the end of the gallery then disable next button
-                if (index === images.length - 1) {
-                  nextButton.disabled = true
-                  nextButton.classList.add('disabled')
-                }
-              }
-            }}
-            onCloseRequest={() =>
-              this.setState({
-                index: 0,
-                isOpen: false,
-              })
-            }
-            onMovePrevRequest={() => {
-              if (images.length > 1) {
-                // Previous image in gallery unless we are at the start.
-                this.setState({
-                  index: index === 0 ? 0 : index - 1,
-                })
-
-                const prevButton = document.querySelector('.ril__navButtonPrev')
-                const nextButton = document.querySelector('.ril__navButtonNext')
-
-                // Re-enable next button
-                nextButton.classList.remove('disabled')
-                nextButton.disabled = false
-
-                // Next image will be first in gallery, disable prev button.
-                if (index === 1) {
-                  prevButton.disabled = true
-                  prevButton.classList.add('disabled')
-                }
-              }
-            }}
-            onMoveNextRequest={() => {
-              if (images.length > 1) {
-                // Next image in the gallery unless we are at the end
-                this.setState({
-                  index:
-                    index === images.length - 1 ? images.length - 1 : index + 1,
-                })
-
-                const prevButton = document.querySelector('.ril__navButtonPrev')
-                const nextButton = document.querySelector('.ril__navButtonNext')
-
-                // Re-enable previous button
-                prevButton.classList.remove('disabled')
-                prevButton.disabled = false
-
-                // Next image will be last in gallery, disable next button
-                if (index === images.length - 2) {
-                  nextButton.disabled = true
-                  nextButton.classList.add('disabled')
-                }
-              }
-            }}
-          />
+        {galleryOpen && (
+          <LightboxWrapper images={images} closeGallery={this.closeGallery} />
         )}
       </>
     )
