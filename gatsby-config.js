@@ -13,8 +13,13 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     'gatsby-transformer-remark',
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: ['/views/*'],
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
