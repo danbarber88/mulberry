@@ -109,27 +109,6 @@ const CookiePolicyPage = props => (
           </TableColumn>
         </CookieTable>
 
-        <CookieTable>
-          <TableColumn>
-            <TableHeader>COOKIE NAME</TableHeader>
-            <TableData>Hotjar</TableData>
-          </TableColumn>
-          <TableColumn>
-            <TableHeader>COOKIE FUNCTION</TableHeader>
-            <TableData>
-              Hotjar uses cookies and other technologies to collect data on our
-              users’ behavior and their devices (in particular device's IP
-              address (captured and stored only in anonymized form), device
-              screen size, device type (unique device identifiers), browser
-              information, geographic location (country only), preferred
-              language used to display our website). Hotjar stores this
-              information in a pseudonymized user profile. Neither Hotjar nor we
-              will ever use this information to identify individual users or to
-              match it with further data on an individual user.
-            </TableData>
-          </TableColumn>
-        </CookieTable>
-
         <SecondaryHeader>Managing your cookies</SecondaryHeader>
         <p>
           You have different options to manage the cookies on your computer or
