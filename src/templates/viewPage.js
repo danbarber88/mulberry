@@ -21,7 +21,7 @@ const CustomerName = styled(MainHeader)`
   font-size: 3rem !important;
 `
 
-const OptionalText = styled.p`
+const OptionalText = styled.div`
   margin-bottom: 40px;
 `
 
