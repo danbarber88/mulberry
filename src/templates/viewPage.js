@@ -86,7 +86,11 @@ class ViewPage extends Component {
           <ContentContainer width="60%">
             <CustomerName>{customerName}</CustomerName>
             {optionalText && (
-              <OptionalText>{optionalText.optionalText}</OptionalText>
+              <OptionalText
+                dangerouslySetInnerHTML={{
+                  __html: optionalText.childMarkdownRemark.html,
+                }}
+              />
             )}
           </ContentContainer>
           <Gallery>
@@ -134,7 +138,9 @@ export const pageQuery = graphql`
       url
       customerName
       optionalText {
-        optionalText
+        childMarkdownRemark {
+          html
+        }
       }
       galleryImages: images {
         description
