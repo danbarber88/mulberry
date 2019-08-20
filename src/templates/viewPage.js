@@ -93,6 +93,9 @@ class ViewPage extends Component {
               />
             )}
           </ContentContainer>
+
+          <h2>Renders</h2>
+          <p>Click images to open a gallery.</p>
           <Gallery>
             {thumbnailImages.map((image, i) => (
               <Thumb
