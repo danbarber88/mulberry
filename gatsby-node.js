@@ -50,40 +50,40 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `)
-      .then(result => {
-        if (result.errors) {
-          reject(result.errors)
-        }
+    `).then(async result => {
+      if (result.errors) {
+        reject(result.errors)
+      }
 
-        result.data.allContentfulView.edges.forEach(edge => {
-          createPage({
-            path: `views/${edge.node.url}/`,
-            component: viewPageTemplate,
-            context: {
-              url: edge.node.url,
-              customerName: edge.node.customerName,
-              optionalText: edge.node.optionalText,
-              images: edge.node.images,
-            },
-          })
-        })
-
-        result.data.allContentfulNewsItem.edges.forEach(edge => {
-          createPage({
-            path: `${edge.node.slug}/`,
-            component: newsItemPageTemplate,
-            context: {
-              title: edge.node.title,
-              slug: edge.node.slug,
-              featureImage: edge.node.featureImage,
-              images: edge.node.images,
-              text: edge.node.text,
-              crop: edge.node.facesVisible ? 'FACES' : 'CENTER',
-            },
-          })
+      await result.data.allContentfulView.edges.forEach(edge => {
+        createPage({
+          path: `views/${edge.node.url}/`,
+          component: viewPageTemplate,
+          context: {
+            url: edge.node.url,
+            customerName: edge.node.customerName,
+            optionalText: edge.node.optionalText,
+            images: edge.node.images,
+          },
         })
       })
-      .then(resolve())
+
+      await result.data.allContentfulNewsItem.edges.forEach(edge => {
+        createPage({
+          path: `${edge.node.slug}/`,
+          component: newsItemPageTemplate,
+          context: {
+            title: edge.node.title,
+            slug: edge.node.slug,
+            featureImage: edge.node.featureImage,
+            images: edge.node.images,
+            text: edge.node.text,
+            crop: edge.node.facesVisible ? 'FACES' : 'CENTER',
+          },
+        })
+      })
+
+      resolve()
+    })
   })
 }
