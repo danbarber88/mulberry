@@ -162,7 +162,7 @@ class AppointmentForm extends Component {
               name="name"
               onChange={this.handleChange}
               required
-              maxlength="200"
+              maxLength="200"
             />
             <label htmlFor="name">Full Name *</label>
           </div>
@@ -176,7 +176,7 @@ class AppointmentForm extends Component {
               onInvalid={this.invalidEmail}
               onInput={this.resetEmailValidation}
               required
-              maxlength="200"
+              maxLength="200"
             />
             <label htmlFor="email">Email *</label>
           </div>
@@ -186,7 +186,7 @@ class AppointmentForm extends Component {
               type="tel"
               name="customer-phone"
               onChange={this.handleChange}
-              maxlength="200"
+              maxLength="200"
             />
             <label htmlFor="customer-phone">Telephone</label>
           </div>
@@ -196,7 +196,7 @@ class AppointmentForm extends Component {
               type="text"
               name="budget"
               onChange={this.handleChange}
-              maxlength="200"
+              maxLength="200"
             />
             <label htmlFor="budget">Budget</label>
           </div>
