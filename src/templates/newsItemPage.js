@@ -200,7 +200,7 @@ export const pageQuery = graphql`
         }
       }
       thumbnailImages: images {
-        fluid(maxWidth: 220, maxHeight: 147, quality: 90) {
+        fluid(maxWidth: 220, quality: 90) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
