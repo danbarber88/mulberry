@@ -1,5 +1,7 @@
 # Mulberry Fitted Kitchens Ltd
 
+https://www.mulberrykitchens.co.uk/
+
 A brochure website for Mulberry Fitted Kitchens, the main goals when designing it where for the visitor to get a quick understanding of how Mulberry works and then provide plenty of examples of their work and the good things customers have said about them.
 
 I wanted to make sure the owners at Mulberry could keep their website up to date by being able to add new projects, testimonials and news without having to seek the help of a developer so I integrated a CMS into the site.
