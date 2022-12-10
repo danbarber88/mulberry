@@ -35,7 +35,7 @@ export const query = graphql`
           displayName
           location
           thumbnail {
-            fluid(maxWidth: 610, maxHeight: 458, quality: 90) {
+            fluid(maxWidth: 915, maxHeight: 688, quality: 95) {
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
