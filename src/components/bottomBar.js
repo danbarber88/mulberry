@@ -71,9 +71,9 @@ const BottomBar = props => (
         <span className="seperator">|</span>
         <span>Company reg. no: 4172958, England</span>
         <span className="seperator">|</span>
-        <span>
+        {/* <span>
           <PolicyLink to="/cookie-policy/">Cookie Policy</PolicyLink>
-        </span>
+        </span> */}
         <span className="seperator">|</span>
         <span>
           <PolicyLink to="/privacy-policy/">Privacy Policy</PolicyLink>

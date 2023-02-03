@@ -47,7 +47,7 @@ const PrivacyPolicyPage = props => (
           The personal information which we hold will be held securely in
           accordance with the law.
         </p>
-        <p>
+        {/* <p>
           We may use technology to track the patterns of behaviour of visitors
           to our site. This can include using a "cookie" which would be stored
           on your browser. You can usually modify your browser to prevent this
@@ -57,7 +57,7 @@ const PrivacyPolicyPage = props => (
         <p>
           Check our <Link to="/cookie-policy">cookie policy</Link> for more
           information on the cookies we use.
-        </p>
+        </p> */}
       </ContentContainer>
     </ContentSection>
   </Layout>
