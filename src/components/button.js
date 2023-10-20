@@ -1,4 +1,4 @@
-import 'react'
+import React from 'react';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { device } from '../utils/device'
@@ -36,7 +36,7 @@ const Button = styled.button`
 `
 
 Button.propTypes = {
-  primary: PropTypes.bool,
+    primary: PropTypes.bool,
 }
 
 export default Button

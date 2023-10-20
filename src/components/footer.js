@@ -88,11 +88,11 @@ const ContactDetails = styled.div`
 `
 
 export default props => (
-  <>
-    <Footer>
-      <Wrapper>
-        <StaticQuery
-          query={graphql`
+    <>
+        <Footer>
+            <Wrapper>
+                <StaticQuery
+                    query={graphql`
             query {
               background: file(relativePath: { eq: "uform/shaker.jpg" }) {
                 childImageSharp {
@@ -103,51 +103,52 @@ export default props => (
               }
             }
           `}
-          render={data => (
-            <BackgroundImg fluid={data.background.childImageSharp.fluid} />
-          )}
-        />
+                    render={data => (
+                        <BackgroundImg fluid={data.background.childImageSharp.fluid} />
+                    )}
+                />
 
-        <ContentSection>
-          <FooterContentContainer darkBg>
-            <ContactDetails>
-              <h3>GET IN TOUCH</h3>
-              <div className="contact-text">
-                <p className="header bold">Showroom</p>
-                <p>289 National Avenue,</p>
-                <p>Hull,</p>
-                <p>HU5 4JB</p>
-              </div>
-              <div className="contact-text">
-                <p>
-                  <span className="bold">T:</span> 01482 475 370
-                </p>
-                <p>
-                  <span className="bold">E:</span> info@mulberrykitchens.co.uk
-                </p>
-              </div>
-              <div className="contact-text opening-times">
-                <p className="header bold">Opening Times</p>
-                <p>Mon to Fri: 9:00am - 4:30pm</p>
-                <p>Saturday: 10:00am - 1:00pm</p>
-                <p>Sunday: Closed</p>
-                <p>Closed on all UK bank holidays.</p>
-              </div>
-              <div className="dont-hesitate">
-                <p>
-                  Don't hesitate to contact us at any point from planning to
-                  installation we are always available to offer help and advice.
-                </p>
-              </div>
-            </ContactDetails>
-          </FooterContentContainer>
+                <ContentSection>
+                    <FooterContentContainer darkBg>
+                        <ContactDetails>
+                            <h3>GET IN TOUCH</h3>
+                            <div className="contact-text">
+                                <p className="header bold">Showroom</p>
+                                <p>289 National Avenue,</p>
+                                <p>Hull,</p>
+                                <p>HU5 4JB</p>
+                            </div>
+                            <div className="contact-text">
+                                <p>
+                                    <span className="bold">T:</span> 01482 475 370
+                                </p>
+                                <p>
+                                    <span className="bold">E:</span> info@mulberrykitchens.co.uk
+                                </p>
+                            </div>
+                            <div className="contact-text opening-times">
+                                <p className="header bold">Opening Times</p>
+                                <p>Mon to Thur: 9:00am - 4:30pm</p>
+                                <p>Fri: 9:00am - 4:00pm</p>
+                                <p>Saturday: By Appointment</p>
+                                <p>Sunday: Closed</p>
+                                <p>Closed on all UK bank holidays.</p>
+                            </div>
+                            <div className="dont-hesitate">
+                                <p>
+                                    Don't hesitate to contact us at any point from planning to
+                                    installation we are always available to offer help and advice.
+                                </p>
+                            </div>
+                        </ContactDetails>
+                    </FooterContentContainer>
 
-          <FooterContentContainer darkBg width="300px">
-            <AppointmentForm footer />
-          </FooterContentContainer>
-        </ContentSection>
-      </Wrapper>
-    </Footer>
-    <BottomBar />
-  </>
+                    <FooterContentContainer darkBg width="300px">
+                        <AppointmentForm footer />
+                    </FooterContentContainer>
+                </ContentSection>
+            </Wrapper>
+        </Footer>
+        <BottomBar />
+    </>
 )

@@ -1,4 +1,4 @@
-import 'react'
+import React from 'react';
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { device } from '../utils/device'
@@ -63,12 +63,12 @@ export const ContentContainer = styled.div`
 `
 
 ContentSection.propTypes = {
-  column: PropTypes.bool,
-  wrap: PropTypes.bool,
+    column: PropTypes.bool,
+    wrap: PropTypes.bool,
 }
 
 ContentContainer.propTypes = {
-  width: PropTypes.string, // Percentage
-  darkBg: PropTypes.bool,
-  marginTop: PropTypes.bool,
+    width: PropTypes.string, // Percentage
+    darkBg: PropTypes.bool,
+    marginTop: PropTypes.bool,
 }
