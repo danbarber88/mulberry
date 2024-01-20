@@ -7,9 +7,9 @@ import SEO from '../components/seo'
 import Map from '../components/map'
 
 import {
-  ContentSection,
-  ContentContainer,
-  MainHeader,
+    ContentSection,
+    ContentContainer,
+    MainHeader,
 } from '../components/contentSection'
 import Budget from '../components/budget'
 import TestimonialBanner from '../components/testimonialBanner'
@@ -90,62 +90,61 @@ const ContactDetails = styled.div`
 `
 
 const ContactUsPage = props => (
-  <Layout location={props.location.pathname}>
-    <SEO
-      title="Contact Us"
-      description="Mulberry Fitted Kitchens Ltd – 289 National Avenue, Hull, HU5 4JB. Phone: 01482 475370. Email: info@mulberrykitchens.co.uk."
-    />
+    <Layout location={props.location.pathname}>
+        <SEO
+            title="Contact Us"
+            description="Mulberry Fitted Kitchens Ltd – 289 National Avenue, Hull, HU5 4JB. Phone: 01482 475370. Email: info@mulberrykitchens.co.uk."
+        />
 
-    <Map
-      googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${
-        process.env.GATSBY_GOOGLE_API_KEY
-      }&v=3.exp&libraries=places`}
-      loadingElement={<MapWrapper />}
-      containerElement={<MapWrapper />}
-      mapElement={<MapWrapper />}
-    />
+        <Map
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.GATSBY_GOOGLE_API_KEY
+                }&v=3.exp&libraries=places`}
+            loadingElement={<MapWrapper />}
+            containerElement={<MapWrapper />}
+            mapElement={<MapWrapper />}
+        />
 
-    <ContentSection>
-      <ContentContainer>
-        <MainHeader>Come in and see us</MainHeader>
-        <p>
-          Our showroom is of a fairly large size on National Avenue and we have
-          made the utmost effort to ensure that any visiting customer will be
-          able to see something they like. We can answer any queries you may
-          have and get the ball rolling on your new kitchen.
-        </p>
-        <p>
-          We offer a free design service, meaning that no costs will be incurred
-          if for any reason your design does not meet your expectations.
-        </p>
-      </ContentContainer>
-      <ContactDetails>
-        <p className="address">
-          289 National Avenue, <br />
-          Hull, HU5 4JB
-        </p>
-        <p className="phone">
-          <strong>T: </strong>01482 475 370
-        </p>
-        <p className="email">
-          <strong>E: </strong>info@mulberrykitchens.co.uk
-        </p>
-        <p className="opening">Opening hours:</p>
-        <p>Mon to Fri: 9:00am - 4:30pm</p>
-        <p>Saturday: 10:00am - 1:00pm</p>
-        <p>Sunday: Closed</p>
-      </ContactDetails>
-    </ContentSection>
-    <Budget
-      neffLogo={props.data.neffLogo.childImageSharp.fluid}
-      cosentinoLogo={props.data.cosentinoLogo.childImageSharp.fluid}
-      hafeleLogo={props.data.hafeleLogo.childImageSharp.fluid}
-    />
-    <TestimonialBanner
-      text="Your computer generated images were spot on and the finished product was of an exceptional standard and below budget. All our questions were answered speedily and our requests for changes during the design and build were handled with the utmost care."
-      name="Ian & Rosemary Stewart"
-    />
-  </Layout>
+        <ContentSection>
+            <ContentContainer>
+                <MainHeader>Come in and see us</MainHeader>
+                <p>
+                    Our showroom is of a fairly large size on National Avenue and we have
+                    made the utmost effort to ensure that any visiting customer will be
+                    able to see something they like. We can answer any queries you may
+                    have and get the ball rolling on your new kitchen.
+                </p>
+                <p>
+                    We offer a free design service, meaning that no costs will be incurred
+                    if for any reason your design does not meet your expectations.
+                </p>
+            </ContentContainer>
+            <ContactDetails>
+                <p className="address">
+                    289 National Avenue, <br />
+                    Hull, HU5 4JB
+                </p>
+                <p className="phone">
+                    <strong>T: </strong>01482 475 370
+                </p>
+                <p className="email">
+                    <strong>E: </strong>info@mulberrykitchens.co.uk
+                </p>
+                <p className="opening">Opening hours:</p>
+                <p>Mon to Fri: 9:00am - 4:30pm</p>
+                <p>Saturday: By Appointment</p>
+                <p>Sunday: Closed</p>
+            </ContactDetails>
+        </ContentSection>
+        <Budget
+            neffLogo={props.data.neffLogo.childImageSharp.fluid}
+            cosentinoLogo={props.data.cosentinoLogo.childImageSharp.fluid}
+            hafeleLogo={props.data.hafeleLogo.childImageSharp.fluid}
+        />
+        <TestimonialBanner
+            text="Your computer generated images were spot on and the finished product was of an exceptional standard and below budget. All our questions were answered speedily and our requests for changes during the design and build were handled with the utmost care."
+            name="Ian & Rosemary Stewart"
+        />
+    </Layout>
 )
 
 export const query = graphql`
